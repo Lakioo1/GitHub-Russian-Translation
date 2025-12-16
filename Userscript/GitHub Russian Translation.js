@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.30
+// @version      1.31
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -72,6 +72,8 @@
         'Learn to code': 'Научиться программировать',
         'My open pull requests': 'Мои открытые запросы на извлечение',
         'Newsroom': 'Новостная лента',
+        'No issues found, try a different filter.': 'Проблем не обнаружено, попробуйте другой фильтр.',
+        'No pull requests found, try a different filter.': 'Запросы на извлечение не найдены, попробуйте другой фильтр.',
         'None of your dependencies can be sponsored': 'Ни одна из ваших зависимостей не может быть спонсирована',
         'Order by': 'Заказать',
         'Partners': 'Партнеры',
@@ -318,6 +320,7 @@
         'Committed to this repository in the past day': 'Внесено в этот репозиторий за последний день',
         'Committed to this repository in the past week': 'Внесено в этот репозиторий за последнюю неделю',
         'Committed to this repository in the last month': 'Внесено в этот репозиторий за последний месяц',
+        'Committed to this repository in the last year': 'Внесено в этот репозиторий за последний год',
         'Commit': 'Коммит',
         'Commit changes': 'Зафиксировать изменения',
         'Commit changes...': 'Зафиксировать изменения',
@@ -890,6 +893,7 @@
         'Fewest issues': 'Наименьшее количество проблем',
         'Furthest due date': 'Самый поздний срок',
         'Icon': 'Значок',
+        'Issue body actions': 'Действия с текстом сообщения',
         'Least complete': 'Наименее полный',
         'Mentioned': 'Упомянуто',
         'Most complete': 'Наиболее полный',
@@ -910,6 +914,7 @@
         'Select code repository': 'Выберите репозиторий кода',
         'Successfully merging this pull request may close these issues.': 'Успешное слияние этого запроса на извлечение может закрыть эти проблемы.',
         'Title': 'Название',
+        'This conversation has been locked and limited to collaborators.': 'Этот разговор был заблокирован и ограничен для участников проекта.',
         'Total comments': 'Всего комментариев',
         'Total reactions': 'Общее количество реакций',
         'Views': 'Просмотры',
@@ -917,18 +922,28 @@
         "You're not receiving notifications from this thread.": "Вы не получаете уведомления из этой ветки.",
 
         // Запросы
+        'Ask admin for access': 'Обратиться к администратору за доступом',
         'Assigned': 'Назначено',
         'Filter by organization or owner': 'Фильтровать по организации или владельцу',
+        'Learn about draft PRs': 'Узнайте о проектах PR',
         'Least commented': 'Наименее комментируемые',
         'Least recently updated': 'Наименее недавно обновленные',
         'Most commented': 'Наиболее комментируемые',
         'Most reactions': 'Большинство реакций',
+        'Only manifest files': 'Только файлы манифеста',
+        "Open an in-progress pull request without asking for formal review or risking an unwanted merge. When you're ready for code review, you can mark your draft pull request as ready for review, which will request reviews from any code owners.": "Откройте незавершенный запрос на слияние, не запрашивая официального рецензирования и не рискуя нежелательным слиянием. Когда вы будете готовы к рецензированию кода, вы можете пометить свой черновой запрос на слияние как готовый к рецензированию, что вызовет запрос на рецензирование от всех владельцев кода.",
         'Organization': 'Организация',
         'Private repositories only': 'Только частные репозитории',
         'Public repositories only': 'Только публичные репозитории',
         'Recently updated': 'Недавно обновленные',
         'Repository visibility': 'Видимость репозитория',
+        'Review changes': 'Просмотр изменений',
         'Review requests': 'Запросы на проверку',
+        'Still in progress?': 'Все еще в процессе?',
+        'There aren’t any open pull requests.': 'Открытых запросов на извлечение нет.',
+        'Try draft pull requests': 'Попробуйте создать черновики запросов на слияние',
+        'Viewed files': 'Просмотренные файлы',
+        'You’re not receiving notifications from this thread.': 'Вы не получаете уведомления из этой ветки.',
 
         // Кодспейсы
         'Choose a template': 'Выберите шаблон',
@@ -1416,6 +1431,7 @@
         'Most recently subscribed': 'Последние подписки',
         'No results matched your search.': 'Результаты поиска не найдены.',
         'Notification settings': 'Настройки уведомлений',
+        'Notifications settings': 'Настройки уведомлений',
         'Manage notifications': 'Управление уведомлениями',
         'Reason': 'Причина',
         'Review Requested': 'Запрос на проверку',
