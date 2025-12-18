@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.31
+// @version      1.32
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -30,11 +30,13 @@
 
     // Словарь переводов
     const translations = {
-        // Главная
+        // Главная и лента
+        'Activity you want to see on your feed': 'Активность, которую вы хотите видеть в своей ленте',
         'Adjust time span': 'Настроить временной интервал',
         'All featured topics': 'Все представленные темы',
         'Announcements': 'Объявления',
         'Ask Copilot': 'Спросите Copilot',
+        'By default, the feed shows events from repositories you sponsor or watch, and people you follow.': 'По умолчанию в ленте отображаются события из репозиториев, которые вы спонсируете или наблюдаете, а также от людей, на которых вы подписаны.',
         'Bulk Sponsor': 'Массовый спонсор',
         'Careers': 'Карьера',
         'Collections': 'Коллекции',
@@ -53,18 +55,21 @@
         'Education': 'Образование',
         'Enterprise': 'Предприятие',
         'Events': 'События',
+        'Explore.': 'Исследуйте',
         'Explore as': 'Исследуйте как',
         'Explore GitHub': 'Исследуйте GitHub',
         'Explore GitHub Sponsors': 'Исследуйте GitHub Sponsors',
         'Explore people and projects': 'Изучите людей и проекты',
         'Feed': 'Лента',
         'Feed item options': 'Параметры элемента фида',
+        'feed filter': 'фильтр ленты',
         'Follows': 'Следует',
         'Get code feedback': 'Получить отзыв о коде',
         'Get started with GitHub': 'Начните работу с GitHub',
         'Inclusion': 'Инклюзия',
         'Include events from starred repositories': 'Включить события из репозиториев с отметкой «звездочка»',
         'Interpret an architecture diagram': 'Интерпретация архитектурной схемы',
+        'Issues and pull requests from repositories': 'Проблемы и запросы на извлечение из репозиториев',
         'I want to see fewer trending repositories': 'Я хочу видеть меньше популярных репозиториев',
         'I want to see fewer repository recommendations': 'Я хочу видеть меньше рекомендаций по репозиториям',
         'Latest changes': 'Последние изменения',
@@ -83,9 +88,13 @@
         'Professional Services': 'Профессиональные услуги',
         'Recommendations': 'Рекомендации',
         'Recommended for you': 'Рекомендуется для вас',
+        'Relevant projects or people that are being sponsored': 'Соответствующие проекты или люди, которые получают спонсорскую поддержку',
         'Remove from dashboard': 'Удалить с панели инструментов',
         'Remove section': 'Удалить раздел',
         'Repository activity': 'Деятельность репозитория',
+        'Repositories and people you may like': 'Репозитории и люди, которые могут вам понравиться',
+        'Repositories being starred by people': 'Репозитории, отмеченные звездочкой людьми',
+        'Repositories that are created or forked by people': 'Репозитории, созданные или форкнутые людьми',
         'Reset to default': 'Сбросить до настроек по умолчанию',
         'Resources': 'Ресурсы',
         'Roadmap': 'Дорожная карта',
@@ -97,6 +106,7 @@
         'Show less activity like this': 'Показать меньше подобных действий',
         'Skills': 'Навыки',
         'Social Impact': 'Социальное воздействие',
+        'Special discussion posts from repositories': 'Специальные дискуссионные посты из репозиториев',
         'Start with GitHub Docs': 'Начните с GitHub Docs',
         'Status': 'Статус',
         'Subscribe to our developer newsletter': 'Подпишитесь на нашу рассылку для разработчиков',
@@ -106,12 +116,16 @@
         "That's all for now": "На этом пока всё",
         'The ReadME Project': 'Проект ReadME',
         'Top repositories': 'Лучшие репозитории',
+        'to see more content, or visit': 'чтобы увидеть больше контента, или посетите',
         'Trending': 'Тренды',
         'Trending developers': 'Популярные разработчики',
         'Trending repositories': 'Популярные репозитории',
         'Try the new experience': 'Попробуйте новый опыт',
+        'Update posts from repositories': 'Обновление сообщений из репозиториев',
         'View changelog →': 'Просмотреть журнал изменений →',
+        'Who people are following': 'За кем следят люди',
         'Why GitHub': 'Почему GitHub',
+        'You can adjust your': 'Вы можете настроить',
 
         // Навигация и заголовки
         'Accessibility': 'Доступность',
@@ -212,6 +226,7 @@
         'Actions performance metrics': 'Показатели эффективности действий',
         'Actions permissions': 'Разрешения на действия',
         'Active branches': 'Активные ветви',
+        'active forked repositories': 'активные форкнутые репозитории',
         'Active issues': 'Актуальные вопросы',
         'Active pull requests': 'Активные запросы на извлечение',
         'Actor': 'Актер',
@@ -231,6 +246,7 @@
         'Add this repository to a list': 'Добавить этот репозиторий в список',
         'Add webhook': 'Добавить веб-хук',
         'Add your comment here...': 'Добавьте свой комментарий здесь...',
+        'Adds gradients and outlines to increase contrast in charts.': 'Добавляет градиенты и контуры для увеличения контрастности диаграмм.',
         'Additions': 'Дополнения',
         'Advanced filters': 'Расширенные фильтры',
         'Advanced Security': 'Расширенная безопасность',
@@ -471,6 +487,7 @@
         'Go to rulesets': 'Перейти к наборам правил',
         'Have a project elsewhere?': 'У вас есть проект в другом месте?',
         'Helpful resources': 'Полезные ресурсы',
+        'Here’s how this project compares to': 'Вот как этот проект сравнивается с',
         'Hide whitespace': 'Скрыть пробелы',
         'How can we improve search?': 'Как мы можем улучшить поиск?',
         'Ignore': 'Игнорировать',
@@ -557,6 +574,7 @@
         'No conflicts with base branch': 'Нет конфликтов с базовой веткой',
         'No conversations yet': 'Пока нет разговоров',
         'No description, website, or topics provided.': 'Описание, веб-сайт и темы не указаны.',
+        'No forked repositories found': 'Не найдено ни одного форкнутого репозитория',
         'No labels': 'Нет этикеток',
         'No new commits yet. Enjoy your day!': 'Пока нет новых коммитов. Приятного дня!',
         'No one has forked this repository yet': 'Пока что никто не создал форк этого репозитория.',
@@ -632,6 +650,7 @@
         'Recent Commits': 'Недавние коммиты',
         'Recently created': 'Недавно созданные',
         'Recommended allowlist': 'Рекомендуемый белый список',
+        'recommended community standards': 'рекомендуемые стандарты сообщества',
         'Refresh Dependabot alerts': 'Обновить оповещения Dependabot',
         'Release': 'Выпуск',
         'Release - Beta': 'Выпуск - Бета-версия',
@@ -708,6 +727,7 @@
         'Show description for': 'Показать описание для',
         'Show comments': 'Показать комментарии',
         'Show code folding buttons': 'Показать кнопки сворачивания кода',
+        'Show labels for each data point in column and bar charts.': 'Показать метки для каждой точки данных в столбчатых и гистограммах.',
         'Showing runs from all workflows': 'Показ запусков из всех рабочих процессов',
         'Sign off and commit changes': 'Подпишите и зафиксируйте изменения',
         'Signed-off-by': 'Подписано',
@@ -767,6 +787,7 @@
         'Transfer ownership': 'Передача права собственности',
         'Try adjusting your search filters.': 'Попробуйте настроить фильтры поиска.',
         'Try a different search query.': 'Попробуйте другой поисковый запрос.',
+        'Try changing your filters, or search for': 'Попробуйте сменить фильтры или выполнить поиск по',
         'Unified': 'Единый',
         'Unknown': 'Неизвестно',
         'Unlock conversation on this commit': 'Разблокировать обсуждение этого коммита',
