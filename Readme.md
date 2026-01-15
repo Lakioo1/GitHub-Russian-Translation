@@ -13,8 +13,8 @@
 - [Safari](https://apps.apple.com/us/app/tampermonkey/id1482490089)
 
 **2. Скачайте скрипт:** 
-- [GitHubRussianTranslation](https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Userscript/GitHub%20Russian%20Translation.js)
-- [GitHubTimeTranslation](https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Userscript/GitHub%20Time%20Translation.js)
+- [GitHubRussianTranslation](https://raw.githubusercontent.com/smi-falcon/GitHub-Russian-Translation/refs/heads/main/Userscript/GitHub%20Russian%20Translation.js)
+- [GitHubTimeTranslation](https://raw.githubusercontent.com/smi-falcon/GitHub-Russian-Translation/refs/heads/main/Userscript/GitHub%20Time%20Translation.js)
   
 **3. Установите скрипт:**
 - Откройте Tampermonkey (нажав на иконку в браузере).
