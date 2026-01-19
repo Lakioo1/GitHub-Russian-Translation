@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.38
+// @version      1.39
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -153,6 +153,7 @@
         'First pull request': 'Первый запрос на слияние',
         'Gists': 'Gists',
         'Give feedback': 'Оставить отзыв',
+        'Homepage': 'Домашняя страница',
         'Import repository': 'Импорт репозитория',
         'Indent mode': 'Режим отступа',
         'Issues': 'Задачи',
@@ -311,6 +312,7 @@
         'Build and deployment': 'Создание и развертывание',
         'Build complex filter queries': 'Создание сложных запросов с фильтрами',
         'Build, test, and deploy your code. Make code reviews, branch management, and issue triaging work the way you want. Select a workflow to get started.': 'Создавайте, тестируйте и развертывайте свой код. Обеспечьте работу по проверке кода, управлению ветвями и сортировке проблем в соответствии с вашими требованиями. Выберите рабочий процесс, чтобы начать работу.',
+        'By default, forks are named the same as their upstream repository. You can customize the name to distinguish it further.': 'По умолчанию форки называются так же, как их исходный репозиторий. Вы можете настроить имя, чтобы лучше его различать.',
         'Caches': 'Кэши',
         'Can be sponsored': 'Может быть спонсировано',
         'Cancel changes': 'Отменить изменения',
@@ -380,18 +382,22 @@
         'Contributing': 'Вклады',
         'Contributors': 'Участники',
         'Contributors are working behind the scenes to make open source better for everyone—give them the help and recognition they deserve.': 'Участники проекта работают за кулисами, чтобы сделать открытый исходный код лучше для всех — окажите им помощь и признание, которых они заслуживают.',
+        'Contributions per week to': 'Взносы в неделю на',
+        ', excluding merge commits': ', исключая слияния коммитов',
         'Control how and when users are prompted to update their branches if there are new changes available in the base branch.': 'Управляйте тем, как и когда пользователям предлагается обновить свои ветки, если в базовой ветке доступны новые изменения.',
         'Conversations': 'Разговоры',
         'Copilot Autofix': 'Автоматическое исправление Copilot',
         'Copilot Autofix for third-party tools': 'Copilot Autofix для сторонних инструментов',
         'Copilot coding agent': 'Агент кодирования Copilot',
         'Copilot menu': 'Меню Copilot',
-        'Copy command to clipboard': 'Копировать команду в буфер обмена',
-        'Copy file name to clipboard': 'Копировать название файла в буфер обмена',
-        'Copy raw file': 'Копировать исходный файл',
+        'Copy command to clipboard': 'Скопировать команду в буфер обмена',
+        'Copy file name to clipboard': 'Скопировать название файла в буфер обмена',
+        'Copy raw file': 'Скопировать исходный файл',
         'Copy sharable link for this gist.': 'Скопируйте ссылку для общего доступа к этому Gist.',
-        'Copy url to clipboard': 'Копировать URL в буфер обмена',
+        'Copy url to clipboard': 'Cкопировать URL в буфер обмена',
+        'Copy URL to clipboard': 'Скопировать URL в буфер обмена',
         'Create a branch ruleset': 'Создать набор правил ветки',
+        'Create a codespace on main': 'Создать пространство кода в главном меню',
         'Create a list to organize your starred repositories.': 'Создайте список, чтобы упорядочить репозитории, отмеченные звездочкой.',
         'Create a merge commit': 'Создать коммит слияния',
         'create a pull request': 'создать запрос на извлечение',
@@ -399,7 +405,7 @@
         'Create a new repository': 'Создать новый репозиторий',
         'Create a new codespace': 'Создать новое пространство кода',
         'Create codespace': 'Создать кодовое пространство',
-        'Create codespace on main': 'Создать кодовое пространство на главной странице',
+        'Create codespace on main': 'Создать пространство кода в главном меню',
         'Create draft pull request': 'Создать черновой запрос на слияние',
         'Create new file': 'Создать новый файл',
         'Create new gist': 'Создать новый Gist',
@@ -553,6 +559,7 @@
         'Import all the files, including revision history, from another version control system.': 'Импортируйте все файлы, включая историю изменений, из другой системы контроля версий.',
         'Import your project to GitHub': 'Импортируйте свой проект в GitHub',
         'importing git repositories': 'Импорт репозиториев Git',
+        'is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.': '— это копия репозитория. Разветвление репозитория позволяет свободно экспериментировать с изменениями, не влияя на исходный проект.',
         'is designed to host your personal, organization, or project pages from a GitHub repository.': 'предназначены для размещения ваших личных, организационных или проектных страниц из репозитория GitHub.',
         'If disabled, the Models tab will be hidden, and the prompt editor and comparison tooling evaluations will be unavailable.': 'Если эта функция отключена, вкладка «Модели» будет скрыта, а редактор подсказок и оценки инструментов сравнения будут недоступны.',
         'Include Git LFS objects in archives': 'Включить объекты Git LFS в архивы',
@@ -580,6 +587,7 @@
         'Layout': 'Макет',
         'Learn more': 'Узнать больше',
         'Learn more about': 'Узнайте больше о',
+        'Learn more about codespaces...': 'Узнайте больше о кодовых пространствах...',
         'Learn more about configuring a dependabot.yml file': 'Подробнее о настройке файла dependabot.yml',
         'Learn more about clone URLs': 'Узнайте больше о клонированных URL-адресах',
         'Learn more about GitHub Actions': 'Узнайте больше о GitHub Actions',
@@ -960,6 +968,7 @@
         'When creating source code archives, you can choose to include files stored using Git LFS in the archive.': 'При создании архивов исходного кода вы можете выбрать включение в архив файлов, хранящихся с помощью Git LFS.',
         'Whenever linked pull requests have merged, auto-close the issue.': 'При слиянии связанных запросов на извлечение автоматически закрывайте проблему.',
         'Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.': 'Всякий раз, когда в базовой ветке появляются новые изменения, предлагайте в запросе на слияние опцию «обновить ветку».',
+        'Which remote URL should I use?': 'Какой удаленный URL мне следует использовать?',
         'Wiki': 'Вики',
         'Wikis': 'Вики',
         'Wikis host documentation for your repository.': 'Вики-сайты хранят документацию для вашего репозитория.',
@@ -978,6 +987,8 @@
         'You can allow setting pull requests to merge automatically once all required reviews and status checks have passed.': 'Вы можете разрешить автоматическое слияние запросов на извлечение после прохождения всех необходимых проверок и проверок статуса.',
         'You can change how you receive notifications from your account settings.': 'Вы можете изменить способ получения уведомлений в настройках своего аккаунта.',
         'You choose who can see and commit to this repository.': 'Вы выбираете, кто может просматривать и вносить изменения в этот репозиторий.',
+        "You don't have any codespaces with this repository checked out": "У вас нет кодовых пространств с этим репозиторием, проверенным",
+        "You don't have any forks of this repository.": "У вас нет никаких форков этого репозитория.",
         "You don’t have any starred gists yet.": "У вас еще нет избранных Gists.",
         "You don’t have any starred repositories yet.": "У вас еще нет репозиториев с отметкой «Избранное».",
         'You have unread notifications': 'У вас есть непрочитанные уведомления',
@@ -2441,6 +2452,7 @@
         'Approved': 'Одобрено',
         'Artifacts': 'Артефакты',
         'Assets': 'Активы',
+        'author': 'автор',
         'base': 'основа',
         'Beta': 'Бета',
         'Blog': 'Блог',
@@ -2499,6 +2511,7 @@
         'Everywhere': 'Везде',
         'Featured': 'Рекомендуемое',
         'Fetch upstream': 'Получить изменения из оригинала',
+        'files': 'файлы',
         'Files': 'Файлы',
         'Filters': 'Фильтры',
         'Fork this repository': 'Форкнуть репозиторий',
@@ -2602,6 +2615,14 @@
 
     // Функция для проверки игнорируемых элементов
     function shouldIgnoreElement(element) {
+        if (element.closest && element.closest('#readme') ||
+            element.closest && element.closest('[data-target="readme-toc.contentSticky"]') ||
+            element.closest && element.closest('.Box-body') &&
+            element.closest('.Box-body').querySelector('[data-target="readme-toc.contentSticky"]'))
+        {
+            return true;
+        }
+
         // Проверка по тегам
         if (element.tagName === 'SCRIPT' ||
             element.tagName === 'STYLE' ||
