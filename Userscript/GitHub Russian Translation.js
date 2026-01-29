@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.41
+// @version      1.42
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -258,6 +258,7 @@
         'Additions': 'Дополнения',
         'Advanced filters': 'Расширенные фильтры',
         'Advanced Security': 'Расширенная безопасность',
+        'Advanced Security will be disabled.': 'Расширенная безопасность будет отключена.',
         'Advisories': 'Рекомендации',
         'After merging a pull request, linked issues can be closed automatically.': 'После слияния запроса на извлечение связанные проблемы могут быть закрыты автоматически.',
         'After pull requests are merged, you can have head branches deleted automatically.': 'После слияния пул-реквестов вы можете настроить автоматическое удаление головных веток.',
@@ -274,6 +275,7 @@
         'Always suggest updating pull request branches': 'Всегда предлагайте обновлять ветки запросов на извлечение',
         'Any': 'Любой',
         'Any action or reusable workflow can be used, regardless of who authored it or where it is defined.': 'Можно использовать любое действие или многократно используемый рабочий процесс, независимо от того, кто его создал и где он определен.',
+        'Any custom Dependabot alert rules will be disabled unless GitHub Advanced Security is enabled for this repository.': 'Любые настраиваемые правила оповещений Dependabot будут отключены, если для этого репозитория не включена функция GitHub Advanced Security.',
         'Anyone on the internet can see this repository. You choose who can commit.': 'Любой пользователь Интернета может просматривать этот репозиторий. Вы выбираете, кто может вносить изменения.',
         'Apply and reload': 'Применить и перезагрузить',
         'Apply labels to this pull request': 'Применить метки к этому пул-реквесту',
@@ -318,6 +320,7 @@
         'Can be sponsored': 'Может быть спонсировано',
         'Cancel changes': 'Отменить изменения',
         'Center content': 'Центр содержания',
+        'Change to private': 'Перейти в приватный режим',
         'Change repository visibility': 'Изменить видимость репозитория',
         'Change visibility': 'Изменить видимость',
         'Change your avatar': 'Изменить аватар',
@@ -358,6 +361,7 @@
         'Comfortable display density': 'Комфортная плотность отображения',
         'Compact display density': 'Компактная плотность отображения',
         'Comment on this file': 'Комментируйте этот файл',
+        'Comments are disabled for this gist.': 'Комментарии для этого гиста отключены.',
         'Committed to this repository in the past day': 'Внесено в этот репозиторий за последний день',
         'Committed to this repository in the past week': 'Внесено в этот репозиторий за последнюю неделю',
         'Committed to this repository in the last month': 'Внесено в этот репозиторий за последний месяц',
@@ -421,6 +425,7 @@
         'Create the first page': 'Создать первую страницу',
         'Create your first list.': 'Создайте свой первый список.',
         'Create your own views to quickly find and access your work.': 'Создавайте собственные представления, чтобы быстро находить и открывать свои работы.',
+        'Current forks will remain public and will be detached from this repository.': 'Текущие форки останутся общедоступными и будут отделены от этого репозитория.',
         'Custom allowlist': 'Пользовательский белый список',
         'Custom Patterns': 'Пользовательские шаблоны',
         'Custom properties': 'Пользовательские свойства',
@@ -573,6 +578,9 @@
         'Internal': 'Внутренние',
         'Internet access': 'доступ к Интернету',
         'Issue templates': 'Шаблоны выпусков',
+        'I have read and understand these effects': 'Я прочитал и понимаю эти последствия.',
+        'I want to delete this repository': 'Я хочу удалить этот репозиторий',
+        'I want to make this repository private': 'Я хочу сделать этот репозиторий приватным',
         'Job failure rate': 'Коэффициент неудач при выполнении заданий',
         'Joined GitHub this month': 'Присоединился к GitHub в этом месяце',
         'Jump to conversation': 'Перейти к разговору',
@@ -922,6 +930,7 @@
         'Try adjusting your search filters.': 'Попробуйте настроить фильтры поиска.',
         'Try a different search query.': 'Попробуйте другой поисковый запрос.',
         'Try changing your filters, or search for': 'Попробуйте сменить фильтры или выполнить поиск по',
+        'Unexpected bad things will happen if you don’t read this!': 'Если вы не прочитаете это, произойдут неожиданные неприятности!',
         'Unified': 'Единый',
         'Unknown': 'Неизвестно',
         'Unlock conversation on this commit': 'Разблокировать обсуждение этого коммита',
@@ -1281,6 +1290,7 @@
         'Try searching with a different query for results.': 'Попробуйте выполнить поиск с другим запросом.',
         'Views': 'Просмотры',
         'Viewing edit': 'Просмотр редактирования',
+        'You are assigned to and commented on this issue': 'Вы назначены ответственным за эту проблему и прокомментировали ее.',
         'You do not have permissions to close this issue': 'У вас нет прав для закрытия этой проблемы.',
         "You haven’t created any Milestones.": "Вы не создали ни одного веха.",
         'You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.': 'Вы будете получать уведомления только о событиях, выбранных из приведенного ниже списка. Если вы участвуете в событии или вас упомянули с помощью @, вы будете подписаны на него.',
@@ -2720,13 +2730,20 @@
 
     // Функция для проверки игнорируемых элементов
     function shouldIgnoreElement(element) {
-        if (element.closest && element.closest('#readme') ||
-            element.closest && element.closest('[data-target="readme-toc.contentSticky"]') ||
-            element.closest && element.closest('.Box-body') &&
-            element.closest('.Box-body').querySelector('[data-target="readme-toc.contentSticky"]'))
-        {
+        if (!element.closest) {
+            return false;
+        }
+
+    const readmeContainer = element.closest('#readme, [data-target="readme-toc.contentSticky"]');
+        if (readmeContainer) {
             return true;
         }
+
+    const boxBody = element.closest('.Box-body');
+        if (boxBody && boxBody.querySelector('#readme, [data-target="readme-toc.contentSticky"]')) {
+            return true;
+        }
+
 
         // Проверка по тегам
         if (element.tagName === 'SCRIPT' ||
