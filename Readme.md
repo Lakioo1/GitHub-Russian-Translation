@@ -2,6 +2,15 @@
   <img src="./Assets/Images/logo.png" alt="Логотип" width="200">
 </div>
 <h1 align="center"> GitHub Russian Translation </h1>
+<div align="center">
+
+![Website](https://img.shields.io/badge/Website-GitHub-black)
+![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Userscript-orange)
+![Language](https://img.shields.io/badge/Translation-Russian-red)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+</div>
+
 
 ## 🎯 Описание: ##
 Пользовательский скрипт для автоматического перевода интерфейса GitHub на русский язык.
