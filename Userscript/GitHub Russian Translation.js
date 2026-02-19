@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.45
+// @version      1.46
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -13,8 +13,8 @@
 // @match        https://*.github.com/*
 // @exclude      https://github.com/enterprise*
 // @exclude      https://github.com/mobile*
-// @icon         https://github.githubassets.com/favicons/favicon.svg
-// @icon64       https://github.githubassets.com/favicons/favicon.png
+// @icon         https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Assets/Images/logo.png?raw=true
+// @icon64       https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Assets/Images/logo.png?raw=true
 // @license      MIT
 // @grant        GM_setValue
 // @grant        GM_getValue
@@ -1255,6 +1255,7 @@
         'Best match': 'Лучшее совпадение',
         'Build powerful views to keep track of work': 'Создавайте мощные представления для отслеживания работы',
         'Change icon and color': 'Изменить значок и цвет',
+        'Close as completed': 'Закрыть как завершенное',
         'Close as duplicate': 'Закрыть как дубликат',
         'Close as not planned': 'Закрыть, как не планировалось',
         'closed this': 'закрыл это',
@@ -1271,6 +1272,7 @@
         'Delete issue': 'Удалить проблему',
         'Delete revision': 'Удалить ревизию',
         'Delete view': 'Удалить вид',
+        'Done, closed, fixed, resolved': 'Выполнено, закрыто, исправлено, решено',
         'Duplicate': 'Дубликат',
         'Duplicate of another issue': 'Дубликат другой проблемы',
         'Duplicate issue': 'Дубликат проблемы',
@@ -1294,6 +1296,7 @@
         'Most complete': 'Наиболее полный',
         'Most issues': 'Большинство вопросов',
         'Most recent': 'Последние',
+        'No assignees': 'Нет правопреемников',
         'No branches or pull requests': 'Никаких ветвей или запросов на слияние',
         'No milestone': 'Нет контрольной точки',
         'No milestones were found': 'Не найдено контрольной точки',
@@ -1321,6 +1324,7 @@
         'Select code repository': 'Выберите репозиторий кода',
         'Select projects': 'Выбрать проекты',
         'self-assigned this': 'самостоятельно назначил это',
+        'Semantic search': 'Семантический поиск',
         'Successfully merging this pull request may close these issues.': 'Успешное слияние этого запроса на извлечение может закрыть эти проблемы.',
         'Title': 'Название',
         'This conversation has been locked and limited to collaborators.': 'Этот разговор был заблокирован и ограничен для участников проекта.',
@@ -1342,6 +1346,7 @@
         'advanced search': 'расширенный поиск',
         'Ask admin for access': 'Обратиться к администратору за доступом',
         'Assigned': 'Назначено',
+        'Assigned to nobody': 'Никому не назначено',
         'all of GitHub': 'весь GitHub',
         'Build, test, and deploy your code right from GitHub.': 'Создавайте, тестируйте и развертывайте свой код прямо из GitHub.',
         'Checkout with GitHub CLI': 'Проверка с помощью GitHub CLI',
@@ -1360,6 +1365,7 @@
         'Organization': 'Организация',
         'Private repositories only': 'Только частные репозитории',
         'Public repositories only': 'Только публичные репозитории',
+        'Pull requests with no milestone': 'Запросы на извлечение без вех',
         'Recently updated': 'Недавно обновленные',
         'Repository visibility': 'Видимость репозитория',
         'Review changes': 'Просмотр изменений',
@@ -1370,6 +1376,7 @@
         'There aren’t any open pull requests.': 'Открытых запросов на извлечение нет.',
         'This pull request is closed.': 'Этот запрос на извлечение закрыт.',
         'Try draft pull requests': 'Попробуйте создать черновики запросов на слияние',
+        'Unlabeled': 'Без маркировки',
         'Verified': 'Проверено',
         'Viewed files': 'Просмотренные файлы',
         'You could search': 'Вы можете выполнить поиск',
@@ -2684,6 +2691,7 @@
         'Disable all': 'Отключить всё',
         'Disable hint': 'Отключить подсказку',
         'Disabled': 'Отключено',
+        'disabled': 'отключено',
         'Dismiss': 'Отклонить',
         'Do not share my personal information': 'Не разглашайте мою личную информацию',
         'Docs': 'Документация',
@@ -2695,6 +2703,7 @@
         'Enable all': 'Включить всё',
         'Enable hint': 'Включить подсказку',
         'Enabled': 'Включено',
+        'enabled': 'включено',
         'Enterprises': 'Предприятия',
         'Environments': 'Окружения',
         'Everywhere': 'Везде',
@@ -2806,6 +2815,37 @@
 
     };
 
+    // Функция для автоматического перевода с правильными склонениями
+    function translateNumberedText(text) {
+        // Проверяем паттерн "X Open"
+        const openMatch = text.match(/^(\d+)\s+Open$/);
+        if (openMatch) {
+            const num = parseInt(openMatch[1], 10);
+            if (num === 1) {
+                return `${num} Открытый`;
+            } else if (num >= 2 && num <= 4) {
+                return `${num} Открытых`;
+            } else {
+                return `${num} Открытых`;
+            }
+        }
+
+        // Проверяем паттерн "X Closed"
+        const closedMatch = text.match(/^(\d+)\s+Closed$/);
+        if (closedMatch) {
+            const num = parseInt(closedMatch[1], 10);
+            if (num === 1) {
+                return `${num} Закрытый`;
+            } else if (num >= 2 && num <= 4) {
+                return `${num} Закрытых`;
+            } else {
+                return `${num} Закрытых`;
+            }
+        }
+
+        return null;
+    }
+
     // Функция для проверки игнорируемых элементов
     function shouldIgnoreElement(element) {
         if (!element.closest) {
@@ -2862,9 +2902,16 @@
     // Функция для замены текста
     function translateText(node) {
         if (node.nodeType === Node.TEXT_NODE && node.parentElement && !shouldIgnoreElement(node.parentElement)) {
+            // Сначала проверяем по словарю
             const text = node.textContent.trim();
             if (text && translations[text]) {
                 node.textContent = node.textContent.replace(text, translations[text]);
+                return true;
+            }
+            // Проверка динамических паттернов
+            const numberedTranslation = translateNumberedText(text);
+            if (numberedTranslation) {
+                node.textContent = node.textContent.replace(text, numberedTranslation);
                 return true;
             }
         }
@@ -2941,6 +2988,12 @@
                 const text = element.textContent.trim();
                 if (translations[text]) {
                     element.textContent = translations[text];
+                } else {
+                    // Проверка динамических паттернов
+                    const pageNumberedTranslation = translateNumberedText(text);
+                    if (pageNumberedTranslation) {
+                        element.textContent = pageNumberedTranslation;
+                    }
                 }
             }
         });
