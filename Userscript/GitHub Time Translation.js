@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.3.3
+// @version      1.4
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -13,8 +13,8 @@
 // @match        https://*.github.com/*
 // @exclude      https://github.com/enterprise*
 // @exclude      https://github.com/mobile*
-// @icon         https://github.githubassets.com/favicons/favicon.svg
-// @icon64       https://github.githubassets.com/favicons/favicon.png
+// @icon         https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Assets/Images/logo.png?raw=true
+// @icon64       https://github.com/smi-falcon/GitHub-Russian-Translation/blob/main/Assets/Images/logo.png?raw=true
 // @license      MIT
 // @grant        none
 // @run-at       document-end
@@ -100,68 +100,75 @@
         'Thu': 'чт',
         'Fri': 'пт',
         'Sat': 'сб',
-        'Sun': 'вс'
+        'Sun': 'вс',
+
+        // Временные периоды для фильтров
+        '1 week': '1 неделя',
+        '24 hours': '24 часа',
+        '3 days': '3 дня',
+        '1 week': '1 неделя',
+        '1 month': '1 месяц',
     };
 
     // Функция для проверки режима редактирования
     function isInEditMode() {
         // Проверка видимых редакторов кода
-        if (document.querySelector('.blob-editor-container') ||
-            document.querySelector('.CodeMirror') ||
-            document.querySelector('.commit-create') ||
-            document.querySelector('.file-editor') ||
-            document.querySelector('.js-blob-form') ||
-            document.querySelector('.monaco-editor') ||
+        if (document.querySelector('.CodeMirror') ||
             document.querySelector('[data-qa-code-editor]') ||
+            document.querySelector('.blob-editor-container') ||
             document.querySelector('.cm-editor') ||
             document.querySelector('.code-editor') ||
-            document.querySelector('.editor') ||
-            document.querySelector('.text-diff-container') ||
-            document.querySelector('.diff-table') ||
-            document.querySelector('.js-diff-load-container') ||
-            document.querySelector('.js-file-content') ||
-            document.querySelector('.js-gist-file-content') ||
-            document.querySelector('.js-code-editor') ||
-            document.querySelector('.js-previewable-comment-form') ||
             document.querySelector('.comment-form-textarea') ||
-            document.querySelector('.js-comment-field') ||
-            document.querySelector('.js-new-blob-form') ||
-            document.querySelector('.js-gist-content') ||
-            document.querySelector('.js-gist-update-url') ||
+            document.querySelector('.commit-create') ||
+            document.querySelector('.diff-table') ||
+            document.querySelector('.editor') ||
+            document.querySelector('.file-editor') ||
+            document.querySelector('.js-blob-form') ||
             document.querySelector('.js-code-container') ||
+            document.querySelector('.js-code-editor') ||
+            document.querySelector('.js-comment-field') ||
+            document.querySelector('.js-diff-load-container') ||
+            document.querySelector('.js-diff-progressive-container') ||
             document.querySelector('.js-file') ||
-            document.querySelector('.js-diff-progressive-container')) {
+            document.querySelector('.js-file-content') ||
+            document.querySelector('.js-gist-content') ||
+            document.querySelector('.js-gist-file-content') ||
+            document.querySelector('.js-gist-update-url') ||
+            document.querySelector('.js-new-blob-form') ||
+            document.querySelector('.js-previewable-comment-form') ||
+            document.querySelector('.monaco-editor') ||
+            document.querySelector('.text-diff-container')) {
             return true;
         }
 
         // Проверка URL на режимы редактирования
-        if (window.location.href.includes('/edit/') ||
-            window.location.href.includes('/new/') ||
-            window.location.href.includes('/blob/') ||
-            window.location.href.includes('/tree/') ||
+        if (window.location.href.includes('/blob/') ||
             window.location.href.includes('/commit/') ||
-            window.location.href.includes('/pull/') ||
             window.location.href.includes('/compare/') ||
+            window.location.href.includes('/discussions/') && window.location.href.includes('/edit/') ||
+            window.location.href.includes('/edit/') ||
             window.location.href.includes('/gist/') && window.location.href.includes('/edit/') ||
-            window.location.href.includes('/releases/') && window.location.href.includes('/edit/') ||
             window.location.href.includes('/issues/') && window.location.href.includes('/edit/') ||
-            window.location.href.includes('/discussions/') && window.location.href.includes('/edit/')) {
+            window.location.href.includes('/new/') ||
+            window.location.href.includes('/pull/') ||
+            window.location.href.includes('/releases/') && window.location.href.includes('/edit/') ||
+            window.location.href.includes('/tree/')) {
             return true;
         }
 
         // Проверка активных текстовых областей и полей ввода
         const activeElement = document.activeElement;
         if (activeElement && (
-            activeElement.matches('textarea') ||
-            activeElement.matches('input[type="text"]') ||
-            activeElement.matches('input[type="search"]') ||
             activeElement.matches('[contenteditable="true"]') ||
-            activeElement.matches('.js-comment-field') ||
             activeElement.matches('.comment-form-textarea') ||
-            activeElement.matches('.js-previewable-comment-form') ||
+            activeElement.matches('input[type="search"]') ||
+            activeElement.matches('input[type="text"]') ||
             activeElement.matches('.js-blob-form') ||
+            activeElement.matches('.js-code-editor') ||
+            activeElement.matches('.js-comment-field') ||
             activeElement.matches('.js-gist-file-content') ||
-            activeElement.matches('.js-code-editor'))) {
+            activeElement.matches('.js-previewable-comment-form') ||
+            activeElement.matches('textarea'))) {
             return true;
         }
 
@@ -272,6 +279,39 @@
             return text;
         }
 
+        // Специальная обработка временных периодов
+        const hoursMatch = text.match(/^(\d+)\s+hours?$/);
+        if (hoursMatch) {
+            const num = hoursMatch[1];
+            if (num === '1') return '1 час';
+            if (num >= 2 && num <= 4) return `${num} часа`;
+            return `${num} часов`;
+        }
+
+        const daysMatch = text.match(/^(\d+)\s+days?$/);
+        if (daysMatch) {
+            const num = daysMatch[1];
+            if (num === '1') return '1 день';
+            if (num >= 2 && num <= 4) return `${num} дня`;
+            return `${num} дней`;
+        }
+
+        const weeksMatch = text.match(/^(\d+)\s+weeks?$/);
+        if (weeksMatch) {
+            const num = weeksMatch[1];
+            if (num === '1') return '1 неделя';
+            if (num >= 2 && num <= 4) return `${num} недели`;
+            return `${num} недель`;
+        }
+
+        const monthsMatch = text.match(/^(\d+)\s+months?$/);
+        if (monthsMatch) {
+            const num = monthsMatch[1];
+            if (num === '1') return '1 месяц';
+            if (num >= 2 && num <= 4) return `${num} месяца`;
+            return `${num} месяцев`;
+        }
+
         let translated = text;
 
         // Паттерны для числовых временных выражений
@@ -313,6 +353,43 @@
     // Функция для перевода абсолютного времени
     function translateAbsoluteTime(text) {
         let translated = text;
+
+        // Функция для перевода временных периодов
+        function translateTimePeriods(text) {
+            // Паттерны для числовых периодов
+            const periodPatterns = [
+                { regex: /(\d+)\s+hours?/, translate: (num) => {
+                    if (num === '1') return '1 час';
+                    if (num >= 2 && num <= 4) return `${num} часа`;
+                    return `${num} часов`;
+                }},
+                { regex: /(\d+)\s+days?/, translate: (num) => {
+                    if (num === '1') return '1 день';
+                    if (num >= 2 && num <= 4) return `${num} дня`;
+                    return `${num} дней`;
+                }},
+                { regex: /(\d+)\s+weeks?/, translate: (num) => {
+                    if (num === '1') return '1 неделя';
+                    if (num >= 2 && num <= 4) return `${num} недели`;
+                    return `${num} недель`;
+                }},
+                { regex: /(\d+)\s+months?/, translate: (num) => {
+                    if (num === '1') return '1 месяц';
+                    if (num >= 2 && num <= 4) return `${num} месяца`;
+                    return `${num} месяцев`;
+                }}
+            ];
+
+            // Проверяем каждый паттерн
+            for (const pattern of periodPatterns) {
+                const match = text.match(pattern.regex);
+                if (match) {
+                    return pattern.translate(match[1]);
+                }
+            }
+
+            return text;
+    }
 
         // Простая и надежная замена с границами слов
         for (const [en, ru] of Object.entries(timeTranslations)) {
@@ -547,12 +624,12 @@
         const contentContainers = [
             '#js-repo-pjax-container',
             '#repository-container-header',
+            '[data-turbo-body]',
+            '.js-activity-list',
             '.js-check-all-container',
             '.news',
-            '.js-activity-list',
             '.profile-timeline',
-            '.user-repo-search-results',
-            '[data-turbo-body]'
+            '.user-repo-search-results'
         ];
 
         contentContainers.forEach(selector => {
