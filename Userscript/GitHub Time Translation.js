@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.4.1
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -103,7 +103,6 @@
         'Sun': 'вс',
 
         // Временные периоды для фильтров
-        '1 week': '1 неделя',
         '24 hours': '24 часа',
         '3 days': '3 дня',
         '1 week': '1 неделя',
@@ -405,6 +404,35 @@
         return translated;
     }
 
+    // Специальная обработка элементов меню ActionList
+    function translateActionListItems() {
+        // Находим все элементы меню с текстом времени
+        document.querySelectorAll('.prc-ActionList-ItemLabel-81ohH').forEach(element => {
+            const text = element.textContent.trim();
+
+            // Проверяем, содержит ли текст временные выражения
+            const timePattern = /^(24 hours|3 days|1 week|1 month|\d+\s+(hours?|days?|weeks?|months?))$/i;
+            if (timePattern.test(text) && !isCodeOrTechnicalElement(element)) {
+                const translated = translateRelativeTime(text);
+                if (translated !== text) {
+                    element.textContent = translated;
+                }
+            }
+        });
+
+        // Также проверяем элементы с похожими классами
+        document.querySelectorAll('[class*="ActionList-ItemLabel"]').forEach(element => {
+            const text = element.textContent.trim();
+            const timePattern = /^(24 hours|3 days|1 week|1 month|\d+\s+(hours?|days?|weeks?|months?))$/i;
+            if (timePattern.test(text) && !isCodeOrTechnicalElement(element)) {
+                const translated = translateRelativeTime(text);
+                if (translated !== text) {
+                    element.textContent = translated;
+                }
+            }
+        });
+    }
+
     // Функция для перевода атрибутов времени
     function translateTimeAttributes() {
         // Перевод title у элементов времени
@@ -480,6 +508,9 @@
                     }
                 }
             });
+
+            // Перевод элементов меню ActionList
+            translateActionListItems();
 
             // Обработка текстовых элементов с улучшенной фильтрацией
             const textSelectors = ['span', 'div', 'li', 'p', 'td', 'time', 'small', 'strong'];
@@ -591,6 +622,7 @@
                     if (node.nodeType === Node.ELEMENT_NODE) {
                         if (node.matches && (
                             node.matches('relative-time, time-ago') ||
+                            node.matches('.prc-ActionList-ItemLabel-81ohH') ||
                             (node.textContent && /(ago|now|yesterday|week|month|year|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|Mon|Tue|Wed|Thu|Fri|Sat|Sun)/i.test(node.textContent))
                         )) {
                             hasTimeElements = true;
