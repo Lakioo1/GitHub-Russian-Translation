@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.46
+// @version      1.47
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -3042,6 +3042,40 @@
         childList: true,
         subtree: true
     });
+
+    // Постоянный мониторинг для предотвращения сброса перевода
+    setInterval(() => {
+        translatePage();
+    }, 2000);
+
+    // Обработка навигации SPA
+    let originalPushState = history.pushState;
+    history.pushState = function() {
+        originalPushState.apply(this, arguments);
+        setTimeout(() => {
+            translatePage();
+        }, 500);
+    };
+
+    let originalReplaceState = history.replaceState;
+    history.replaceState = function() {
+        originalReplaceState.apply(this, arguments);
+        setTimeout(() => {
+            translatePage();
+        }, 500);
+    };
+
+    window.addEventListener('popstate', () => {
+        setTimeout(() => {
+            translatePage();
+        }, 500);
+    });
+
+    // Обработка событий Turbo/PJAX
+    document.addEventListener('turbo:load', () => setTimeout(translatePage, 300));
+    document.addEventListener('turbo:render', () => setTimeout(translatePage, 300));
+    document.addEventListener('pjax:end', () => setTimeout(translatePage, 300));
+    document.addEventListener('pjax:success', () => setTimeout(translatePage, 300));
 
     // Добавляем индикатор, что скрипт работает
     console.log('🌐 GitHub Russian Translation активирован');
