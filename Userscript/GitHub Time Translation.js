@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.4.1
+// @version      1.4.2
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -37,18 +37,6 @@
         'a month ago': 'месяц назад',
         'a year ago': 'год назад',
         'yesterday': 'вчера',
-        'days ago': 'дней назад',
-        'day ago': 'день назад',
-        'weeks ago': 'недель назад',
-        'week ago': 'неделю назад',
-        'months ago': 'месяцев назад',
-        'month ago': 'месяц назад',
-        'hours ago': 'часов назад',
-        'hour ago': 'час назад',
-        'minutes ago': 'минут назад',
-        'minute ago': 'минуту назад',
-        'seconds ago': 'секунд назад',
-        'second ago': 'секунду назад',
         'now': 'только что',
         'last week': 'на прошлой неделе',
         'last month': 'в прошлом месяце',
@@ -101,13 +89,45 @@
         'Fri': 'пт',
         'Sat': 'сб',
         'Sun': 'вс',
-
-        // Временные периоды для фильтров
-        '24 hours': '24 часа',
-        '3 days': '3 дня',
-        '1 week': '1 неделя',
-        '1 month': '1 месяц',
     };
+
+    // Функция для склонения числительных
+    function pluralize(number, forms) {
+        const num = Math.abs(number) % 100;
+        const num1 = num % 10;
+
+        if (num > 10 && num < 20) {
+            return forms[2];
+        }
+        if (num1 > 1 && num1 < 5) {
+            return forms[1];
+        }
+        if (num1 === 1) {
+            return forms[0];
+        }
+        return forms[2];
+    }
+
+    // Функция для правильного перевода числовых временных выражений
+    function translateNumberWithUnit(number, unit) {
+        const num = parseInt(number);
+
+        const units = {
+            'second': ['секунду', 'секунды', 'секунд'],
+            'minute': ['минуту', 'минуты', 'минут'],
+            'hour': ['час', 'часа', 'часов'],
+            'day': ['день', 'дня', 'дней'],
+            'week': ['неделю', 'недели', 'недель'],
+            'month': ['месяц', 'месяца', 'месяцев'],
+            'year': ['год', 'года', 'лет']
+        };
+
+        if (units[unit]) {
+            return `${num} ${pluralize(num, units[unit])}`;
+        }
+
+        return `${num} ${unit}`;
+    }
 
     // Функция для проверки режима редактирования
     function isInEditMode() {
@@ -278,57 +298,41 @@
             return text;
         }
 
-        // Специальная обработка временных периодов
-        const hoursMatch = text.match(/^(\d+)\s+hours?$/);
-        if (hoursMatch) {
-            const num = hoursMatch[1];
-            if (num === '1') return '1 час';
-            if (num >= 2 && num <= 4) return `${num} часа`;
-            return `${num} часов`;
-        }
-
-        const daysMatch = text.match(/^(\d+)\s+days?$/);
-        if (daysMatch) {
-            const num = daysMatch[1];
-            if (num === '1') return '1 день';
-            if (num >= 2 && num <= 4) return `${num} дня`;
-            return `${num} дней`;
-        }
-
-        const weeksMatch = text.match(/^(\d+)\s+weeks?$/);
-        if (weeksMatch) {
-            const num = weeksMatch[1];
-            if (num === '1') return '1 неделя';
-            if (num >= 2 && num <= 4) return `${num} недели`;
-            return `${num} недель`;
-        }
-
-        const monthsMatch = text.match(/^(\d+)\s+months?$/);
-        if (monthsMatch) {
-            const num = monthsMatch[1];
-            if (num === '1') return '1 месяц';
-            if (num >= 2 && num <= 4) return `${num} месяца`;
-            return `${num} месяцев`;
-        }
-
         let translated = text;
 
         // Паттерны для числовых временных выражений
         const timePatterns = [
-            { regex: /(\d+)\s+seconds?\s+ago/, unit: 'секунд' },
-            { regex: /(\d+)\s+minutes?\s+ago/, unit: 'минут' },
-            { regex: /(\d+)\s+hours?\s+ago/, unit: 'часов' },
-            { regex: /(\d+)\s+days?\s+ago/, unit: 'дней' },
-            { regex: /(\d+)\s+weeks?\s+ago/, unit: 'недель' },
-            { regex: /(\d+)\s+months?\s+ago/, unit: 'месяцев' },
-            { regex: /(\d+)\s+years?\s+ago/, unit: 'лет' }
+            { regex: /(\d+)\s+seconds?\s+ago/i, unit: 'second' },
+            { regex: /(\d+)\s+minutes?\s+ago/i, unit: 'minute' },
+            { regex: /(\d+)\s+hours?\s+ago/i, unit: 'hour' },
+            { regex: /(\d+)\s+days?\s+ago/i, unit: 'day' },
+            { regex: /(\d+)\s+weeks?\s+ago/i, unit: 'week' },
+            { regex: /(\d+)\s+months?\s+ago/i, unit: 'month' },
+            { regex: /(\d+)\s+years?\s+ago/i, unit: 'year' }
         ];
 
         for (const pattern of timePatterns) {
             const match = translated.match(pattern.regex);
             if (match) {
                 const number = match[1];
-                translated = `${number} ${pattern.unit} назад`;
+                translated = translateNumberWithUnit(number, pattern.unit) + ' назад';
+                break;
+            }
+        }
+
+        // Паттерны для периодов времени
+        const periodPatterns = [
+            { regex: /^(\d+)\s+hours?$/i, unit: 'hour' },
+            { regex: /^(\d+)\s+days?$/i, unit: 'day' },
+            { regex: /^(\d+)\s+weeks?$/i, unit: 'week' },
+            { regex: /^(\d+)\s+months?$/i, unit: 'month' }
+        ];
+
+        for (const pattern of periodPatterns) {
+            const match = translated.match(pattern.regex);
+            if (match) {
+                const number = match[1];
+                translated = translateNumberWithUnit(number, pattern.unit);
                 break;
             }
         }
@@ -352,43 +356,6 @@
     // Функция для перевода абсолютного времени
     function translateAbsoluteTime(text) {
         let translated = text;
-
-        // Функция для перевода временных периодов
-        function translateTimePeriods(text) {
-            // Паттерны для числовых периодов
-            const periodPatterns = [
-                { regex: /(\d+)\s+hours?/, translate: (num) => {
-                    if (num === '1') return '1 час';
-                    if (num >= 2 && num <= 4) return `${num} часа`;
-                    return `${num} часов`;
-                }},
-                { regex: /(\d+)\s+days?/, translate: (num) => {
-                    if (num === '1') return '1 день';
-                    if (num >= 2 && num <= 4) return `${num} дня`;
-                    return `${num} дней`;
-                }},
-                { regex: /(\d+)\s+weeks?/, translate: (num) => {
-                    if (num === '1') return '1 неделя';
-                    if (num >= 2 && num <= 4) return `${num} недели`;
-                    return `${num} недель`;
-                }},
-                { regex: /(\d+)\s+months?/, translate: (num) => {
-                    if (num === '1') return '1 месяц';
-                    if (num >= 2 && num <= 4) return `${num} месяца`;
-                    return `${num} месяцев`;
-                }}
-            ];
-
-            // Проверяем каждый паттерн
-            for (const pattern of periodPatterns) {
-                const match = text.match(pattern.regex);
-                if (match) {
-                    return pattern.translate(match[1]);
-                }
-            }
-
-            return text;
-    }
 
         // Простая и надежная замена с границами слов
         for (const [en, ru] of Object.entries(timeTranslations)) {
@@ -609,7 +576,6 @@
 
         // Перевод атрибутов
         setTimeout(translateTimeAttributes, 2000);
-
     }
 
     // Наблюдатель за изменениями DOM
