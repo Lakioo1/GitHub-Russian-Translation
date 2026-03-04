@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.47
+// @version      1.48
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -1243,104 +1243,147 @@
         'Your project needs at least one date or iteration field to get started.': 'Для запуска вашего проекта необходимо как минимум одно поле даты или итерации.',
 
         // Задачи
-        'Abuse': 'Злоупотребление',
-        'Add existing issue': 'Добавить существующую проблему',
-        'Add parent': 'Добавить родителя',
-        'added': 'добавлен',
-        'Apply labels to this issue': 'Применить метки к этой проблеме',
-        'as': 'как',
-        'Assign yourself': 'Назначьте себя',
-        'Are you sure you want to delete view Untitled view?': 'Вы уверены, что хотите удалить представление «Без названия»?',
-        'Assigned to me': 'Назначено мне',
-        'Best match': 'Лучшее совпадение',
-        'Build powerful views to keep track of work': 'Создавайте мощные представления для отслеживания работы',
-        'Change icon and color': 'Изменить значок и цвет',
-        'Close as completed': 'Закрыть как завершенное',
-        'Close as duplicate': 'Закрыть как дубликат',
-        'Close as not planned': 'Закрыть, как не планировалось',
-        'closed this': 'закрыл это',
-        'Closest due date': 'Ближайший срок',
-        'Code with agent mode': 'Код с режимом агента',
-        'completed': 'завершенный',
-        'Create a branch': 'Cоздать ветвь',
-        'create a branch': 'создать ветвь',
-        'Create a milestone': 'Создать веху',
-        'Create sub-issue': 'Создать подзадачу',
-        'Created by me': 'Создано мной',
-        'Created on': 'Создано',
-        'Create view': 'Создать представление',
-        'Delete issue': 'Удалить проблему',
-        'Delete revision': 'Удалить ревизию',
-        'Delete view': 'Удалить вид',
-        'Done, closed, fixed, resolved': 'Выполнено, закрыто, исправлено, решено',
-        'Duplicate': 'Дубликат',
-        'Duplicate of another issue': 'Дубликат другой проблемы',
-        'Duplicate issue': 'Дубликат проблемы',
-        'edited by': 'под редакцией',
-        'Edit labels': 'Редактировать метки',
-        'Edit view': 'Редактировать вид',
-        'Edits': 'Изменения',
-        'Fewest issues': 'Наименьшее количество проблем',
-        'for this issue or link a pull request.': 'для этой проблемы или добавьте ссылку запрос на слияние.',
-        'Furthest due date': 'Самый поздний срок',
-        'Group assignees': 'Группа назначенных лиц',
-        'Hide': 'Скрыть',
-        'Icon': 'Значок',
-        'Issue body actions': 'Действия с текстом сообщения',
-        'Least complete': 'Наименее полный',
-        'Link a branch, pull request, or': 'Связать ветку, запрос на слияние или',
-        'Mark as blocked by': 'Пометить как заблокированное',
-        'Mark as blocking': 'Пометить как блокирующее',
-        'Mentioned': 'Упомянуто',
-        'More actions': 'Дополнительные действия',
-        'Most complete': 'Наиболее полный',
-        'Most issues': 'Большинство вопросов',
-        'Most recent': 'Последние',
-        'No assignees': 'Нет правопреемников',
-        'No branches or pull requests': 'Никаких ветвей или запросов на слияние',
-        'No milestone': 'Нет контрольной точки',
-        'No milestones were found': 'Не найдено контрольной точки',
-        'No one': 'Никто',
-        'No one assigned': 'Никто не назначен',
-        'No pull requests or branches were found': 'Не найдено ни одного запроса на слияние или ветки',
-        'No type': 'Без типа',
-        'Only receive notifications from this issue when you have participated or have been @mentioned.': 'Получайте уведомления по этой теме только в том случае, если вы участвовали в ней или были в ней упомянуты (@).',
-        'opened': 'открытый',
-        'Order': 'Порядок',
-        'Outdated': 'Устаревший',
-        'Query': 'Запрос',
-        'Pin issue': 'Проблема с булавкой',
-        'React': 'Реакции',
-        'Recent activity': 'Недавняя активность',
-        'Reactions': 'Реакции',
-        'Receive all notifications from this issue.': 'Получать все уведомления по этой проблеме.',
-        'Reference in a new issue': 'Ссылка в новом выпуске',
-        'Relationships': 'Отношения',
-        'Reverse alphabetical': 'Обратный алфавитный порядок',
-        'Save view': 'Сохранить представление',
-        'Saved views menu': 'Меню сохраненных видов',
-        'Select assignees': 'Выбрать назначенных лиц',
-        'Select a repository': 'Выберите репозиторий',
-        'Select code repository': 'Выберите репозиторий кода',
-        'Select projects': 'Выбрать проекты',
-        'self-assigned this': 'самостоятельно назначил это',
-        'Semantic search': 'Семантический поиск',
-        'Successfully merging this pull request may close these issues.': 'Успешное слияние этого запроса на извлечение может закрыть эти проблемы.',
-        'Title': 'Название',
-        'This conversation has been locked and limited to collaborators.': 'Этот разговор был заблокирован и ограничен для участников проекта.',
-        'Total comments': 'Всего комментариев',
-        'Total reactions': 'Общее количество реакций',
-        'Transfer issue': 'Проблема перевода',
-        'Try searching with a different query for results.': 'Попробуйте выполнить поиск с другим запросом.',
-        'Views': 'Просмотры',
-        'Viewing edit': 'Просмотр редактирования',
-        'You are assigned to and commented on this issue': 'Вы назначены ответственным за эту проблему и прокомментировали ее.',
-        'You do not have permissions to close this issue': 'У вас нет прав для закрытия этой проблемы.',
+        "Abuse": "Злоупотребление",
+        "Add existing issue": "Добавить существующую проблему",
+        "Add parent": "Добавить родителя",
+        "added": "добавлен",
+        "AND": "И",
+        "Apply labels to this issue": "Применить метки к этой проблеме",
+        "Archived": "Архивированные",
+        "Are you sure you want to delete view Untitled view?": "Вы уверены, что хотите удалить представление «Без названия»?",
+        "as": "как",
+        "Assignee": "Исполнитель",
+        "Assign yourself": "Назначьте себя",
+        "Assigned to me": "Назначено мне",
+        "Base": "База",
+        "Best match": "Лучшее совпадение",
+        "Blocked by": "Заблокировано",
+        "Blocking": "Блокирует",
+        "Build powerful views to keep track of work": "Создавайте мощные представления для отслеживания работы",
+        "Change icon and color": "Изменить значок и цвет",
+        "Close as completed": "Закрыть как завершенное",
+        "Close as duplicate": "Закрыть как дубликат",
+        "Close as not planned": "Закрыть, как не планировалось",
+        "closed this": "закрыл это",
+        "Closed date": "Дата закрытия",
+        "Closed reason": "Причина закрытия",
+        "Closest due date": "Ближайший срок",
+        "Code with agent mode": "Код с режимом агента",
+        "Comment count": "Количество комментариев",
+        "Commenter": "Комментатор",
+        "Commit SHA": "Хеш коммита",
+        "completed": "завершенный",
+        "Create a branch": "Cоздать ветвь",
+        "create a branch": "создать ветвь",
+        "Create a milestone": "Создать веху",
+        "Create sub-issue": "Создать подзадачу",
+        "Created by me": "Создано мной",
+        "Created on": "Создано",
+        "Create view": "Создать представление",
+        "Creation date": "Дата создания",
+        "Delete issue": "Удалить проблему",
+        "Delete revision": "Удалить ревизию",
+        "Delete view": "Удалить вид",
+        "Done, closed, fixed, resolved": "Выполнено, закрыто, исправлено, решено",
+        "Draft": "Черновик",
+        "Duplicate": "Дубликат",
+        "Duplicate of another issue": "Дубликат другой проблемы",
+        "Duplicate issue": "Дубликат проблемы",
+        "edited by": "под редакцией",
+        "Edit labels": "Редактировать метки",
+        "Edit view": "Редактировать вид",
+        "Edits": "Изменения",
+        "Fewest issues": "Наименьшее количество проблем",
+        "Field": "Поле",
+        "for this issue or link a pull request.": "для этой проблемы или добавьте ссылку запрос на слияние.",
+        "Furthest due date": "Самый поздний срок",
+        "Group assignees": "Группа назначенных лиц",
+        "Head": "Головная ветка",
+        "Hide": "Скрыть",
+        "Icon": "Значок",
+        "In": "В",
+        "Interactions count": "Количество взаимодействий",
+        "Involves": "Участвует",
+        "Is": "Это",
+        "Issue body actions": "Действия с текстом сообщения",
+        "Label": "Метка",
+        "Least complete": "Наименее полный",
+        "Link a branch, pull request, or": "Связать ветку, запрос на слияние или",
+        "Linked": "Связано",
+        "Mark as blocked by": "Пометить как заблокированное",
+        "Mark as blocking": "Пометить как блокирующее",
+        "Mentioned": "Упомянуто",
+        "Mentions": "Упоминания",
+        "Merge date": "Дата слияния",
+        "Milestone": "Важная веха",
+        "More actions": "Дополнительные действия",
+        "Most complete": "Наиболее полный",
+        "Most issues": "Большинство вопросов",
+        "Most recent": "Последние",
+        "No assignees": "Нет правопреемников",
+        "No branches or pull requests": "Никаких ветвей или запросов на слияние",
+        "No milestone": "Нет контрольной точки",
+        "No milestones were found": "Не найдено контрольной точки",
+        "No one": "Никто",
+        "No one assigned": "Никто не назначен",
+        "No pull requests or branches were found": "Не найдено ни одного запроса на слияние или ветки",
+        "No type": "Без типа",
+        "Only receive notifications from this issue when you have participated or have been @mentioned.": "Получайте уведомления по этой теме только в том случае, если вы участвовали в ней или были в ней упомянуты (@).",
+        "opened": "открытый",
+        "OR": "ИЛИ",
+        "Order": "Порядок",
+        "Organization": "Организация",
+        "Outdated": "Устаревший",
+        "Parent issue": "Родительская проблема",
+        "Pin issue": "Проблема с булавкой",
+        "Project": "Проект",
+        "Query": "Запрос",
+        "Reaction count": "Количество реакций",
+        "React": "Реакции",
+        "Reactions": "Реакции",
+        "Recent activity": "Недавняя активность",
+        "Receive all notifications from this issue.": "Получать все уведомления по этой проблеме.",
+        "Reference in a new issue": "Ссылка в новом выпуске",
+        "Relationships": "Отношения",
+        "Repository": "Репозиторий",
+        "Reverse alphabetical": "Обратный алфавитный порядок",
+        "Review requested": "Запрошена проверка",
+        "Review state": "Состояние проверки",
+        "Reviewed by": "Проверено",
+        "Save view": "Сохранить представление",
+        "Saved views menu": "Меню сохраненных видов",
+        "Select a repository": "Выберите репозиторий",
+        "Select assignees": "Выбрать назначенных лиц",
+        "Select code repository": "Выберите репозиторий кода",
+        "Select projects": "Выбрать проекты",
+        "self-assigned this": "самостоятельно назначил это",
+        "Semantic search": "Семантический поиск",
+        "Sort": "Сортировка",
+        "State": "Состояние",
+        "Status": "Статус",
+        "Sub-issue": "Подзадача",
+        "Successfully merging this pull request may close these issues.": "Успешное слияние этого запроса на извлечение может закрыть эти проблемы.",
+        "Team": "Команда",
+        "Team review requested": "Запрошена проверка команды",
+        "This conversation has been locked and limited to collaborators.": "Этот разговор был заблокирован и ограничен для участников проекта.",
+        "Title": "Название",
+        "Total comments": "Всего комментариев",
+        "Total reactions": "Общее количество реакций",
+        "Transfer issue": "Проблема перевода",
+        "Try searching with a different query for results.": "Попробуйте выполнить поиск с другим запросом.",
+        "Type": "Тип",
+        "Update date": "Дата обновления",
+        "User": "Пользователь",
+        "User review requested": "Запрошена проверка пользователя",
+        "Views": "Просмотры",
+        "Viewing edit": "Просмотр редактирования",
+        "Won't fix, can't repro, stale": "Не исправляется, не воспроизводится, устарело",
+        "You are assigned to and commented on this issue": "Вы назначены ответственным за эту проблему и прокомментировали ее.",
+        "You do not have permissions to close this issue": "У вас нет прав для закрытия этой проблемы.",
         "You haven’t created any Milestones.": "Вы не создали ни одного веха.",
-        'You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.': 'Вы будете получать уведомления только о событиях, выбранных из приведенного ниже списка. Если вы участвуете в событии или вас упомянули с помощью @, вы будете подписаны на него.',
+        "You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.": "Вы будете получать уведомления только о событиях, выбранных из приведенного ниже списка. Если вы участвуете в событии или вас упомянули с помощью @, вы будете подписаны на него.",
         "You're not receiving notifications from this thread.": "Вы не получаете уведомления из этой ветки.",
         "You're receiving notifications because you're subscribed to this thread.": "Вы получаете уведомления, потому что подписаны на эту ветку.",
-        "Won't fix, can't repro, stale": "Не исправляется, не воспроизводится, устарело",
 
         // Запросы
         'advanced search': 'расширенный поиск',
@@ -2619,7 +2662,7 @@
         // Временные предлоги и конструкции
         'and': 'и',
         'at': 'в',
-        'on': 'в',
+        'on': 'на',
         'only': 'только',
         'for': 'для',
         'not': 'не',
@@ -3046,7 +3089,7 @@
     // Постоянный мониторинг для предотвращения сброса перевода
     setInterval(() => {
         translatePage();
-    }, 2000);
+    }, 500);
 
     // Обработка навигации SPA
     let originalPushState = history.pushState;
@@ -3054,7 +3097,7 @@
         originalPushState.apply(this, arguments);
         setTimeout(() => {
             translatePage();
-        }, 500);
+        }, 50);
     };
 
     let originalReplaceState = history.replaceState;
@@ -3062,20 +3105,20 @@
         originalReplaceState.apply(this, arguments);
         setTimeout(() => {
             translatePage();
-        }, 500);
+        }, 50);
     };
 
     window.addEventListener('popstate', () => {
         setTimeout(() => {
             translatePage();
-        }, 500);
+        }, 50);
     });
 
     // Обработка событий Turbo/PJAX
-    document.addEventListener('turbo:load', () => setTimeout(translatePage, 300));
-    document.addEventListener('turbo:render', () => setTimeout(translatePage, 300));
-    document.addEventListener('pjax:end', () => setTimeout(translatePage, 300));
-    document.addEventListener('pjax:success', () => setTimeout(translatePage, 300));
+    document.addEventListener('turbo:load', () => setTimeout(translatePage, 50));
+    document.addEventListener('turbo:render', () => setTimeout(translatePage, 50));
+    document.addEventListener('pjax:end', () => setTimeout(translatePage, 50));
+    document.addEventListener('pjax:success', () => setTimeout(translatePage, 50));
 
     // Добавляем индикатор, что скрипт работает
     console.log('🌐 GitHub Russian Translation активирован');
