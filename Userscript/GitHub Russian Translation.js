@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.48
+// @version      1.49
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -2895,16 +2895,58 @@
             return false;
         }
 
-    const readmeContainer = element.closest('#readme, [data-target="readme-toc.contentSticky"]');
+        // Проверка по техническим селекторам
+        const technicalSelectors = [
+            // Селекторы для кода
+            '#new_blob',
+            '.blob-code',
+            '.blob-code-inner',
+            '.blob-editor-container',
+            '.cm-editor',
+            '.code-editor',
+            '.CodeMirror',
+            '.commit-create',
+            '.commit-desc',
+            '.commit-ref',
+            '.commit-title',
+            '.diff-table',
+            '.file-editor',
+            '.gh-header-title',
+            '.git-command',
+            '.highlight',
+            '.js-blob-form',
+            '.js-file-line',
+            '.js-file-line-container',
+            '.js-issue-title',
+            '.monaco-editor',
+            '.react-code-text',
+            '.sha',
+            '.text-diff-container',
+            '.user-select-contain',
+            '[aria-label*="command"]',
+            '[aria-label^="Toggle"]',
+            '[data-code-marker]',
+            '[data-qa-code-editor]',
+            'code',
+            'pre'
+        ];
+
+        // Проверка по техническим селекторам
+        for (const selector of technicalSelectors) {
+            if (element.closest(selector)) {
+                return true;
+            }
+        }
+
+        const readmeContainer = element.closest('#readme, [data-target="readme-toc.contentSticky"]');
         if (readmeContainer) {
             return true;
         }
 
-    const boxBody = element.closest('.Box-body');
+        const boxBody = element.closest('.Box-body');
         if (boxBody && boxBody.querySelector('#readme, [data-target="readme-toc.contentSticky"]')) {
             return true;
         }
-
 
         // Проверка по тегам
         if (element.tagName === 'SCRIPT' ||
