@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.50
+// @version      1.51
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -3184,11 +3184,6 @@
         childList: true,
         subtree: true
     });
-
-    // Постоянный мониторинг для предотвращения сброса перевода
-    setInterval(() => {
-        translatePage();
-    }, 500);
 
     // Обработка навигации SPA
     let originalPushState = history.pushState;
