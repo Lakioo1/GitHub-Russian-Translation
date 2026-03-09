@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.51
+// @version      1.52
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -2438,6 +2438,8 @@
         'Moderation': 'Модерация',
         'More details': 'Подробнее',
         'Motion': 'Движение',
+        'Move to an organization': 'Перейти в организацию',
+        'Move work to an organization': 'Переместить работу в организацию',
         'My GitHub Apps': 'Мои приложения GitHub',
         'Name': 'Имя',
         'New budget': 'Новый бюджет',
@@ -3017,10 +3019,20 @@
         // Проверка по CSS-классам
         if (element.classList && element.classList.length > 0) {
             const classList = Array.from(element.classList);
-            return classList.some(className =>
-                   className.includes('code') ||
-                   className.includes('commit')
-            );
+            var hasForbiddenClass = false;
+            for (var i = 0; i < classList.length; i++) {
+                var className = classList[i];
+                if (className.includes('code') ||
+                    className.includes('commit') ||
+                    className.includes('react') ||
+                    className.includes('editor')) {
+                    hasForbiddenClass = true;
+                    break;
+                }
+            }
+            if (hasForbiddenClass) {
+                return true;
+            }
         }
 
         // Проверка по конкретным селекторам
@@ -3107,6 +3119,22 @@
                 element.setAttribute('alt', translations[alt]);
             }
         });
+
+        // Перевод value и input
+        document.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
+            if (element.tagName === 'INPUT' && element.value && translations[element.value]) {
+                element.value = translations[element.value];
+            }
+            if (element.tagName === 'BUTTON') {
+                const text = element.textContent.trim();
+                if (text && translations[text]) {
+                    element.textContent = element.textContent.replace(text, translations[text]);
+                }
+            }
+            if (element.getAttribute('data-disable-with') && translations[element.getAttribute('data-disable-with')]) {
+                element.setAttribute('data-disable-with', translations[element.getAttribute('data-disable-with')]);
+            }
+        });
     }
 
     // Основная функция перевода
@@ -3171,6 +3199,21 @@
                                         element.setAttribute(attr, translations[value]);
                                     }
                                 });
+                            });
+                            // Перевод value и input
+                            node.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
+                                if (element.tagName === 'INPUT' && element.value && translations[element.value]) {
+                                    element.value = translations[element.value];
+                                }
+                                if (element.tagName === 'BUTTON') {
+                                    const text = element.textContent.trim();
+                                    if (text && translations[text]) {
+                                        element.textContent = element.textContent.replace(text, translations[text]);
+                                    }
+                                }
+                                if (element.getAttribute('data-disable-with') && translations[element.getAttribute('data-disable-with')]) {
+                                    element.setAttribute('data-disable-with', translations[element.getAttribute('data-disable-with')]);
+                                }
                             });
                         }
                     }
