@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.52
+// @version      1.53
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -2695,6 +2695,8 @@
         'You’re not watching any repositories.': 'Вы не следите ни за одним репозиторием.',
         'Your achievements will be shown on your profile.': 'Ваши достижения будут отображаться в вашем профиле.',
         'Your backup GitHub email address will be used as an additional destination for security-relevant account notifications and can also be used for password resets.': 'Ваш резервный адрес электронной почты GitHub будет использоваться в качестве дополнительного адреса для получения уведомлений, связанных с безопасностью учетной записи, а также может использоваться для сброса пароля.',
+        'Your name may appear around GitHub where you contribute or are mentioned.' : 'Ваше имя может появляться на GitHub в тех местах, где вы участвуете или упоминаетесь.',
+        'You can remove it at any time.' : 'Вы можете удалить его в любое время.',
         'Your personal account': 'Ваш личный кабинет',
 
         // Кнопки и действия
@@ -2718,6 +2720,12 @@
         'Update': 'Обновить',
         'Update comment': 'Обновить комментарий',
 
+        // Плейсхолдеры
+        "Link to social profile 1": "Ссылка на соцсеть 1",
+        "Link to social profile 2": "Ссылка на соцсеть 2",
+        "Link to social profile 3": "Ссылка на соцсеть 3",
+        "Link to social profile 4": "Ссылка на соцсеть 4",
+
         // Временные предлоги и конструкции
         'and': 'и',
         'at': 'в',
@@ -2729,6 +2737,7 @@
         'Created': 'Создано',
         'repositories.': 'репозитории.',
         'Last updated': 'Последнее обновление',
+        'Loading': 'Загрузка',
         'Updated': 'Обновлено',
 
         // Дополнительные термины
@@ -2948,6 +2957,94 @@
         return null;
     }
 
+    // Функция для проверки наличия кириллицы
+    function hasCyrillic(text) {
+        return /[а-яА-ЯёЁ]/.test(text);
+    }
+
+    // Функция для перевода многострочных текстов
+    function translateMultilineTexts() {
+        const textElements = document.querySelectorAll(
+            '.note, .form-group .note, .help-text, .form-note, .annotation, ' +
+            '.caption, .subtext, .info-text, [class*="note"], [class*="help"], ' +
+            '[class*="description"], [class*="caption"], p.description, .Box-body, ' +
+            '.flash, .alert, .details'
+        );
+
+        textElements.forEach(element => {
+            if (hasCyrillic(element.textContent)) {
+                return;
+            }
+
+            if (element.querySelector('a, button, input, select, textarea, .btn, .Button')) {
+                return;
+            }
+
+            let textNodeCount = 0;
+            element.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                    textNodeCount++;
+                }
+            });
+
+            const hasLineBreaksInText = element.textContent.includes('\n');
+
+            if (textNodeCount <= 1 && !hasLineBreaksInText) {
+                return;
+            }
+
+            const fullText = element.textContent.replace(/\s+/g, ' ').trim();
+
+            if (translations[fullText]) {
+                element.textContent = translations[fullText];
+                return;
+            }
+
+            const sentences = fullText.split(/\.\s+/);
+            if (sentences.length > 1) {
+                let translatedHtml = '';
+                let hasTranslation = false;
+
+                sentences.forEach((sentence, index) => {
+                    const trimmed = sentence.trim();
+                    if (translations[trimmed]) {
+                        translatedHtml += translations[trimmed];
+                        if (index < sentences.length - 1) translatedHtml += '. ';
+                        hasTranslation = true;
+                    } else if (translations[trimmed + '.']) {
+                        translatedHtml += translations[trimmed + '.'];
+                        if (index < sentences.length - 1) translatedHtml += ' ';
+                        hasTranslation = true;
+                    } else {
+                        translatedHtml += sentence;
+                        if (index < sentences.length - 1) translatedHtml += '. ';
+                    }
+                });
+
+                if (hasTranslation) {
+                    element.textContent = translatedHtml;
+                }
+            }
+        });
+    }
+
+    // Функция для перевода многострочных атрибутов с проверкой на кириллицу
+    function translateMultilineAttributes() {
+        const attrElements = document.querySelectorAll('[title], [aria-label], [placeholder], [alt]');
+
+        attrElements.forEach(element => {
+            ['title', 'aria-label', 'placeholder', 'alt'].forEach(attr => {
+                const value = element.getAttribute(attr);
+                if (value && value.includes('\n') && !hasCyrillic(value)) {
+                    const normalized = value.replace(/\s+/g, ' ').trim();
+                    if (translations[normalized]) {
+                        element.setAttribute(attr, translations[normalized]);
+                    }
+                }
+            });
+        });
+    }
+
     // Функция для проверки игнорируемых элементов
     function shouldIgnoreElement(element) {
         if (!element.closest) {
@@ -3056,8 +3153,13 @@
     // Функция для замены текста
     function translateText(node) {
         if (node.nodeType === Node.TEXT_NODE && node.parentElement && !shouldIgnoreElement(node.parentElement)) {
-            // Сначала проверяем по словарю
             const text = node.textContent.trim();
+
+            if (hasCyrillic(text)) {
+                return false;
+            }
+
+            // Сначала проверяем по словарю
             if (text && translations[text]) {
                 node.textContent = node.textContent.replace(text, translations[text]);
                 return true;
@@ -3091,7 +3193,7 @@
         // Перевод placeholder
         document.querySelectorAll('[placeholder]').forEach(element => {
             const placeholder = element.getAttribute('placeholder');
-            if (translations[placeholder]) {
+            if (placeholder && !hasCyrillic(placeholder) && translations[placeholder]) {
                 element.setAttribute('placeholder', translations[placeholder]);
             }
         });
@@ -3099,7 +3201,7 @@
         // Перевод aria-label
         document.querySelectorAll('[aria-label]').forEach(element => {
             const label = element.getAttribute('aria-label');
-            if (translations[label]) {
+            if (label && !hasCyrillic(label) && translations[label]) {
                 element.setAttribute('aria-label', translations[label]);
             }
         });
@@ -3107,7 +3209,7 @@
         // Перевод title
         document.querySelectorAll('[title]').forEach(element => {
             const title = element.getAttribute('title');
-            if (translations[title]) {
+            if (title && !hasCyrillic(title) && translations[title]) {
                 element.setAttribute('title', translations[title]);
             }
         });
@@ -3115,24 +3217,27 @@
         // Перевод alt
         document.querySelectorAll('[alt]').forEach(element => {
             const alt = element.getAttribute('alt');
-            if (translations[alt]) {
+            if (alt && !hasCyrillic(alt) && translations[alt]) {
                 element.setAttribute('alt', translations[alt]);
             }
         });
 
         // Перевод value и input
         document.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
-            if (element.tagName === 'INPUT' && element.value && translations[element.value]) {
+            if (element.tagName === 'INPUT' && element.value && !hasCyrillic(element.value) && translations[element.value]) {
                 element.value = translations[element.value];
             }
             if (element.tagName === 'BUTTON') {
                 const text = element.textContent.trim();
-                if (text && translations[text]) {
+                if (text && !hasCyrillic(text) && translations[text]) {
                     element.textContent = element.textContent.replace(text, translations[text]);
                 }
             }
-            if (element.getAttribute('data-disable-with') && translations[element.getAttribute('data-disable-with')]) {
-                element.setAttribute('data-disable-with', translations[element.getAttribute('data-disable-with')]);
+            if (element.getAttribute('data-disable-with')) {
+                const disableText = element.getAttribute('data-disable-with');
+                if (disableText && !hasCyrillic(disableText) && translations[disableText]) {
+                    element.setAttribute('data-disable-with', translations[disableText]);
+                }
             }
         });
     }
@@ -3149,6 +3254,10 @@
         // Переводим атрибуты
         translateAttributes();
 
+        // Переводим многострочные тексты
+        translateMultilineTexts();
+        translateMultilineAttributes();
+
         // Специальная обработка для динамически загружаемого контента
         const selectors = 'button, a, span, div, h1, h2, h3, h4, h5, h6, p, label, td, th';
         document.querySelectorAll(selectors).forEach(element => {
@@ -3156,7 +3265,7 @@
                 element.firstChild.nodeType === Node.TEXT_NODE &&
                 !shouldIgnoreElement(element)) {
                 const text = element.textContent.trim();
-                if (translations[text]) {
+                if (translations[text] && !hasCyrillic(text)) {
                     element.textContent = translations[text];
                 } else {
                     // Проверка динамических паттернов
@@ -3195,24 +3304,27 @@
                             node.querySelectorAll('[placeholder], [aria-label], [title], [alt]').forEach(element => {
                                 ['placeholder', 'aria-label', 'title', 'alt'].forEach(attr => {
                                     const value = element.getAttribute(attr);
-                                    if (value && translations[value]) {
+                                    if (value && !hasCyrillic(value) && translations[value]) {
                                         element.setAttribute(attr, translations[value]);
                                     }
                                 });
                             });
                             // Перевод value и input
                             node.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
-                                if (element.tagName === 'INPUT' && element.value && translations[element.value]) {
+                                if (element.tagName === 'INPUT' && element.value && !hasCyrillic(element.value) && translations[element.value]) {
                                     element.value = translations[element.value];
                                 }
                                 if (element.tagName === 'BUTTON') {
                                     const text = element.textContent.trim();
-                                    if (text && translations[text]) {
+                                    if (text && !hasCyrillic(text) && translations[text]) {
                                         element.textContent = element.textContent.replace(text, translations[text]);
                                     }
                                 }
-                                if (element.getAttribute('data-disable-with') && translations[element.getAttribute('data-disable-with')]) {
-                                    element.setAttribute('data-disable-with', translations[element.getAttribute('data-disable-with')]);
+                                if (element.getAttribute('data-disable-with')) {
+                                    const disableText = element.getAttribute('data-disable-with');
+                                    if (disableText && !hasCyrillic(disableText) && translations[disableText]) {
+                                        element.setAttribute('data-disable-with', translations[disableText]);
+                                    }
                                 }
                             });
                         }
@@ -3220,6 +3332,12 @@
                 });
             }
         });
+
+        // Переводим многострочные тексты после изменений
+        setTimeout(() => {
+            translateMultilineTexts();
+            translateMultilineAttributes();
+        }, 50);
     });
 
     // Запускаем наблюдатель
