@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.57
+// @version      1.58
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -217,6 +217,7 @@
         'Your stars': 'Ваши звёзды',
 
         // Репозиторий и настройки
+        '(separate with spaces)': '(разделите пробелами)',
         '.gitignore tells git which files not to track.': '.gitignore сообщает git, какие файлы не отслеживать.',
         'Able to merge.': 'Возможно объединение.',
         'About ignoring files': 'Об игнорировании файлов',
@@ -295,6 +296,7 @@
         'Assign up to 10 people to this pull request': 'Назначьте до 10 человек для этого запроса на извлечение',
         'Attach to current thread': 'Присоединить к текущей ветке',
         'Attestations': 'Сертификаты',
+        'Authored': 'Автор',
         'Auto-close issues with merged linked pull requests': 'Проблемы с автоматическим закрытием объединенных связанных запросов на извлечение',
         'Automate your workflow from idea to production': 'Автоматизируйте рабочий процесс от идеи до производства',
         'Automated code reviews using rulesets': 'Автоматизированная проверка кода с использованием наборов правил',
@@ -610,6 +612,9 @@
         'Internal': 'Внутренние',
         'Internet access': 'доступ к Интернету',
         "Invest in open source software and we'll track your progress here!": "Инвестируйте в программное обеспечение с открытым исходным кодом, и мы будем отслеживать ваши успехи здесь!",
+        'Involves me': 'Это касается меня',
+        'Issues to include': 'Вопросы, которые следует включить',
+        'Issue options': 'Параметры выпуска',
         'Issue templates': 'Шаблоны выпусков',
         'I have read and understand these effects': 'Я прочитал и понимаю эти последствия.',
         'I want to delete this repository': 'Я хочу удалить этот репозиторий',
@@ -673,6 +678,7 @@
         'Management': 'Управление',
         'Mark this repository as archived and read-only.': 'Пометить этот репозиторий как заархивированный и доступный только для чтения.',
         'Markdown is supported': 'Поддерживается разметка Markdown',
+        'Maximum age of results': 'Максимальный срок хранения результатов',
         'MCP configuration': 'MCP конфигурация',
         'Medium or higher': 'Средний или выше',
         'Members of supported fiscal hosts can use their fiscal host to join GitHub Sponsors instead of using a bank account.': 'Участники поддерживаемых фискальных хостов могут использовать своего фискального хоста для участия в GitHub Sponsors вместо использования банковского счета.',
@@ -717,6 +723,7 @@
         'No description, website, or topics provided.': 'Описание, веб-сайт и темы не указаны.',
         'No forked repositories found': 'Не найдено ни одного форкнутого репозитория',
         'No labels': 'Нет этикеток',
+        'No maximum': 'Без ограничения',
         'No new commits yet. Enjoy your day!': 'Пока нет новых коммитов. Приятного дня!',
         'No one has forked this repository yet': 'Пока что никто не создал форк этого репозитория.',
         'No open projects': 'Нет открытых проектов',
@@ -743,6 +750,7 @@
         'Nothing to show': 'Нечего показать',
         'Nothing to preview': 'Нет предварительного просмотра',
         'Number of commits per week': 'Количество коммитов в неделю',
+        'Number of results': 'Количество результатов',
         'Off-topic': 'Не по теме',
         'Oldest Sponsors profile': 'Старые профили Sponsors',
         'Once you delete a repository, there is no going back. Please be certain.': 'После удаления репозитория возвратных действий не будет. Пожалуйста, будьте уверены в своем решении.',
@@ -790,12 +798,14 @@
         'Public gists are visible to everyone.': 'Публичные Gists видны всем.',
         'Public wikis will still be readable by everyone.': 'Публичные вики-сайты по-прежнему будут доступны для чтения всем пользователям.',
         'Publish release': 'Опубликовать релиз',
+        'Pull request options': 'Параметры запроса на слияние',
         'Pull request successfully merged and closed': 'Запрос на слияние успешно выполнен и закрыт.',
         'Pull request template': 'Шаблон запроса на извлечение',
         'Pull request title': 'Название запроса на извлечение',
         'Pull request title and commit details': 'Название запроса на извлечение и детали фиксации',
         'Pull request title and description': 'Название и описание запроса на извлечение',
         'Pull Requests': 'Запросы на извлечение',
+        'Pull requests to include': 'Запросы на добавление изменений',
         'Pull requests help you collaborate on code with other people. As pull requests are created, they’ll appear here in a searchable and filterable list. To get started, you should': 'Запросы на извлечение помогают вам совместно работать над кодом с другими людьми. По мере создания запросов на извлечение они будут появляться здесь в списке, который можно просматривать и фильтровать. Чтобы начать работу, вам необходимо',
         'Push protection': 'Защита от толчков',
         'Pushes': 'Толчки',
@@ -845,6 +855,7 @@
         'Review required': 'Требуется проверка',
         'Reviews': 'Отзывы',
         'Reviewers': 'Рецензенты',
+        'Reviewed': 'Проверено',
         'Reviewed by you': 'Проверено вами',
         'Rule': 'Правило',
         'Rules': 'Правила',
@@ -2314,6 +2325,7 @@
         'Country/Region': 'Страна/регион',
         'Coupon': 'Купон',
         'Create an organization': 'Создать организацию',
+        'Create saved search': 'Создать сохраненный поиск',
         'Created their first repository': 'Создали свой первый репозиторий',
         'Current GitHub base plan': 'Текущий базовый план GitHub',
         'Current included usage': 'Текущее включенное использование',
@@ -2503,6 +2515,7 @@
         'Learn more in the docs.': 'Подробнее в документации.',
         'Legacy usage report': 'Отчет об использовании устаревших функций',
         'Licensing': 'Лицензирование',
+        'lines changed': 'изменения в строках',
         'Light default': 'Светлая (по умолчанию)',
         'Light mode': 'Светлый режим',
         'Light protanopia and deuteranopia': 'Светлая (протанопия и дейтеранопия)',
@@ -2863,15 +2876,20 @@
         'Add a short title to your reply': 'Добавьте краткий заголовок к вашему ответу',
         'Add your saved reply': 'Добавить сохраненный ответ',
         'Email address': 'Адрес электронной почты',
+        'Filter files…': 'Отфильтровать файлы…',
+        'Filter repositories and gists': 'Фильтровать репозитории и gists',
         'Go to file': 'Перейти к файлу',
+        'No results found.' : 'Ничего не найдено.',
         "Link to social profile 1": "Ссылка на соцсеть 1",
         "Link to social profile 2": "Ссылка на соцсеть 2",
         "Link to social profile 3": "Ссылка на соцсеть 3",
         "Link to social profile 4": "Ссылка на соцсеть 4",
         'Search deleted packages': 'Поиск удалённых пакетов',
         'Search or filter usage': 'Поиск или фильтрация использования',
+        'Search within code': 'Поиск в коде',
         'Select a verified email to display': 'Выберите подтвержденный адрес электронной почты для отображения',
         'Tell us a little bit about yourself': 'Расскажите нам немного о себе',
+        'Write a description': 'Напишите описание',
 
         // Языки для выпадающего списка
         'No Preference' : 'Без предпочтений',
@@ -3471,6 +3489,23 @@
         'Southeast Asia' : 'Юго-Восточная Азия',
         'Australia' : 'Австралия',
 
+        // Реакции
+        'Confused' : 'Недоумение',
+        'Eyes' : 'Глаза',
+        'Heart' : 'Сердце',
+        'Hooray' : 'Ура',
+        'Laugh' : 'Смех',
+        'Rocket' : 'Ракета',
+        'Thumbs down' : 'Палец вниз',
+        'Thumbs up' : 'Палец вверх',
+        'Total reactions' : 'Всего реакций',
+
+        // Названия списков
+        '🔮 Future ideas' : '🔮 Будущие идеи',
+        '🚀 My stack' : '🚀 Мой стек',
+        '✨ Inspiration' : '✨ Вдохновение',
+        '⭐️ Name this list': '⭐️ Назовите этот список',
+
         // Кнопки и действия
         'Apply': 'Применить',
         'Cancel': 'Отмена',
@@ -3533,6 +3568,7 @@
         'Cancel': 'Отмена',
         'Catalog': 'Каталог',
         'Categories': 'Категории',
+        'changed': 'изменился',
         'Changes requested': 'Требуются изменения',
         'Checks': 'Проверки',
         'Clear': 'Очистить',
@@ -3589,6 +3625,7 @@
         'Everywhere': 'Везде',
         'Featured': 'Рекомендуемое',
         'Fetch upstream': 'Получить изменения из оригинала',
+        'file': 'файл',
         'files': 'файлы',
         'Files': 'Файлы',
         'Filters': 'Фильтры',
