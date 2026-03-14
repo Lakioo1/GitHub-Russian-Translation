@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.4.2
+// @version      1.4.3
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -36,6 +36,7 @@
         'a week ago': 'неделю назад',
         'a month ago': 'месяц назад',
         'a year ago': 'год назад',
+        '1 year ago': 'год назад',
         'yesterday': 'вчера',
         'now': 'только что',
         'last week': 'на прошлой неделе',
@@ -47,6 +48,8 @@
         'Joined last month': 'Присоединился в прошлом месяце',
         'Joined last week': 'Присоединился на прошлой неделе',
         'Joined last year': 'Присоединился в прошлом году',
+        'year': 'год',
+        'years': 'лет',
 
         // Абсолютное время
         'January': 'январь',
@@ -89,6 +92,7 @@
         'Fri': 'пт',
         'Sat': 'сб',
         'Sun': 'вс',
+
     };
 
     // Функция для склонения числительных
@@ -308,14 +312,25 @@
             { regex: /(\d+)\s+days?\s+ago/i, unit: 'day' },
             { regex: /(\d+)\s+weeks?\s+ago/i, unit: 'week' },
             { regex: /(\d+)\s+months?\s+ago/i, unit: 'month' },
-            { regex: /(\d+)\s+years?\s+ago/i, unit: 'year' }
+            { regex: /(\d+)\s+years?\s+ago/i, unit: 'year' },
+            { regex: /^a\s+second\s+ago$/i, unit: 'second', value: 1 },
+            { regex: /^a\s+minute\s+ago$/i, unit: 'minute', value: 1 },
+            { regex: /^an?\s+hour\s+ago$/i, unit: 'hour', value: 1 },
+            { regex: /^a\s+day\s+ago$/i, unit: 'day', value: 1 },
+            { regex: /^a\s+week\s+ago$/i, unit: 'week', value: 1 },
+            { regex: /^a\s+month\s+ago$/i, unit: 'month', value: 1 },
+            { regex: /^a\s+year\s+ago$/i, unit: 'year', value: 1 }
         ];
 
         for (const pattern of timePatterns) {
             const match = translated.match(pattern.regex);
             if (match) {
-                const number = match[1];
-                translated = translateNumberWithUnit(number, pattern.unit) + ' назад';
+                if (pattern.value !== undefined) {
+                    translated = translateNumberWithUnit(pattern.value, pattern.unit) + ' назад';
+                } else {
+                    const number = match[1];
+                    translated = translateNumberWithUnit(number, pattern.unit) + ' назад';
+                }
                 break;
             }
         }
@@ -325,14 +340,22 @@
             { regex: /^(\d+)\s+hours?$/i, unit: 'hour' },
             { regex: /^(\d+)\s+days?$/i, unit: 'day' },
             { regex: /^(\d+)\s+weeks?$/i, unit: 'week' },
-            { regex: /^(\d+)\s+months?$/i, unit: 'month' }
+            { regex: /^(\d+)\s+months?$/i, unit: 'month' },
+            { regex: /^a\s+hour$/i, unit: 'hour', value: 1 },
+            { regex: /^a\s+day$/i, unit: 'day', value: 1 },
+            { regex: /^a\s+week$/i, unit: 'week', value: 1 },
+            { regex: /^a\s+month$/i, unit: 'month', value: 1 }
         ];
 
         for (const pattern of periodPatterns) {
             const match = translated.match(pattern.regex);
             if (match) {
-                const number = match[1];
-                translated = translateNumberWithUnit(number, pattern.unit);
+                if (pattern.value !== undefined) {
+                    translated = translateNumberWithUnit(pattern.value, pattern.unit);
+                } else {
+                    const number = match[1];
+                    translated = translateNumberWithUnit(number, pattern.unit);
+                }
                 break;
             }
         }
@@ -344,9 +367,8 @@
                 const regex = new RegExp('\\b' + en + '\\b', 'gi');
                 translated = translated.replace(regex, ru);
             } else {
-                if (translated.includes(en)) {
-                    translated = translated.replace(en, ru);
-                }
+                const regex = new RegExp('\\b' + en + '\\b', 'gi');
+                translated = translated.replace(regex, ru);
             }
         }
 
