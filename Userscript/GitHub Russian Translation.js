@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.58
+// @version      1.59
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -475,6 +475,7 @@
         'Disable actions': 'Отключить действия',
         'Disable branch protection rules': 'Отключить правила защиты ветвей',
         'Disable branch protection rules enforcement and APIs': 'Отключить применение правил защиты ветвей и API',
+        'Disable comments': 'Отключить комментарии',
         'Disallow assets and tags from being modified once a release is published.': 'Запретить изменение ресурсов и тегов после публикации выпуска.',
         'Discussions': 'Обсуждения',
         'Discussions are used to ask questions and have open-ended conversations.': 'Дискуссии используются для того, чтобы задавать вопросы и вести открытые беседы.',
@@ -607,6 +608,8 @@
         'Include this code in the': 'Включите этот код в',
         'Increase Contrast': 'Увеличить контраст',
         'In place': 'На месте',
+        'Indent mode': 'Режим отступа',
+        'Indent size': 'Размер отступа',
         'Insights': 'Статистика',
         'Instantly share code, notes, and snippets.': 'Мгновенно делитесь кодом, заметками и фрагментами кода.',
         'Internal': 'Внутренние',
@@ -658,6 +661,7 @@
         'Licenses explain how others can use your code.': 'Лицензии объясняют, как другие могут использовать ваш код.',
         'Limit how many branches and tags can be updated in a single push': 'Ограничить количество ветвей и тегов, которые можно обновить за один раз',
         'Line chart settings': 'Настройки линейного графика',
+        'Line wrap mode': 'Режим переноса строк',
         'Link projects': 'Связанные проекты',
         'Link a project': 'Связать проект',
         'Link a project to this repository': 'Связать проект с этим репозиторием',
@@ -741,7 +745,7 @@
         'No secrets found.': 'Секретов не найдено.',
         'No security policy detected': 'Политика безопасности не обнаружена',
         'No table data available yet.': 'Данные таблицы пока недоступны.',
-        'No wrap': 'Без обертки',
+        'No wrap' : 'Без переноса',
         'None yet': 'Пока нет',
         'Not subscribed': 'Не подписан',
         'Not reviewed by you': 'Не проверено вами',
@@ -920,8 +924,9 @@
         'Signed-off-by': 'Подписано',
         'Skip this and': 'Пропустите это и',
         'Social preview': 'Социальный просмотр',
+        'Soft wrap' : 'Мягкий перенос',
         'Source': 'Источник',
-        'Spaces': 'Пространства',
+        'Spaces': 'Пробелы',
         'Spam': 'Спам',
         'Split': 'Разделение',
         'Sponsor multiple maintainers in one easy transaction.': 'Спонсируйте нескольких сопровождающих одним простым транзакцией.',
@@ -949,6 +954,7 @@
         'supported secrets': 'поддерживаемые секреты',
         'Switch branches/tags': 'Переключение ветвей/тегов',
         'Switch to tree view': 'Перейти к дереву',
+        'Tabs': 'Табуляция',
         'Tags': 'Теги',
         'Take a break, write some code, do what you do best.': 'Сделайте перерыв, напишите код, займитесь тем, что у вас получается лучше всего.',
         'Template repository': 'Хранилище шаблонов ',
@@ -1022,6 +1028,7 @@
         'Unstar': 'Убрать звезду',
         'Unsubscribe': 'Отписаться',
         'Unwatch': 'Не отслеживать',
+        'Update public gist': 'Обновить общедоступный гист',
         'Upload an image to customize your repository’s social media preview.': 'Загрузите изображение, чтобы настроить предварительный просмотр вашего репозитория в социальных сетях.',
         'Upload files': 'Загрузить файлы',
         'Usage metrics': 'Показатели использования',
@@ -2879,11 +2886,12 @@
         'Filter files…': 'Отфильтровать файлы…',
         'Filter repositories and gists': 'Фильтровать репозитории и gists',
         'Go to file': 'Перейти к файлу',
-        'No results found.' : 'Ничего не найдено.',
+        'No results found.': 'Ничего не найдено.',
         "Link to social profile 1": "Ссылка на соцсеть 1",
         "Link to social profile 2": "Ссылка на соцсеть 2",
         "Link to social profile 3": "Ссылка на соцсеть 3",
         "Link to social profile 4": "Ссылка на соцсеть 4",
+        'Search...': 'Поиск...',
         'Search deleted packages': 'Поиск удалённых пакетов',
         'Search or filter usage': 'Поиск или фильтрация использования',
         'Search within code': 'Поиск в коде',
@@ -3852,6 +3860,39 @@
         });
     }
 
+    // Функция для перевода React-компонентов по словарю
+    function translateReactElements() {
+        document.querySelectorAll('select, optgroup, option').forEach(element => {
+            if (element.tagName === 'OPTGROUP' && element.label) {
+                if (translations[element.label] && !hasCyrillic(element.label)) {
+                    element.label = translations[element.label];
+                }
+            }
+
+            // Перевод aria-label
+            const ariaLabel = element.getAttribute('aria-label');
+            if (ariaLabel && translations[ariaLabel] && !hasCyrillic(ariaLabel)) {
+                element.setAttribute('aria-label', translations[ariaLabel]);
+            }
+
+            // Перевод option
+            if (element.tagName === 'OPTION') {
+                const text = element.textContent.trim();
+                if (text && translations[text] && !hasCyrillic(text)) {
+                    element.textContent = translations[text];
+                }
+            }
+
+            // Перевод optgroup
+            if (element.tagName === 'OPTGROUP') {
+                const text = element.textContent.trim();
+                if (text && translations[text] && !hasCyrillic(text)) {
+                    element.textContent = translations[text];
+                }
+            }
+        });
+    }
+
     // Функция для проверки игнорируемых элементов
     function shouldIgnoreElement(element) {
         if (!element.closest) {
@@ -4050,6 +4091,14 @@
                 }
             }
         });
+
+        // Перевод btn
+        document.querySelectorAll('a.btn, a.btn-danger, a.btn-primary, a.Button').forEach(element => {
+            const text = element.textContent.trim();
+            if (text && !hasCyrillic(text) && translations[text]) {
+                element.textContent = translations[text];
+            }
+        });
     }
 
     // Основная функция перевода
@@ -4067,6 +4116,9 @@
         // Переводим многострочные тексты
         translateMultilineTexts();
         translateMultilineAttributes();
+
+        // Переводим React-компоненты
+        translateReactElements();
 
         // Специальная обработка для динамически загружаемого контента
         const selectors = 'button, a, span, div, h1, h2, h3, h4, h5, h6, p, label, td, th';
@@ -4137,6 +4189,13 @@
                                     }
                                 }
                             });
+                            // Перевод btn
+                            node.querySelectorAll('a.btn, a.btn-danger, a.btn-primary, a.Button').forEach(element => {
+                                const text = element.textContent.trim();
+                                if (text && !hasCyrillic(text) && translations[text]) {
+                                    element.textContent = translations[text];
+                                }
+                            });
                         }
                     }
                 });
@@ -4147,6 +4206,7 @@
         setTimeout(() => {
             translateMultilineTexts();
             translateMultilineAttributes();
+            translateReactElements();
         }, 50);
     });
 
