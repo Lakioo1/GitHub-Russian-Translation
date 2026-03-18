@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.59
+// @version      1.60
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -1732,6 +1732,8 @@
         'Bad request': 'Неверный запрос',
         'Billing settings': 'Настройки биллинга',
         'Branch rules': 'Правила веток',
+        'Bypassed': 'Пропущено',
+        'Campaign': 'Кампания',
         'CI/CD integrations': 'CI/CD интеграции',
         'Closed': 'Закрыто',
         'Closed issues': 'Закрытые задачи',
@@ -1926,6 +1928,7 @@
         'Required status checks': 'Обязательные проверки статуса',
         'Required workflows': 'Обязательные workflow',
         'Resolved': 'Решено',
+        'Resolution': 'Резолюция',
         'REST API': 'REST API',
         'Runner groups': 'Группы раннеров',
         'Runner labels': 'Метки раннеров',
@@ -1936,6 +1939,7 @@
         'Secret scanning': 'Сканирование секретов',
         'Secret scanning alerts': 'Предупреждение о секретном сканировании',
         'Secret scanning alerts •': 'Предупреждение о секретном сканировании •',
+        'Secret Type': 'Секретный тип',
         'Security advisories •': 'Рекомендации по безопасности •',
         'Security analysis': 'Анализ безопасности',
         'Security log': 'Журнал безопасности',
@@ -2892,9 +2896,13 @@
         "Link to social profile 3": "Ссылка на соцсеть 3",
         "Link to social profile 4": "Ссылка на соцсеть 4",
         'Search...': 'Поиск...',
+        'Search all issues': 'Поиск по всем выпускам',
+        'Search all projects': 'Поиск по всем проектам',
         'Search deleted packages': 'Поиск удалённых пакетов',
+        'Search or filter': 'Поиск или фильтр',
         'Search or filter usage': 'Поиск или фильтрация использования',
         'Search within code': 'Поиск в коде',
+        'Search workflows': 'Поиск рабочих процессов',
         'Select a verified email to display': 'Выберите подтвержденный адрес электронной почты для отображения',
         'Tell us a little bit about yourself': 'Расскажите нам немного о себе',
         'Write a description': 'Напишите описание',
@@ -3678,6 +3686,7 @@
         'Pages': 'Страницы',
         'People': 'Люди',
         'Period': 'Период',
+        'Pin': 'Закрепить',
         'Playground': 'Игровая площадка',
         'Popularity': 'По популярности',
         'Pre-release': 'Предварительный выпуск',
@@ -3862,6 +3871,23 @@
 
     // Функция для перевода React-компонентов по словарю
     function translateReactElements() {
+        // Перевод Overlay
+        document.querySelectorAll('.Overlay-title').forEach(element => {
+            const text = element.textContent.trim();
+            if (text && translations[text] && !hasCyrillic(text)) {
+                element.textContent = translations[text];
+            }
+        });
+
+        // Перевод btn-primary, btn, button
+        document.querySelectorAll('.btn-primary, .btn, button[type="submit"]').forEach(element => {
+            const text = element.textContent.trim();
+            if (text && translations[text] && !hasCyrillic(text)) {
+                element.textContent = translations[text];
+            }
+        });
+
+        // Перевод select, optgroup, option
         document.querySelectorAll('select, optgroup, option').forEach(element => {
             if (element.tagName === 'OPTGROUP' && element.label) {
                 if (translations[element.label] && !hasCyrillic(element.label)) {
