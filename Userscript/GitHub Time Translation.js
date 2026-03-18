@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.4.3
+// @version      1.4.4
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -42,6 +42,12 @@
         'last week': 'на прошлой неделе',
         'last month': 'в прошлом месяце',
         'last year': 'в прошлом году',
+        'last 3 months': 'за последние 3 месяца',
+        'last 6 months': 'за последние 6 месяцев',
+        'last 3 weeks': 'за последние 3 недели',
+        'last 6 weeks': 'за последние 6 недель',
+        'last 3 days': 'за последние 3 дня',
+        'last 6 days': 'за последние 6 дней',
         'this month': 'в этом месяце',
         'this week': 'на этой неделе',
         'this year': 'в этом году',
@@ -92,7 +98,6 @@
         'Fri': 'пт',
         'Sat': 'сб',
         'Sun': 'вс',
-
     };
 
     // Функция для склонения числительных
@@ -303,6 +308,24 @@
         }
 
         let translated = text;
+
+        // Паттерны для относительных выражений
+        const lastPatterns = [
+            { regex: /last\s+(\d+)\s+months?/i, prefix: 'за последние', unit: 'month' },
+            { regex: /last\s+(\d+)\s+weeks?/i, prefix: 'за последние', unit: 'week' },
+            { regex: /last\s+(\d+)\s+days?/i, prefix: 'за последние', unit: 'day' },
+            { regex: /last\s+(\d+)\s+years?/i, prefix: 'за последние', unit: 'year' }
+        ];
+
+        for (const pattern of lastPatterns) {
+            const match = translated.match(pattern.regex);
+            if (match) {
+                const number = match[1];
+                const unit = pattern.unit;
+                translated = `${pattern.prefix} ${translateNumberWithUnit(number, unit)}`;
+                break;
+            }
+        }
 
         // Паттерны для числовых временных выражений
         const timePatterns = [
