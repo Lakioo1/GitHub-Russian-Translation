@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.60
+// @version      1.61
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -3786,6 +3786,250 @@
         return /[а-яА-ЯёЁ]/.test(text);
     }
 
+    // Функция для проверки игнорируемых элементов
+    function shouldIgnoreElement(element) {
+        if (!element.closest) {
+            return false;
+        }
+
+        // Проверка Markdown элементов
+        const markdownSelectors = [
+            '#readme',
+            '.Box-body #readme',
+            '.DirectoryRichtextContent-module__SharedMarkdownContent__hHXUL',
+            '.markdown-body',
+            'article.markdown-body',
+            '[data-target="readme-toc.contentSticky"]'
+        ];
+
+        for (const selector of markdownSelectors) {
+            if (element.closest(selector)) {
+                return true;
+            }
+        }
+
+        // Проверка блоков коммитов
+        const commitSelectors = [
+            '.AuthorAvatar-module__authorHoverableLink__MHTT8',
+            '.CommitAttribution-module__CommitAttributionContainer__I_rfs',
+            '.CommitRow-module__ListItemTitle_0__cUhJS',
+            '.Title-module__heading__tHuYV',
+            '.react-directory-commit-message'
+        ];
+
+        for (const selector of commitSelectors) {
+            if (element.closest(selector)) {
+                return true;
+            }
+        }
+
+        // Проверка конкретного блока на странице репозитория
+        if (element.matches && (
+            element.matches('#repo-content-pjax-container > div > div > div > div.Layout-main > react-partial > div > div > div.OverviewContent-module__Box_11--Tqhu2 > div:nth-child(1)') ||
+            element.matches('.OverviewContent-module__Box_11--Tqhu2') ||
+            element.closest('#repo-content-pjax-container > div > div > div > div.Layout-main > react-partial > div > div > div.OverviewContent-module__Box_11--Tqhu2 > div:nth-child(1)')
+        )) {
+            return true;
+        }
+
+        // Проверка по техническим селекторам
+        const technicalSelectors = [
+            // Селекторы для кода
+            '#new_blob',
+            '.blob-code',
+            '.blob-code-inner',
+            '.blob-editor-container',
+            '.cm-editor',
+            '.code-editor',
+            '.CodeMirror',
+            '.commit-create',
+            '.commit-desc',
+            '.commit-ref',
+            '.commit-title',
+            '.diff-table',
+            '.file-editor',
+            '.gh-header-title',
+            '.git-command',
+            '.highlight',
+            '.js-blob-form',
+            '.js-file-line',
+            '.js-file-line-container',
+            '.js-issue-title',
+            '.monaco-editor',
+            '.react-code-text',
+            '.sha',
+            '.text-diff-container',
+            '.user-select-contain',
+            '[aria-label*="command"]',
+            '[aria-label^="Toggle"]',
+            '[data-code-marker]',
+            '[data-qa-code-editor]',
+            'code',
+            'pre'
+        ];
+
+        for (const selector of technicalSelectors) {
+            if (element.closest(selector)) {
+                return true;
+            }
+        }
+
+        const readmeContainer = element.closest('#readme, [data-target="readme-toc.contentSticky"]');
+        if (readmeContainer) {
+            return true;
+        }
+
+        const boxBody = element.closest('.Box-body');
+        if (boxBody && boxBody.querySelector('#readme, [data-target="readme-toc.contentSticky"]')) {
+            return true;
+        }
+
+        // Проверка по тегам
+        if (element.tagName === 'SCRIPT' ||
+            element.tagName === 'STYLE' ||
+            element.tagName === 'NOSCRIPT' ||
+            element.tagName === 'CODE' ||
+            element.tagName === 'PRE') {
+            return true;
+        }
+
+        // Проверка по CSS-классам
+        if (element.classList && element.classList.length > 0) {
+            const classList = Array.from(element.classList);
+            var hasForbiddenClass = false;
+            for (var i = 0; i < classList.length; i++) {
+                var className = classList[i];
+                if (className.includes('code') ||
+                    className.includes('commit') ||
+                    className.includes('react') ||
+                    className.includes('editor') ||
+                    className.includes('search-match') ||
+                    className.includes('match') ||
+                    className.includes('highlight')) {
+                    hasForbiddenClass = true;
+                    break;
+                }
+            }
+            if (hasForbiddenClass) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Функция для проверки URL
+    function shouldIgnorePage() {
+        const path = window.location.pathname;
+        return path.includes('/compare/');
+    }
+
+    // Функция для замены текста
+    function translateText(node) {
+        if (node.nodeType === Node.TEXT_NODE && node.parentElement && !shouldIgnoreElement(node.parentElement)) {
+            const text = node.textContent.trim();
+
+            if (hasCyrillic(text)) {
+                return false;
+            }
+
+            // Сначала проверяем по словарю
+            if (text && translations[text]) {
+                node.textContent = node.textContent.replace(text, translations[text]);
+                return true;
+            }
+            // Проверка динамических паттернов
+            const numberedTranslation = translateNumberedText(text);
+            if (numberedTranslation) {
+                node.textContent = node.textContent.replace(text, numberedTranslation);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Функция для обхода DOM-дерева
+    function walkDOM(node) {
+        if (shouldIgnoreElement(node)) {
+            return;
+        }
+
+        translateText(node);
+        node = node.firstChild;
+        while (node) {
+            walkDOM(node);
+            node = node.nextSibling;
+        }
+    }
+
+    // Функция для перевода атрибутов
+    function translateAttributes() {
+        // Перевод placeholder
+        document.querySelectorAll('[placeholder]').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            const placeholder = element.getAttribute('placeholder');
+            if (placeholder && !hasCyrillic(placeholder) && translations[placeholder]) {
+                element.setAttribute('placeholder', translations[placeholder]);
+            }
+        });
+
+        // Перевод aria-label
+        document.querySelectorAll('[aria-label]').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            const label = element.getAttribute('aria-label');
+            if (label && !hasCyrillic(label) && translations[label]) {
+                element.setAttribute('aria-label', translations[label]);
+            }
+        });
+
+        // Перевод title
+        document.querySelectorAll('[title]').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            const title = element.getAttribute('title');
+            if (title && !hasCyrillic(title) && translations[title]) {
+                element.setAttribute('title', translations[title]);
+            }
+        });
+
+        // Перевод alt
+        document.querySelectorAll('[alt]').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            const alt = element.getAttribute('alt');
+            if (alt && !hasCyrillic(alt) && translations[alt]) {
+                element.setAttribute('alt', translations[alt]);
+            }
+        });
+
+        // Перевод value и input
+        document.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            if (element.tagName === 'INPUT' && element.value && !hasCyrillic(element.value) && translations[element.value]) {
+                element.value = translations[element.value];
+            }
+            if (element.tagName === 'BUTTON') {
+                const text = element.textContent.trim();
+                if (text && !hasCyrillic(text) && translations[text]) {
+                    element.textContent = element.textContent.replace(text, translations[text]);
+                }
+            }
+            if (element.getAttribute('data-disable-with')) {
+                const disableText = element.getAttribute('data-disable-with');
+                if (disableText && !hasCyrillic(disableText) && translations[disableText]) {
+                    element.setAttribute('data-disable-with', translations[disableText]);
+                }
+            }
+        });
+
+        // Перевод btn
+        document.querySelectorAll('a.btn, a.btn-danger, a.btn-primary, a.Button').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+            const text = element.textContent.trim();
+            if (text && !hasCyrillic(text) && translations[text]) {
+                element.textContent = translations[text];
+            }
+        });
+    }
+
     // Функция для перевода многострочных текстов
     function translateMultilineTexts() {
         const textElements = document.querySelectorAll(
@@ -3796,6 +4040,10 @@
         );
 
         textElements.forEach(element => {
+            if (shouldIgnoreElement(element)) {
+                return;
+            }
+
             if (hasCyrillic(element.textContent)) {
                 return;
             }
@@ -3857,6 +4105,8 @@
         const attrElements = document.querySelectorAll('[title], [aria-label], [placeholder], [alt]');
 
         attrElements.forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+
             ['title', 'aria-label', 'placeholder', 'alt'].forEach(attr => {
                 const value = element.getAttribute(attr);
                 if (value && value.includes('\n') && !hasCyrillic(value)) {
@@ -3873,6 +4123,7 @@
     function translateReactElements() {
         // Перевод Overlay
         document.querySelectorAll('.Overlay-title').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
             const text = element.textContent.trim();
             if (text && translations[text] && !hasCyrillic(text)) {
                 element.textContent = translations[text];
@@ -3881,6 +4132,7 @@
 
         // Перевод btn-primary, btn, button
         document.querySelectorAll('.btn-primary, .btn, button[type="submit"]').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
             const text = element.textContent.trim();
             if (text && translations[text] && !hasCyrillic(text)) {
                 element.textContent = translations[text];
@@ -3889,6 +4141,8 @@
 
         // Перевод select, optgroup, option
         document.querySelectorAll('select, optgroup, option').forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+
             if (element.tagName === 'OPTGROUP' && element.label) {
                 if (translations[element.label] && !hasCyrillic(element.label)) {
                     element.label = translations[element.label];
@@ -3919,214 +4173,6 @@
         });
     }
 
-    // Функция для проверки игнорируемых элементов
-    function shouldIgnoreElement(element) {
-        if (!element.closest) {
-            return false;
-        }
-
-        // Проверка по техническим селекторам
-        const technicalSelectors = [
-            // Селекторы для кода
-            '#new_blob',
-            '.blob-code',
-            '.blob-code-inner',
-            '.blob-editor-container',
-            '.cm-editor',
-            '.code-editor',
-            '.CodeMirror',
-            '.commit-create',
-            '.commit-desc',
-            '.commit-ref',
-            '.commit-title',
-            '.diff-table',
-            '.file-editor',
-            '.gh-header-title',
-            '.git-command',
-            '.highlight',
-            '.js-blob-form',
-            '.js-file-line',
-            '.js-file-line-container',
-            '.js-issue-title',
-            '.monaco-editor',
-            '.react-code-text',
-            '.sha',
-            '.text-diff-container',
-            '.user-select-contain',
-            '[aria-label*="command"]',
-            '[aria-label^="Toggle"]',
-            '[data-code-marker]',
-            '[data-qa-code-editor]',
-            'code',
-            'pre'
-        ];
-
-        // Проверка по техническим селекторам
-        for (const selector of technicalSelectors) {
-            if (element.closest(selector)) {
-                return true;
-            }
-        }
-
-        const readmeContainer = element.closest('#readme, [data-target="readme-toc.contentSticky"]');
-        if (readmeContainer) {
-            return true;
-        }
-
-        const boxBody = element.closest('.Box-body');
-        if (boxBody && boxBody.querySelector('#readme, [data-target="readme-toc.contentSticky"]')) {
-            return true;
-        }
-
-        // Проверка по тегам
-        if (element.tagName === 'SCRIPT' ||
-            element.tagName === 'STYLE' ||
-            element.tagName === 'NOSCRIPT' ||
-            element.tagName === 'CODE' ||
-            element.tagName === 'PRE') {
-            return true;
-        }
-
-        // Проверка по CSS-классам
-        if (element.classList && element.classList.length > 0) {
-            const classList = Array.from(element.classList);
-            var hasForbiddenClass = false;
-            for (var i = 0; i < classList.length; i++) {
-                var className = classList[i];
-                if (className.includes('code') ||
-                    className.includes('commit') ||
-                    className.includes('react') ||
-                    className.includes('editor') ||
-                    className.includes('search-match') ||
-                    className.includes('match') ||
-                    className.includes('highlight')) {
-                    hasForbiddenClass = true;
-                    break;
-                }
-            }
-            if (hasForbiddenClass) {
-                return true;
-            }
-        }
-
-        // Проверка по конкретным селекторам
-        if (element.matches && (
-            element.matches('#repo-content-pjax-container > div > div > div > div.Layout-main > react-partial > div > div > div.OverviewContent-module__Box_11--Tqhu2 > div:nth-child(1)') ||
-            element.matches('.OverviewContent-module__Box_11--Tqhu2') ||
-            element.closest('#repo-content-pjax-container > div > div > div > div.Layout-main > react-partial > div > div > div.OverviewContent-module__Box_11--Tqhu2 > div:nth-child(1)')
-        )) {
-            return true;
-        }
-
-        return false;
-    }
-
-    // Функция для проверки URL
-    function shouldIgnorePage() {
-        const path = window.location.pathname;
-        return path.includes('/compare/');
-    }
-
-    // Функция для замены текста
-    function translateText(node) {
-        if (node.nodeType === Node.TEXT_NODE && node.parentElement && !shouldIgnoreElement(node.parentElement)) {
-            const text = node.textContent.trim();
-
-            if (hasCyrillic(text)) {
-                return false;
-            }
-
-            // Сначала проверяем по словарю
-            if (text && translations[text]) {
-                node.textContent = node.textContent.replace(text, translations[text]);
-                return true;
-            }
-            // Проверка динамических паттернов
-            const numberedTranslation = translateNumberedText(text);
-            if (numberedTranslation) {
-                node.textContent = node.textContent.replace(text, numberedTranslation);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // Функция для обхода DOM-дерева
-    function walkDOM(node) {
-        if (shouldIgnoreElement(node)) {
-            return;
-        }
-
-        translateText(node);
-        node = node.firstChild;
-        while (node) {
-            walkDOM(node);
-            node = node.nextSibling;
-        }
-    }
-
-    // Функция для перевода атрибутов
-    function translateAttributes() {
-        // Перевод placeholder
-        document.querySelectorAll('[placeholder]').forEach(element => {
-            const placeholder = element.getAttribute('placeholder');
-            if (placeholder && !hasCyrillic(placeholder) && translations[placeholder]) {
-                element.setAttribute('placeholder', translations[placeholder]);
-            }
-        });
-
-        // Перевод aria-label
-        document.querySelectorAll('[aria-label]').forEach(element => {
-            const label = element.getAttribute('aria-label');
-            if (label && !hasCyrillic(label) && translations[label]) {
-                element.setAttribute('aria-label', translations[label]);
-            }
-        });
-
-        // Перевод title
-        document.querySelectorAll('[title]').forEach(element => {
-            const title = element.getAttribute('title');
-            if (title && !hasCyrillic(title) && translations[title]) {
-                element.setAttribute('title', translations[title]);
-            }
-        });
-
-        // Перевод alt
-        document.querySelectorAll('[alt]').forEach(element => {
-            const alt = element.getAttribute('alt');
-            if (alt && !hasCyrillic(alt) && translations[alt]) {
-                element.setAttribute('alt', translations[alt]);
-            }
-        });
-
-        // Перевод value и input
-        document.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
-            if (element.tagName === 'INPUT' && element.value && !hasCyrillic(element.value) && translations[element.value]) {
-                element.value = translations[element.value];
-            }
-            if (element.tagName === 'BUTTON') {
-                const text = element.textContent.trim();
-                if (text && !hasCyrillic(text) && translations[text]) {
-                    element.textContent = element.textContent.replace(text, translations[text]);
-                }
-            }
-            if (element.getAttribute('data-disable-with')) {
-                const disableText = element.getAttribute('data-disable-with');
-                if (disableText && !hasCyrillic(disableText) && translations[disableText]) {
-                    element.setAttribute('data-disable-with', translations[disableText]);
-                }
-            }
-        });
-
-        // Перевод btn
-        document.querySelectorAll('a.btn, a.btn-danger, a.btn-primary, a.Button').forEach(element => {
-            const text = element.textContent.trim();
-            if (text && !hasCyrillic(text) && translations[text]) {
-                element.textContent = translations[text];
-            }
-        });
-    }
-
     // Основная функция перевода
     function translatePage() {
         if (shouldIgnorePage()) {
@@ -4149,6 +4195,8 @@
         // Специальная обработка для динамически загружаемого контента
         const selectors = 'button, a, span, div, h1, h2, h3, h4, h5, h6, p, label, td, th';
         document.querySelectorAll(selectors).forEach(element => {
+            if (shouldIgnoreElement(element)) return;
+
             if (element.childNodes.length === 1 &&
                 element.firstChild.nodeType === Node.TEXT_NODE &&
                 !shouldIgnoreElement(element)) {
@@ -4186,10 +4234,15 @@
             if (mutation.type === 'childList') {
                 mutation.addedNodes.forEach(function(node) {
                     if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (shouldIgnoreElement(node)) {
+                            return;
+                        }
+
                         walkDOM(node);
                         // Переводим атрибуты у новых элементов
                         if (node.querySelectorAll) {
                             node.querySelectorAll('[placeholder], [aria-label], [title], [alt]').forEach(element => {
+                                if (shouldIgnoreElement(element)) return;
                                 ['placeholder', 'aria-label', 'title', 'alt'].forEach(attr => {
                                     const value = element.getAttribute(attr);
                                     if (value && !hasCyrillic(value) && translations[value]) {
@@ -4199,6 +4252,7 @@
                             });
                             // Перевод value и input
                             node.querySelectorAll('input[type="submit"], input[type="button"], button, .btn').forEach(element => {
+                                if (shouldIgnoreElement(element)) return;
                                 if (element.tagName === 'INPUT' && element.value && !hasCyrillic(element.value) && translations[element.value]) {
                                     element.value = translations[element.value];
                                 }
@@ -4217,6 +4271,7 @@
                             });
                             // Перевод btn
                             node.querySelectorAll('a.btn, a.btn-danger, a.btn-primary, a.Button').forEach(element => {
+                                if (shouldIgnoreElement(element)) return;
                                 const text = element.textContent.trim();
                                 if (text && !hasCyrillic(text) && translations[text]) {
                                     element.textContent = translations[text];
@@ -4248,7 +4303,7 @@
         originalPushState.apply(this, arguments);
         setTimeout(() => {
             translatePage();
-        }, 50);
+        }, 100);
     };
 
     let originalReplaceState = history.replaceState;
@@ -4256,20 +4311,40 @@
         originalReplaceState.apply(this, arguments);
         setTimeout(() => {
             translatePage();
-        }, 50);
+        }, 100);
     };
 
     window.addEventListener('popstate', () => {
         setTimeout(() => {
             translatePage();
-        }, 50);
+        }, 100);
     });
 
     // Обработка событий Turbo/PJAX
-    document.addEventListener('turbo:load', () => setTimeout(translatePage, 50));
-    document.addEventListener('turbo:render', () => setTimeout(translatePage, 50));
-    document.addEventListener('pjax:end', () => setTimeout(translatePage, 50));
-    document.addEventListener('pjax:success', () => setTimeout(translatePage, 50));
+    document.addEventListener('turbo:load', () => setTimeout(translatePage, 100));
+    document.addEventListener('turbo:render', () => setTimeout(translatePage, 100));
+    document.addEventListener('turbo:before-cache', () => setTimeout(translatePage, 100));
+    document.addEventListener('turbo:before-render', () => setTimeout(translatePage, 100));
+    document.addEventListener('pjax:end', () => setTimeout(translatePage, 100));
+    document.addEventListener('pjax:success', () => setTimeout(translatePage, 100));
+
+    // Универсальный обработчик для отслеживания изменений URL
+    let lastUrl = window.location.href;
+    const urlObserver = new MutationObserver(function() {
+        if (lastUrl !== window.location.href) {
+            lastUrl = window.location.href;
+            setTimeout(() => {
+                translatePage();
+            }, 100);
+        }
+    });
+    urlObserver.observe(document, { subtree: true, childList: true });
+
+    // Дополнительные обработчики для полной совместимости
+    window.addEventListener('pushstate', () => setTimeout(translatePage, 100));
+    window.addEventListener('replacestate', () => setTimeout(translatePage, 100));
+    document.addEventListener('DOMContentLoaded', () => setTimeout(translatePage, 100));
+    window.addEventListener('load', () => setTimeout(translatePage, 100));
 
     // Добавляем индикатор, что скрипт работает
     console.log('🌐 GitHub Russian Translation активирован');
