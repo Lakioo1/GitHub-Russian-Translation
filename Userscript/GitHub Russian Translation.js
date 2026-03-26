@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.61
+// @version      1.62
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -138,6 +138,7 @@
         'Chat with Copilot': 'Чат с Copilot',
         'Codespaces': 'Кодспейсы',
         'Connect models to the real world': 'Соединяйте модели с реальным миром',
+        'Contributed to': 'Внёс вклад в',
         'Copilot settings': 'Copilot настройки',
         'Create a new extension': 'Создать новое расширение',
         'Create a new issue from scratch': 'Создать новую задачу с нуля',
@@ -359,6 +360,7 @@
         'Code check': 'Проверка кода',
         'Code frequency': 'Частота кода',
         'Code of conduct': 'Кодекс поведения',
+        'Code review': 'Проверка кода',
         'CodeQL analysis': 'Анализ CodeQL',
         'CodeQL will automatically find the best configuration for your repository.': 'CodeQL автоматически найдет оптимальную конфигурацию для вашего репозитория.',
         'Codespaces secrets': 'Секреты Codespaces',
@@ -541,7 +543,7 @@
         'Filter by extension': 'Фильтровать по расширению',
         'Filter by ecosystem': 'Фильтровать по экосистеме',
         'Filter by Event': 'Фильтр по событию',
-        'Filter by milestone': 'Фильтровать по вехе',
+        'Filter by milestone': 'Фильтровать по этапу',
         'Filter by label': 'Фильтровать по метке',
         'Filter by owner': 'Фильтровать по владельцу',
         'Filter by period': 'Фильтровать по периоду',
@@ -719,6 +721,7 @@
         'New self-hosted runner': 'Новый самохостный бегун',
         'New tag ruleset': 'Новый набор правил для тегов',
         'New with options...': 'Новое с опциями...',
+        'Never be notified.': 'Никогда не получать уведомления.',
         'Newest Sponsors profile': 'Новые профили Sponsors',
         'No codespaces': 'Нет кодовых пространств',
         'No commits history': 'Нет истории коммитов',
@@ -749,6 +752,7 @@
         'None yet': 'Пока нет',
         'Not subscribed': 'Не подписан',
         'Not reviewed by you': 'Не проверено вами',
+        'Notified of all notifications on this repository.': 'Уведомления обо всей активности в этом репозитории.',
         'Notifications': 'Уведомления',
         'Notifications you save will appear here to read later.': 'Сохраненные уведомления появятся здесь, чтобы вы могли прочитать их позже.',
         'Nothing to show': 'Нечего показать',
@@ -760,6 +764,7 @@
         'Once you delete a repository, there is no going back. Please be certain.': 'После удаления репозитория возвратных действий не будет. Пожалуйста, будьте уверены в своем решении.',
         'Only critical': 'Только критические',
         'Only errors': 'Только ошибки',
+        "Only receive notifications from this repository when participating or @mentioned.": "Получать уведомления из этого репозитория только при участии или упоминании (@).",
         'Only users who are both new on GitHub and who have never had a commit or pull request merged into this repository will require approval to run workflows.': 'Только пользователи, которые являются новыми на GitHub и никогда не имели коммитов или пул-реквестов, объединенных в этом репозитории, потребуют одобрения для запуска рабочих процессов.',
         'Only users who have never had a commit or pull request merged into this repository will require approval to run workflows.': 'Только пользователи, которые никогда не выполняли коммиты или не отправляли запросы на слияние в этот репозиторий, будут нуждаться в одобрении для запуска рабочих процессов.',
         'Open': 'Открыто',
@@ -892,6 +897,7 @@
         'Select a country or region': 'Выберите страну или регион',
         "Select a verified email address for us to contact you about your GitHub Sponsors profile. This will not be shared publicly. You can manage verified email addresses in your": "Выберите подтвержденный адрес электронной почты, по которому мы сможем связаться с вами по поводу вашего профиля GitHub Sponsors. Он не будет публиковаться. Вы можете управлять подтвержденными адресами электронной почты в своем",
         'Select commit': 'Выберите фиксацию',
+        'Select events you want to be notified of in addition to participating and @mentions.': 'Выберите события, о которых вы хотите получать уведомления, в дополнение к участию и упоминаниям (@).',
         'Select language': 'Выберите язык',
         'Select order': 'Выберите заказ',
         'Select sort view': 'Выберите вид сортировки',
@@ -1034,7 +1040,7 @@
         'Usage metrics': 'Показатели использования',
         'Use a bank account to receive your sponsorships. Note: If you use a personal bank account, your country may tax your GitHub Sponsors payouts as personal income.': 'Используйте банковский счет для получения спонсорских средств. Примечание: если вы используете личный банковский счет, ваша страна может облагать налогом выплаты от GitHub Sponsors как личный доход.',
         'Use a password-protected SSH key.': 'Используйте защищенный паролем ключ SSH.',
-        'Use Milestones to create collections of Issues and Pull Requests for a particular release or project.': 'Используйте вехи для создания коллекций проблем и запросов на извлечение для конкретного выпуска или проекта.',
+        'Use Milestones to create collections of Issues and Pull Requests for a particular release or project.': 'Используйте этапы для создания коллекций проблем и запросов на извлечение для конкретного выпуска или проекта.',
         'Use saved searches to filter your results more quickly': 'Используйте сохраненные поиски, чтобы быстрее фильтровать результаты',
         'Use unique line styles (dashed, dotted, etc.) to differentiate lines in charts.': 'Используйте уникальные стили линий (пунктирные, точечные и т. д.) для различения линий на графиках.',
         'Use your password': 'Используйте свой пароль',
@@ -1310,6 +1316,7 @@
         "Add parent": "Добавить родителя",
         "added": "добавлен",
         "AND": "И",
+        "An owner of this repository has limited the ability to comment to users that are collaborators on this repository.": "Владелец этого репозитория ограничил возможность оставлять комментарии только пользователям, которые являются соавторами этого репозитория.",
         "Apply labels to this issue": "Применить метки к этой проблеме",
         "Archived": "Архивированные",
         "Are you sure you want to delete view Untitled view?": "Вы уверены, что хотите удалить представление «Без названия»?",
@@ -1442,7 +1449,7 @@
         "Won't fix, can't repro, stale": "Не исправляется, не воспроизводится, устарело",
         "You are assigned to and commented on this issue": "Вы назначены ответственным за эту проблему и прокомментировали ее.",
         "You do not have permissions to close this issue": "У вас нет прав для закрытия этой проблемы.",
-        "You haven’t created any Milestones.": "Вы не создали ни одного веха.",
+        "You haven’t created any Milestones.": "Вы не создали ни одного этапа.",
         "You will only be notified for events selected from the list below. If you participate or are @mentioned you will be subscribed.": "Вы будете получать уведомления только о событиях, выбранных из приведенного ниже списка. Если вы участвуете в событии или вас упомянули с помощью @, вы будете подписаны на него.",
         "You're not receiving notifications from this thread.": "Вы не получаете уведомления из этой ветки.",
         "You're receiving notifications because you're subscribed to this thread.": "Вы получаете уведомления, потому что подписаны на эту ветку.",
@@ -1452,20 +1459,27 @@
         'Ask admin for access': 'Обратиться к администратору за доступом',
         'Assigned': 'Назначено',
         'Assigned to nobody': 'Никому не назначено',
+        'All commits': 'Все коммиты',
         'all of GitHub': 'весь GitHub',
         'Build, test, and deploy your code right from GitHub.': 'Создавайте, тестируйте и развертывайте свой код прямо из GitHub.',
+        'Changes since your last review': 'Изменения, произошедшие с момента вашего последнего обзора',
         'Checkout with GitHub CLI': 'Проверка с помощью GitHub CLI',
+        'Checkout with GitHub Desktop': 'Открыть в GitHub Desktop',
         'Codespace repository configuration': 'Настройка репозитория Codespace',
         'Closed with unmerged commits': 'Закрыто с необъединенными коммитами',
         'Filter by organization or owner': 'Фильтровать по организации или владельцу',
+        'Finish your comments': 'Завершите комментарии',
         'GitHub Actions make it easy to automate all your software workflows, now with world-class CI/CD.': 'GitHub Actions упрощает автоматизацию всех ваших программных рабочих процессов, теперь с помощью CI/CD мирового класса.',
         'Learn about draft PRs': 'Узнайте о проектах PR',
         'Least commented': 'Наименее комментируемые',
         'Least recently updated': 'Наименее недавно обновленные',
         'Most commented': 'Наиболее комментируемые',
         'Most reactions': 'Большинство реакций',
+        'No previous review found': 'Предыдущих отзывов не найдено',
         'Only manifest files': 'Только файлы манифеста',
         "Open an in-progress pull request without asking for formal review or risking an unwanted merge. When you're ready for code review, you can mark your draft pull request as ready for review, which will request reviews from any code owners.": "Откройте незавершенный запрос на слияние, не запрашивая официального рецензирования и не рискуя нежелательным слиянием. Когда вы будете готовы к рецензированию кода, вы можете пометить свой черновой запрос на слияние как готовый к рецензированию, что вызовет запрос на рецензирование от всех владельцев кода.",
+        'Open comments panel': 'Открыть панель комментариев',
+        'Open overview panel': 'Открыть панель обзора',
         'or try an': 'или попробуйте',
         'Organization': 'Организация',
         'Private repositories only': 'Только частные репозитории',
@@ -1477,15 +1491,21 @@
         'Review conversations will show up here.': 'Здесь будут отображаться разговоры по поводу обзоров.',
         'Review requests': 'Запросы на проверку',
         'Reference in new issue': 'Ссылка в новом выпуске',
+        'Select a range of commits': 'Выбрать диапазон коммитов',
+        'Select commits to view': 'Выберите коммиты для просмотра',
         'Still in progress?': 'Все еще в процессе?',
+        'Switch to the classic experience': 'Переключитесь на классический режим',
         'There aren’t any open pull requests.': 'Открытых запросов на извлечение нет.',
         'This pull request is closed.': 'Этот запрос на извлечение закрыт.',
+        'This pull request must be reopened to create new codespaces on it.': 'Этот pull request необходимо снова открыть, чтобы создать на его основе новые codespaces.',
         'Try draft pull requests': 'Попробуйте создать черновики запросов на слияние',
         'Unlabeled': 'Без маркировки',
         'Verified': 'Проверено',
         'Viewed files': 'Просмотренные файлы',
+        "What's new": "Что нового",
         'You could search': 'Вы можете выполнить поиск',
         "You haven’t reviewed this pull request yet": "Вы еще не просмотрели этот запрос на извлечение",
+        "You're all set — the branch has been merged.": "Всё готово — ветка объединена.",
         'You’re not receiving notifications from this thread.': 'Вы не получаете уведомления из этой ветки.',
 
         // Кодспейсы
@@ -1842,6 +1862,8 @@
         'GPT models': 'GPT модели',
         'GraphQL API': 'GraphQL API',
         'Grouped security updates': 'Групповые обновления безопасности',
+        'Has': 'Имеет',
+        'Has is': 'Есть ли',
         'Help your community understand how to securely report security vulnerabilities for your project.': 'Помогите вашему сообществу понять, как безопасно сообщать об уязвимостях безопасности вашего проекта.',
         'HTTPS enforcement': 'Принудительный HTTPS',
         'Info': 'Информация',
@@ -1855,6 +1877,8 @@
         'Machine learning': 'Машинное обучение',
         'Machine types': 'Типы машин',
         'Maintenance': 'Техническое обслуживание',
+        "Malware": "Вредоносное ПО",
+        'Malware alerts': 'Предупреждения о вредоносном ПО',
         'Manage security settings': 'Управление настройками безопасности',
         'Marketplace apps': 'Приложения Marketplace',
         'Merge queue': 'Очередь слияния',
@@ -1864,6 +1888,7 @@
         'Mobile app': 'Мобильное приложение',
         'Mobile features': 'Мобильные функции',
         'Mobile notifications': 'Мобильные уведомления',
+        'Multi-repository': 'Мультирепозиторный',
         'Mute notifications': 'Отключить уведомления',
         'Natural language processing': 'Обработка естественного языка',
         'Network error': 'Ошибка сети',
@@ -1915,6 +1940,7 @@
         'Project settings': 'Настройки проекта',
         'Project templates': 'Шаблоны проекта',
         'Project views': 'Представления проекта',
+        'Publicly leaked': 'Публично утекшие',
         'Punch card': 'Панч-карта',
         'Push protection': 'Защита при push',
         'Rate limited': 'Превышен лимит запросов',
@@ -1950,6 +1976,7 @@
         'Security tools': 'Инструменты безопасности',
         'See less': 'Показать меньше',
         'See more': 'Показать еще',
+        'Select items': 'Выбрать товары',
         'Self-hosted runners': 'Self-hosted раннеры',
         'Server error': 'Ошибка сервера',
         'Set up code scanning': 'Настройка сканирования кода',
@@ -1974,6 +2001,7 @@
         'Team permissions': 'Разрешения команды',
         'Team repositories': 'Репозитории команды',
         'Team settings': 'Настройки команды',
+        'Text': 'Текст',
         'Third-party integrations': 'Сторонние интеграции',
         'This repository has no activity': 'В этом репозитории нет активности',
         "this repository’s settings": "настройках этого репозитория",
@@ -1990,6 +2018,7 @@
         'View security policy': 'Посмотреть политику безопасности',
         'Vulnerability alerts': 'Оповещения об уязвимостях',
         'Vulnerability Exploitability eXchange': 'Обмен данными об эксплуатируемости уязвимостей',
+        "Vulnerabilities": "Уязвимости",
         'Warning': 'Предупреждение',
         'Web notifications': 'Веб-уведомления',
         'Webhooks': 'Вебхуки',
@@ -2167,7 +2196,7 @@
         'Local': 'Локальный',
         'Menu': 'Меню',
         'Merge pull request': 'Слить запрос',
-        'Milestones': 'Вехи',
+        'Milestones': 'Этапы',
         'New issue': 'Новая задача',
         'No discussions match the selected filters.': 'Нет обсуждений, соответствующих выбранным фильтрам.',
         'Numbered list': 'Пронумерованный список',
@@ -2230,6 +2259,7 @@
         'Allow Copilot to suggest commit messages when you make changes on GitHub.com.': 'Разрешить Copilot предлагать сообщения о фиксации при внесении изменений на GitHub.com.',
         'Allow GitHub, its affiliates and third parties to use my data, including Prompts, Suggestions, and Code Snippets, for product improvements. More information in the': 'Разрешить GitHub, его аффилированным лицам и третьим сторонам использовать мои данные, включая подсказки, предложения и фрагменты кода, для улучшения продуктов. Дополнительная информация в',
         'Allow GitHub, its affiliates and third parties to use my data, including Prompts, Suggestions, and Code Snippets, for AI model training. More information in the': 'Разрешить GitHub, его аффилированным лицам и третьим сторонам использовать мои данные, включая подсказки, предложения и фрагменты кода, для обучения моделей ИИ. Дополнительная информация в',
+        "Allow GitHub to collect and use my Inputs, Outputs, and associated context to train and improve AI models. Read more in the": "Разрешить GitHub собирать и использовать мои вводные данные, результаты и связанный контекст для обучения и улучшения моделей искусственного интеллекта. Подробнее в ",
         'Allow GitHub to use my data for AI model training': 'Разрешить GitHub использовать мои данные для обучения моделей искусственного интеллекта',
         'Allow GitHub to use my data for product improvements': 'Разрешить GitHub использовать мои данные для улучшения продуктов',
         'Allow your community to privately report potential security vulnerabilities to maintainers and repository owners.': 'Позвольте вашему сообществу в частном порядке сообщать о потенциальных уязвимостях безопасности администраторам и владельцам репозиториев.',
@@ -2441,6 +2471,8 @@
         'Get usage report': 'Получить отчет об использовании',
         'GitHub Copilot for assistance in GitHub Desktop': 'GitHub Copilot для помощи в GitHub Desktop',
         'GitHub Copilot for assistance in terminal': 'Для помощи в работе с терминалом используйте GitHub Copilot',
+        'GitHub Copilot will show suggestions matching public code.': 'GitHub Copilot будет показывать предложения, соответствующие общедоступному коду.',
+        "GitHub Copilot won't show suggestions matching public code.": "GitHub Copilot не будет показывать предложения, соответствующие общедоступному коду.",
         'GitHub developer program': 'Программа для разработчиков GitHub',
         'GitHub Developer Program': 'Программа для разработчиков GitHub',
         'GitHub Education': 'GitHub Образование',
@@ -2489,6 +2521,7 @@
         'Integrations': 'Интеграции',
         'Interaction limits': 'Пределы взаимодействия',
         'Interaction limits may already exist in your account\'s' : 'Ограничения взаимодействия могут уже существовать в',
+        'It can take up to 30 minutes for the changes to take effect. Restart your code editor for the changes to take effect immediately.': 'Для вступления изменений в силу может потребоваться до 30 минут. Перезапустите редактор кода, чтобы изменения вступили в силу немедленно.',
         'It may take up to an hour for repositories to be displayed here. You can only restore repositories that are not forks, or have not been forked.' : 'Может потребоваться до часа, чтобы репозитории отобразились здесь. Вы можете восстановить только те репозитории, которые не являются форками или не были форкнуты.',
         'Jobs profile': 'Профиль вакансий',
         'Join the GitHub Developer Program': 'Присоединяйтесь к программе для разработчиков GitHub',
@@ -2551,7 +2584,7 @@
         'MCP servers in Copilot': 'Серверы MCP в Copilot',
         'Metered usage': 'Использование по счетчику',
         'Microsoft Privacy Statement': 'Заявление о конфиденциальности Microsoft',
-        'Milestones': 'Вехи',
+        'Milestones': 'Этапы',
         'Models paid usage': 'Модели платного использования',
         'Models pricing': 'Цены на модели',
         'Moderation': 'Модерация',
@@ -2800,6 +2833,7 @@
         'Update preferences': 'Обновление настроек',
         'Update profile': 'Обновление профиля',
         'Upgrade Copilot': 'Обновление Copilot',
+        "Upgrade for higher limits, premium models, AI reviews.\n                      \n                      Free responses reset in 14 days.": "Обновитесь для увеличения лимитов, премиальных моделей и проверок с помощью ИИ.\n                      \n                      Бесплатные ответы восстанавливаются через 14 дней.",
         'Upgrade to GitHub Pro': 'Переход на GitHub Pro',
         'URL paste behavior': 'Поведение при вставке URL-адреса',
         'Usage': 'Использование',
@@ -2869,6 +2903,8 @@
         'You have not designated a successor.': 'Вы не назначили преемника.',
         'You have not made any payments.': 'Вы не произвели никаких платежей.',
         'You have set your email address to private. To toggle email privacy, go to': 'Вы установили свой адрес электронной почты как частный. Чтобы изменить настройки конфиденциальности электронной почты, перейдите в раздел',
+        'You will have access to the feature': 'Вы получите доступ к этой функции',
+        "You won't have access to the feature": "У вас не будет доступа к этой функции",
         'You\'ll never be notified.': 'Вы никогда не будете уведомлены.',
         'You\'ll be prompted to verify your identity before account deletion.': 'Перед удалением аккаунта вам будет предложено подтвердить вашу личность.',
         'You\'re currently not sponsoring anyone.': 'В настоящее время вы никого не спонсируете.',
@@ -2887,24 +2923,40 @@
         'Add a short title to your reply': 'Добавьте краткий заголовок к вашему ответу',
         'Add your saved reply': 'Добавить сохраненный ответ',
         'Email address': 'Адрес электронной почты',
-        'Filter files…': 'Отфильтровать файлы…',
+        'Filter assignees': 'Фильтр исполнителей',
+        'Filter authors': 'Фильтр авторов',
+        'Filter files…': 'Фильтр файлов…',
+        'Filter labels': 'Фильтр меток',
+        'Filter milestones ': 'Фильтр этапов',
+        'Filter projects': 'Фильтр проектов',
+        'Filter provider': 'Фильтр по поставщику',
         'Filter repositories and gists': 'Фильтровать репозитории и gists',
+        'Filter secret type': 'Фильтр по типу секрета',
+        'Filter users': 'Фильтр пользователей',
+        'Filter values': 'Значения фильтра',
+        'Find or create a branch...': 'Найти или создать ветку...',
         'Go to file': 'Перейти к файлу',
         'No results found.': 'Ничего не найдено.',
+        'Nothing to preview': 'Предварительного просмотра нет',
         "Link to social profile 1": "Ссылка на соцсеть 1",
         "Link to social profile 2": "Ссылка на соцсеть 2",
         "Link to social profile 3": "Ссылка на соцсеть 3",
         "Link to social profile 4": "Ссылка на соцсеть 4",
         'Search...': 'Поиск...',
+        'Search all discussions': 'Поиск по всем обсуждениям',
         'Search all issues': 'Поиск по всем выпускам',
         'Search all projects': 'Поиск по всем проектам',
+        'Search branches...': 'Поиск веток...',
         'Search deleted packages': 'Поиск удалённых пакетов',
+        'Search Issues': 'Поиск задач',
+        'Search or create a new tag': 'Найти или создать новый тег',
         'Search or filter': 'Поиск или фильтр',
         'Search or filter usage': 'Поиск или фильтрация использования',
         'Search within code': 'Поиск в коде',
         'Search workflows': 'Поиск рабочих процессов',
         'Select a verified email to display': 'Выберите подтвержденный адрес электронной почты для отображения',
         'Tell us a little bit about yourself': 'Расскажите нам немного о себе',
+        'Use Markdown to format your comment': 'Используйте Markdown для форматирования своего комментария',
         'Write a description': 'Напишите описание',
 
         // Языки для выпадающего списка
@@ -4173,6 +4225,114 @@
         });
     }
 
+    // Функция для перевода SVG графики
+    function translateSVGGraphs() {
+        // Перевод всех текстов внутри SVG элементов
+        const allSvgTexts = document.querySelectorAll('svg text, svg textContent');
+        allSvgTexts.forEach(text => {
+            const content = text.textContent.trim();
+            if (content && !hasCyrillic(content) && translations[content]) {
+                text.textContent = translations[content];
+            }
+        });
+
+        // Перевод всех title внутри SVG
+        const allSvgTitles = document.querySelectorAll('svg title');
+        allSvgTitles.forEach(title => {
+            const content = title.textContent;
+            if (content && !hasCyrillic(content) && translations[content]) {
+                title.textContent = translations[content];
+            }
+        });
+
+        // Перевод всех aria-label внутри SVG
+        const allSvgElements = document.querySelectorAll('svg, svg *');
+        allSvgElements.forEach(element => {
+            const ariaLabel = element.getAttribute('aria-label');
+            if (ariaLabel && !hasCyrillic(ariaLabel) && translations[ariaLabel]) {
+                element.setAttribute('aria-label', translations[ariaLabel]);
+            }
+        });
+
+        // Перевод aria-label у Progress элементов
+        const progressElements = document.querySelectorAll('.Progress[role="img"]');
+        progressElements.forEach(el => {
+            const ariaLabel = el.getAttribute('aria-label');
+            if (ariaLabel && !hasCyrillic(ariaLabel)) {
+                const match = ariaLabel.match(/^(\d+)% of commits in (\w+) were made to (.+)$/);
+                if (match) {
+                    const percent = match[1];
+                    const month = match[2];
+                    const repo = match[3];
+                    const monthTrans = translations[month] || month;
+                    el.setAttribute('aria-label', `${percent}% коммитов в ${monthTrans} было сделано в ${repo}`);
+                } else if (translations[ariaLabel]) {
+                    el.setAttribute('aria-label', translations[ariaLabel]);
+                }
+            }
+        });
+
+        // Перевод текста "Activity overview"
+        const activityHeaders = document.querySelectorAll('h3.tmp-mb-3.text-normal.f5');
+        activityHeaders.forEach(header => {
+            const text = header.textContent.replace(/\s+/g, ' ').trim();
+            if (text === 'Activity overview') {
+                header.textContent = 'Обзор активности';
+            }
+        });
+
+        // Перевод текста "Contributed to"
+        const contributedTexts = document.querySelectorAll('.wb-break-word');
+        contributedTexts.forEach(el => {
+            const text = el.textContent.trim();
+            if (text.startsWith('Contributed to') && translations['Contributed to']) {
+                const links = el.querySelectorAll('a');
+                if (links.length) {
+                    const repos = Array.from(links).map(a => a.textContent).join(', ');
+                    el.innerHTML = `${translations['Contributed to']} ${repos}`;
+                }
+            }
+        });
+
+        // Перевод блока с количеством вкладов
+        const contributionDesc = document.querySelector('#js-contribution-activity-description');
+        if (contributionDesc) {
+            const text = contributionDesc.textContent.replace(/\s+/g, ' ').trim();
+            const match = text.match(/^(\d+)\s+contributions\s+in the last year$/);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+                contributionDesc.textContent = `${num} ${word} за последний год`;
+            }
+        }
+
+        // Перевод блока с количеством коммитов
+        const commitLinks = document.querySelectorAll('a[href*="/commits?"]');
+        commitLinks.forEach(link => {
+            const text = link.textContent.trim();
+            const match = text.match(/^(\d+)\s+commits?$/);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const commitWord = (num === 1) ? 'коммит' : ((num >= 2 && num <= 4) ? 'коммита' : 'коммитов');
+                link.textContent = `${num} ${commitWord}`;
+            }
+        });
+
+        // Перевод блока с количеством коммитов и репозиториях
+        const createdSpans = document.querySelectorAll('span.color-fg-default.ws-normal.text-left');
+        createdSpans.forEach(span => {
+            const text = span.textContent.replace(/\s+/g, ' ').trim();
+            const match = text.match(/^Created (\d+) commits? in (\d+) repositories?$/);
+            if (match) {
+                const commits = parseInt(match[1], 10);
+                const repos = parseInt(match[2], 10);
+                const commitWord = (commits === 1) ? 'коммит' : ((commits >= 2 && commits <= 4) ? 'коммита' : 'коммитов');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                span.textContent = `Создано ${commits} ${commitWord} в ${repos} ${reposWord}`;
+            }
+        });
+    }
+
     // Основная функция перевода
     function translatePage() {
         if (shouldIgnorePage()) {
@@ -4212,6 +4372,8 @@
                 }
             }
         });
+
+        translateSVGGraphs();
     }
 
     // Запуск перевода при загрузке страницы
@@ -4277,6 +4439,9 @@
                                     element.textContent = translations[text];
                                 }
                             });
+                            setTimeout(() => {
+                                translateSVGGraphs();
+                            }, 50);
                         }
                     }
                 });
@@ -4288,6 +4453,7 @@
             translateMultilineTexts();
             translateMultilineAttributes();
             translateReactElements();
+            translateSVGGraphs();
         }, 50);
     });
 
