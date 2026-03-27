@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.62
+// @version      1.63
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -3830,6 +3830,106 @@
             }
         }
 
+        // Проверяем паттерн "X contributions"
+        const contributionsMatch = text.match(/^(\d+(?:,\d+)?)\s+contributions?\s+in\s+the\s+last\s+year$/i);
+        if (contributionsMatch) {
+            const num = parseInt(contributionsMatch[1].replace(/,/g, ''), 10);
+            const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+            return `${num.toLocaleString()} ${word} за последний год`;
+        }
+
+        const contributionsYearMatch = text.match(/^(\d+(?:,\d+)?)\s+contributions?\s+in\s+(\d{4})$/i);
+        if (contributionsYearMatch) {
+            const num = parseInt(contributionsYearMatch[1].replace(/,/g, ''), 10);
+            const year = contributionsYearMatch[2];
+            const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+            return `${num.toLocaleString()} ${word} в ${year} году`;
+        }
+
+        const contributionsOnlyMatch = text.match(/^(\d+(?:,\d+)?)\s+contributions?$/i);
+        if (contributionsOnlyMatch) {
+            const num = parseInt(contributionsOnlyMatch[1].replace(/,/g, ''), 10);
+            const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+            return `${num.toLocaleString()} ${word}`;
+        }
+
+        // Проверяем паттерн "Created X commits in Y repositories"
+        const normalizedText = text.replace(/\s+/g, ' ').trim();
+
+        const openedPrMatch = normalizedText.match(/^Opened\s+(\d+)\s+pull\s+request\s+in\s+(\d+)\s+repositories?$/i);
+        if (openedPrMatch) {
+            const prs = parseInt(openedPrMatch[1], 10);
+            const repos = parseInt(openedPrMatch[2], 10);
+            const prWord = (prs === 1) ? 'запрос на слияние' : ((prs >= 2 && prs <= 4) ? 'запроса на слияние' : 'запросов на слияние');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Открыто ${prs} ${prWord} в ${repos} ${reposWord}`;
+        }
+
+        const openedIssueMatch = normalizedText.match(/^Opened\s+(\d+)\s+issue\s+in\s+(\d+)\s+repositories?$/i);
+        if (openedIssueMatch) {
+            const issues = parseInt(openedIssueMatch[1], 10);
+            const repos = parseInt(openedIssueMatch[2], 10);
+            const issueWord = (issues === 1) ? 'задачу' : ((issues >= 2 && issues <= 4) ? 'задачи' : 'задач');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Открыто ${issues} ${issueWord} в ${repos} ${reposWord}`;
+        }
+
+        const prOnlyMatch = normalizedText.match(/^Opened\s+(\d+)\s+pull\s+request$/i);
+        if (prOnlyMatch) {
+            const num = parseInt(prOnlyMatch[1], 10);
+            const word = (num === 1) ? 'запрос на слияние' : ((num >= 2 && num <= 4) ? 'запроса на слияние' : 'запросов на слияние');
+            return `Открыто ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "Opened X issue"
+        const issueOnlyMatch = normalizedText.match(/^Opened\s+(\d+)\s+issue$/i);
+        if (issueOnlyMatch) {
+            const num = parseInt(issueOnlyMatch[1], 10);
+            const word = (num === 1) ? 'задачу' : ((num >= 2 && num <= 4) ? 'задачи' : 'задач');
+            return `Открыто ${num} ${word}`;
+        }
+
+        const commitsInReposMatch = normalizedText.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/i);
+        if (commitsInReposMatch) {
+            const commits = parseInt(commitsInReposMatch[1], 10);
+            const repos = parseInt(commitsInReposMatch[2], 10);
+            const commitWord = (commits === 1) ? 'коммит' : ((commits >= 2 && commits <= 4) ? 'коммита' : 'коммитов');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Создано ${commits} ${commitWord} в ${repos} ${reposWord}`;
+        }
+
+        // Проверяем паттерн "Created X repository"
+        const createdRepoMatch = normalizedText.match(/^Created\s+(\d+)\s+repository$/i);
+        if (createdRepoMatch) {
+            const num = parseInt(createdRepoMatch[1], 10);
+            const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+            return `Создано ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "Created X repositories"
+        const createdReposMatch = normalizedText.match(/^Created\s+(\d+)\s+repositories$/i);
+        if (createdReposMatch) {
+            const num = parseInt(createdReposMatch[1], 10);
+            const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+            return `Создано ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "X commits"
+        const commitsMatch = normalizedText.match(/^(\d+)\s+commits?$/i);
+        if (commitsMatch) {
+            const num = parseInt(commitsMatch[1], 10);
+            const word = (num === 1) ? 'коммит' : ((num >= 2 && num <= 4) ? 'коммита' : 'коммитов');
+            return `${num} ${word}`;
+        }
+
+        // Проверяем паттерн "X repositories"
+        const reposMatch = normalizedText.match(/^(\d+)\s+repositories?$/i);
+        if (reposMatch) {
+            const num = parseInt(reposMatch[1], 10);
+            const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+            return `${num} ${word}`;
+        }
+
         return null;
     }
 
@@ -4298,11 +4398,20 @@
         const contributionDesc = document.querySelector('#js-contribution-activity-description');
         if (contributionDesc) {
             const text = contributionDesc.textContent.replace(/\s+/g, ' ').trim();
-            const match = text.match(/^(\d+)\s+contributions\s+in the last year$/);
+
+            let match = text.match(/^(\d+(?:,\d+)?)\s+contributions?\s+in\s+the\s+last\s+year$/i);
             if (match) {
-                const num = parseInt(match[1], 10);
+                const num = parseInt(match[1].replace(/,/g, ''), 10);
                 const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
-                contributionDesc.textContent = `${num} ${word} за последний год`;
+                contributionDesc.textContent = `${num.toLocaleString()} ${word} за последний год`;
+            }
+
+            match = text.match(/^(\d+(?:,\d+)?)\s+contributions?\s+in\s+(\d{4})$/i);
+            if (match) {
+                const num = parseInt(match[1].replace(/,/g, ''), 10);
+                const year = match[2];
+                const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+                contributionDesc.textContent = `${num.toLocaleString()} ${word} в ${year} году`;
             }
         }
 
@@ -4318,17 +4427,54 @@
             }
         });
 
-        // Перевод блока с количеством коммитов и репозиториях
-        const createdSpans = document.querySelectorAll('span.color-fg-default.ws-normal.text-left');
-        createdSpans.forEach(span => {
+        // Перевод блока активности 
+        const activitySpans = document.querySelectorAll('span.color-fg-default.ws-normal.text-left, span.float-left.ws-normal.text-left.color-fg-default');
+        activitySpans.forEach(span => {
             const text = span.textContent.replace(/\s+/g, ' ').trim();
-            const match = text.match(/^Created (\d+) commits? in (\d+) repositories?$/);
+
+            let match = text.match(/^Opened\s+(\d+)\s+pull\s+request\s+in\s+(\d+)\s+repositories?$/i);
+            if (match) {
+                const prs = parseInt(match[1], 10);
+                const repos = parseInt(match[2], 10);
+                const prWord = (prs === 1) ? 'запрос на слияние' : ((prs >= 2 && prs <= 4) ? 'запроса на слияние' : 'запросов на слияние');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                span.textContent = `Открыто ${prs} ${prWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            match = text.match(/^Opened\s+(\d+)\s+issue\s+in\s+(\d+)\s+repositories?$/i);
+            if (match) {
+                const issues = parseInt(match[1], 10);
+                const repos = parseInt(match[2], 10);
+                const issueWord = (issues === 1) ? 'задачу' : ((issues >= 2 && issues <= 4) ? 'задачи' : 'задач');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                span.textContent = `Открыто ${issues} ${issueWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            match = text.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/i);
             if (match) {
                 const commits = parseInt(match[1], 10);
                 const repos = parseInt(match[2], 10);
                 const commitWord = (commits === 1) ? 'коммит' : ((commits >= 2 && commits <= 4) ? 'коммита' : 'коммитов');
                 const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
                 span.textContent = `Создано ${commits} ${commitWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            match = text.match(/^Created\s+(\d+)\s+repository$/i);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+                span.textContent = `Создано ${num} ${word}`;
+                return;
+            }
+
+            match = text.match(/^Created\s+(\d+)\s+repositories$/i);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+                span.textContent = `Создано ${num} ${word}`;
             }
         });
     }
