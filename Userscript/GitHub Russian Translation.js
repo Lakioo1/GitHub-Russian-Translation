@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.63
+// @version      1.64
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -557,6 +557,7 @@
         'Find someone to sponsor': 'Найдите спонсора',
         'Fund the work of developers and projects you depend on.': 'Финансируйте работу разработчиков и проектов, от которых вы зависите.',
         'Finish your review': 'Завершите свой отзыв',
+        'Findings': 'Результаты',
         'Fiscal Host': 'Фискальный хост',
         'Fiscal host project profile URL': 'URL профиля проекта финансового хоста',
         'Fork': 'Форк',
@@ -890,6 +891,7 @@
         'Secrets and variables': 'Секреты и переменные',
         'Secrets are not passed to forks.': 'Секреты не передаются форкам.',
         'Security': 'Безопасность',
+        'Security and quality': 'Безопасность и качество',
         'Security Advisories': 'Рекомендации по безопасности',
         'Security alerts': 'Предупреждения о безопасности',
         'Security overview': 'Обзор безопасности',
@@ -3830,6 +3832,32 @@
             }
         }
 
+        // Проверяем паттерн "X Draft"
+        const draftMatch = text.match(/^(\d+)\s+Draft$/);
+        if (draftMatch) {
+            const num = parseInt(draftMatch[1], 10);
+            if (num === 1) {
+                return `${num} Черновик`;
+            } else if (num >= 2 && num <= 4) {
+                return `${num} Черновика`;
+            } else {
+                return `${num} Черновиков`;
+            }
+        }
+
+        // Проверяем паттерн "X Published"
+        const publishedMatch = text.match(/^(\d+)\s+Published$/);
+        if (publishedMatch) {
+            const num = parseInt(publishedMatch[1], 10);
+            if (num === 1) {
+                return `${num} Опубликованный`;
+            } else if (num >= 2 && num <= 4) {
+                return `${num} Опубликованных`;
+            } else {
+                return `${num} Опубликованных`;
+            }
+        }
+
         // Проверяем паттерн "X contributions"
         const contributionsMatch = text.match(/^(\d+(?:,\d+)?)\s+contributions?\s+in\s+the\s+last\s+year$/i);
         if (contributionsMatch) {
@@ -4427,7 +4455,7 @@
             }
         });
 
-        // Перевод блока активности 
+        // Перевод блока активности
         const activitySpans = document.querySelectorAll('span.color-fg-default.ws-normal.text-left, span.float-left.ws-normal.text-left.color-fg-default');
         activitySpans.forEach(span => {
             const text = span.textContent.replace(/\s+/g, ' ').trim();
