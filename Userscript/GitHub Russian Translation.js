@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.64
+// @version      1.65
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -259,6 +259,7 @@
         'Adds gradients and outlines to increase contrast in charts.': 'Добавляет градиенты и контуры для увеличения контрастности диаграмм.',
         'Additions': 'Дополнения',
         'Additions and deletions per week': 'Добавления и удаления за неделю',
+        'Admin access': 'Административный доступ',
         'Advanced filters': 'Расширенные фильтры',
         'Advanced Security': 'Расширенная безопасность',
         'Advanced Security will be disabled.': 'Расширенная безопасность будет отключена.',
@@ -706,6 +707,9 @@
         'Most sponsors': 'Больше всего спонсоров',
         'Most starred': 'Наиболее популярные',
         'Most used': 'Самые используемые',
+        'My contributions': 'Мои вклады',
+        'My repositories': 'Мои репозитории',
+        'My forks': 'Мои форки',
         'Needs setup': 'Требуется настройка',
         'Network graph': 'Сетевой график',
         'New': 'Новый',
@@ -746,6 +750,7 @@
         'No reviews': 'Нет отзывов',
         'No rules yet': 'Пока нет правил',
         'No rulesets set up for automated reviews': 'Не настроены наборы правил для автоматических проверок',
+        'No saved views': 'Сохранённые просмотры отсутствуют',
         'No secrets found.': 'Секретов не найдено.',
         'No security policy detected': 'Политика безопасности не обнаружена',
         'No table data available yet.': 'Данные таблицы пока недоступны.',
@@ -839,6 +844,7 @@
         'Release title': 'Название выпуска',
         'Release notes': 'Примечания к выпуску',
         'Releases': 'Релизы',
+        'Relevance': 'Релевантность',
         'Repository name': 'Название репозитория',
         'repository rules': 'правила хранилища',
         'Repository secrets': 'Секреты репозитория',
@@ -1529,6 +1535,8 @@
         'Your instant dev environment': 'Ваша среда для мгновенной разработки',
 
         // Магазин
+        'A catalog and playground of AI models to help you build AI features and products.': 'Каталог и тестовая среда моделей искусственного интеллекта, которые помогут вам создавать функции и продукты на базе ИИ.',
+        'A single API key for all models & billing.': 'Один ключ API для всех моделей и биллинга.',
         'Agents': 'Агенты',
         'AI Assisted actions': 'Действия с помощью ИИ',
         'AI Assisted apps': 'Приложения с поддержкой ИИ',
@@ -1542,13 +1550,18 @@
         'Audio': 'Аудио',
         'Authorize': 'Авторизовать',
         'Automate workflows': 'Автоматизируйте рабочие процессы',
+        'Automate your code review with style, quality, security, and test‑coverage checks when you need them.': 'Автоматизируйте проверку кода с помощью проверок стиля, качества, безопасности и покрытия тестами тогда, когда это необходимо.',
+        'Automatically build and test your code as you push it to GitHub, preventing bugs from being deployed to production.': 'Автоматически компилируйте и тестируйте свой код при отправке в GitHub, чтобы не допустить попадания ошибок в производственную среду.',
+        'Auxiliary tools to enhance your experience on GitHub': 'Дополнительные инструменты для удобства работы на GitHub',
         'Backup Utilities': 'Утилиты для резервного копирования',
         'Backup Utilities actions': 'Действия утилит резервного копирования',
         'Backup Utilities apps': 'Приложения для резервного копирования',
         'Be the first to review': 'Будьте первым, кто оставит отзыв',
         'Billed monthly': 'Оплачивается ежемесячно',
         'Billed yearly': 'Оплачивается ежегодно',
+        'Bring GitHub into your conversations.': 'Включите GitHub в свои беседы.',
         'Boost your workflow': 'Улучшите ваш рабочий процесс',
+        'Build on your workflow with apps that integrate with GitHub': 'Расширьте возможности своего рабочего процесса с помощью приложений, интегрированных с GitHub',
         'Buy now': 'Купить сейчас',
         'By': 'От',
         'Cancelled': 'Отменено',
@@ -1556,6 +1569,7 @@
         'Chat actions': 'Действия в чате',
         'Chat apps': 'Приложения для чата',
         'Chat/completion': 'Чат/завершение',
+        'Create applications with GitHub powered by AI Models. Free to use, quick personal setup, and seamless model switching to help you build AI products using the latest models.': 'Создавайте приложения с помощью GitHub, используя модели искусственного интеллекта. Бесплатное использование, быстрая персональная настройка и беспроблемное переключение моделей помогут вам создавать продукты на основе ИИ, используя новейшие модели.',
         'Code quality': 'Качество кода',
         'Code quality actions': 'Действия по обеспечению качества кода',
         'Code quality apps': 'Приложения для проверки качества кода',
@@ -1576,6 +1590,8 @@
         'Container CI apps': 'Контейнерные приложения CI',
         'Continuous integration actions': 'Действия по непрерывной интеграции',
         'Continuous integration apps': 'Приложения непрерывной интеграции',
+        'Continuous integration for container applications.': 'Непрерывная интеграция для контейнерных приложений.',
+        'Continuous integration for Mobile applications': 'Непрерывная интеграция для мобильных приложений',
         'day trial': 'дневный пробный период',
         'Dependency management': 'Управление зависимостями',
         'Dependency management actions': 'Действия по управлению зависимостями',
@@ -1589,19 +1605,33 @@
         'Desktop tools actions': 'Действия рабочего стола',
         'Desktop tools apps': 'Приложения для настольных компьютеров',
         'Developer program': 'Программа для разработчиков',
+        'Developer tools that are run natively on your local machine.': 'Инструменты разработчика, запускаемые непосредственно на вашем локальном компьютере.',
         'Discover apps': 'Открывайте приложения',
         'Edit settings': 'Изменить настройки',
         'Embeddings': 'Вложения',
+        'Eliminate bugs and ship with more confidence by adding these tools to your workflow.': 'Устраняйте ошибки и выпускайте продукты с большей уверенностью, включив эти инструменты в свой рабочий процесс.',
+        'Enables custom protection rules to gate deployments with third-party services': 'Позволяет использовать настраиваемые правила защиты для контроля развертываний с использованием сторонних сервисов',
         'Enhanced security': 'Улучшенная безопасность',
+        'Ensure your code meets quality standards and ship with confidence.': 'Убедитесь, что ваш код соответствует стандартам качества, и с уверенностью выпускайте его в производство.',
         'Enterprise ready': 'Готово для предприятий',
         'Expired': 'Истекло',
         'Expires': 'Истекает',
+        'explore the full model catalog': 'ознакомьтесь с полным каталогом моделей',
+        "Extend your software's reach. Localize and translate continuously from GitHub.": "Расширьте охват вашего программного обеспечения. Осуществляйте локализацию и перевод напрямую из GitHub.",
+        'Find the right interface to build, debug, and deploy your source code.': 'Найдите подходящий интерфейс для компиляции, отладки и развертывания вашего исходного кода.',
+        'Find, fix, and prevent security vulnerabilities before they can be exploited.': 'Выявляйте, устраняйте и предотвращайте уязвимости в системе безопасности, прежде чем ими смогут воспользоваться злоумышленники.',
         'Free forever': 'Бесплатно навсегда',
         'Free plan': 'Бесплатный тариф',
         'Free trial': 'Бесплатная пробная версия',
+        'Free to start:': 'Начните бесплатно:',
         'Game CI actions': 'Действия CI в игре',
         'Get it now': 'Получить сейчас',
+        'Get insights into how your teams are developing software using GitHub.': 'Узнайте, как ваши команды разрабатывают программное обеспечение с помощью GitHub.',
+        'Get the skills you need to level up.': 'Приобретите навыки, необходимые для продвижения по карьерной лестнице.',
+        'Get your site ready for production so you can get the word out.': 'Подготовьте свой сайт к запуску, чтобы вы могли рассказать о нем всем.',
+        'Get your team and customers the help they need.': 'Обеспечьте своей команде и клиентам необходимую поддержку.',
         'GitHub Marketplace': 'Магазин GitHub',
+        'GitHub PAT to install models in your projects.': 'GitHub PAT для установки моделей в ваши проекты.',
         'GitHub Sponsors actions': 'Действия GitHub Sponsors',
         "Here's what we found based on your interests...": "Вот что мы нашли, исходя из ваших интересов...",
         'Helpful': 'Полезно',
@@ -1616,6 +1646,7 @@
         'Instruction': 'Инструкция',
         'Integrated with GitHub': 'Интегрировано с GitHub',
         'Invoice': 'Счёт',
+        'Improve your workflow for the small screen.': 'Оптимизируйте рабочий процесс для работы на небольшом экране.',
         'Large context': 'Обширный контекст',
         'Learning': 'Обучение',
         'Learning actions': 'Обучающие действия',
@@ -1635,6 +1666,8 @@
         'Mobile CI actions': 'Мобильные CI-действия',
         'Mobile CI apps': 'Мобильные приложения CI',
         'Mobile apps': 'Мобильные приложения',
+        'Model switching:': 'Переключение моделей:',
+        'Monitor the impact of your code changes. Measure performance, track errors, and analyze your application.': 'Отслеживайте последствия изменений в коде. Измеряйте производительность, отслеживайте ошибки и анализируйте работу приложения.',
         'Monitoring': 'Мониторинг',
         'Monitoring actions': 'Мониторинг действий',
         'Monitoring apps': 'Приложения для мониторинга',
@@ -1642,12 +1675,15 @@
         'Multilingual': 'Многоязычный',
         'Multimodal': 'Мультимодальный',
         'Multipurpose': 'Многоцелевой',
+        'No charges until you hit our rate limits.': 'Плата не взимается, пока вы не достигнете установленных лимитов.',
         'No reviews yet': 'Пока нет отзывов',
         'Only select repositories': 'Только выбранные репозитории',
         'Open Source management': 'Управление с открытым исходным кодом',
         'Open Source management actions': 'Действия по управлению открытыми источниками',
         'Open Source management apps': 'Приложения для управления с открытым исходным кодом',
+        'Optimize your work to minimize impact on the environment.': 'Оптимизируйте свою работу, чтобы свести к минимуму воздействие на окружающую среду.',
         'Order history': 'История заказов',
+        'Organize, manage, and track your project with tools that build on top of issues and pull requests.': 'Организуйте, управляйте и отслеживайте свой проект с помощью инструментов, основанных на задачах и запросах на слияние.',
         'out of 5 stars': 'из 5 звёзд',
         'Output token limit': 'Ограничение по количеству выходных токенов',
         'Paid': 'Платные',
@@ -1666,6 +1702,8 @@
         'Publishing': 'Публикация',
         'Publishing actions': 'Действия по публикации',
         'Publishing apps': 'Публикация приложений',
+        'Query, index, or hash the semantics of your source code.': 'Проанализируйте, проиндексируйте или хешируйте семантику вашего исходного кода.',
+        'Quick personal setup:': 'Быстрая настройка профиля:',
         'Rating': 'Рейтинг',
         'Ratings': 'Рейтинги',
         'Read reviews': 'Читать отзывы',
@@ -1678,15 +1716,22 @@
         'Reporting apps': 'Приложения для отчетности',
         'Repository access': 'Доступ к репозиториям',
         'Revenue share': 'Доля дохода',
+        'Running open source projects can be hard. Here are some tools to make that process a little more fun and a ton more manageable.': 'Ведение проектов с открытым исходным кодом может быть непростым делом. Вот несколько инструментов, которые помогут сделать этот процесс немного интереснее и значительно упростят его.',
         'Search apps and actions': 'Поиск приложений и действий',
         'Search marketplace': 'Поиск в магазине',
         'Seamless integration': 'Беспроблемная интеграция',
+        'Secure and manage your third-party dependencies.': 'Обеспечьте безопасность сторонних зависимостей и управляйте ими.',
         'Security actions': 'Меры безопасности',
         'Security apps': 'Приложения для безопасности',
+        'Select a model to get started, or': 'Выберите модель, чтобы начать, или',
         'Select account': 'Выберите аккаунт',
         'Select organization': 'Выберите организацию',
         'Select repositories': 'Выберите репозитории',
+        'Servers and tools from the community that connect models to files, APIs, databases, and more.': 'Серверы и инструменты от сообщества, которые обеспечивают связь моделей с файлами, API, базами данных и другими ресурсами.',
         'Starting at': 'Начиная с',
+        'Static analysis, dynamic analysis, container scanning, linting, and fuzzing tools that integrate with GitHub Code Scanning SARIF Upload': 'Инструменты статического и динамического анализа, сканирования контейнеров, проверки кода и фаззинга, интегрированные с GitHub Code Scanning и функцией загрузки SARIF',
+        'Streamline your code deployment so you can focus on your product.': 'Оптимизируйте процесс развертывания кода, чтобы сосредоточиться на разработке продукта.',
+        'Structure your API infrastructure to enable various internet gateways to interact with your service.': 'Структурируйте свою инфраструктуру API таким образом, чтобы различные интернет-шлюзы могли взаимодействовать с вашим сервисом.',
         'Subscription': 'Подписка',
         'Successfully installed': 'Успешно установлено',
         'Summarization': 'Краткое изложение',
@@ -1704,16 +1749,22 @@
         'Time tracking': 'Учет рабочего времени',
         'Time tracking actions': 'Действия по отслеживанию времени',
         'Time tracking apps': 'Приложения для отслеживания времени',
+        'The latest tools that help you and your team build software better, together.': 'Новейшие инструменты, которые помогут вам и вашей команде совместно создавать более качественное программное обеспечение.',
         'Tools from the community and partners to simplify tasks and automate processes': 'Инструменты от сообщества и партнеров для упрощения задач и автоматизации процессов',
+        'Tools that are superpowered with AI (artificial intelligence) to help you be a better developer.': 'Инструменты, оснащенные передовыми технологиями искусственного интеллекта (ИИ), которые помогут вам стать лучшим разработчиком.',
+        'Track your progress, and predict how long a task will take based on your coding activity.': 'Отслеживайте свои успехи и прогнозируйте, сколько времени займет выполнение задачи, исходя из вашей активности в программировании.',
         'Trial': 'Пробный период',
         'Trial ends': 'Пробный период заканчивается',
         'Trusted by developers': 'Доверено разработчиками',
         'Try it free': 'Попробовать бесплатно',
+        'Try, test, and deploy from a wide range of model types, sizes, and specializations.': 'Пробуйте, тестируйте и внедряйте решения, используя широкий спектр типов, размеров и специализаций моделей.',
         'Understanding': 'Понимание',
         'Uninstall app': 'Удалить приложение',
         'Up to': 'До',
         'Utilities': 'Утилиты',
-        'Utilities actions': 'Действия по коммунальным услугам',
+        'Utilities apps': 'Приложения для утилит',
+        'Utilities actions': 'Действия с утилитами',
+        'Utilities providing periodic backups of your GitHub data': 'Сервисы, обеспечивающие периодическое резервное копирование ваших данных на GitHub',
         'Verified creator': 'Проверенный создатель',
         'Verified creators': 'Проверенные создатели',
         'View all models': 'Показать все модели',
@@ -2933,6 +2984,7 @@
         'Filter projects': 'Фильтр проектов',
         'Filter provider': 'Фильтр по поставщику',
         'Filter repositories and gists': 'Фильтровать репозитории и gists',
+        'Filter organizations': 'Фильтр по организациям',
         'Filter secret type': 'Фильтр по типу секрета',
         'Filter users': 'Фильтр пользователей',
         'Filter values': 'Значения фильтра',
@@ -2951,6 +3003,8 @@
         'Search branches...': 'Поиск веток...',
         'Search deleted packages': 'Поиск удалённых пакетов',
         'Search Issues': 'Поиск задач',
+        'Search for apps, actions, and models': 'Поиск приложений, действий и моделей',
+        'Search MCPs': 'Поиск MCP',
         'Search or create a new tag': 'Найти или создать новый тег',
         'Search or filter': 'Поиск или фильтр',
         'Search or filter usage': 'Поиск или фильтрация использования',
@@ -3972,6 +4026,11 @@
             return false;
         }
 
+        // Игнорируем диалоговые окна
+        if (element.closest('[role="dialog"], .prc-Dialog-Body, .prc-Dialog-Body-bB903, [class*="Dialog"]')) {
+            return false;
+        }
+
         // Проверка Markdown элементов
         const markdownSelectors = [
             '#readme',
@@ -4079,13 +4138,13 @@
             var hasForbiddenClass = false;
             for (var i = 0; i < classList.length; i++) {
                 var className = classList[i];
-                if (className.includes('code') ||
+                if ((className.includes('code') ||
                     className.includes('commit') ||
-                    className.includes('react') ||
+                    (className.includes('react') && !className.includes('Dialog')) ||
                     className.includes('editor') ||
                     className.includes('search-match') ||
                     className.includes('match') ||
-                    className.includes('highlight')) {
+                    className.includes('highlight'))) {
                     hasForbiddenClass = true;
                     break;
                 }
@@ -4096,6 +4155,32 @@
         }
 
         return false;
+    }
+
+    // Функция для перевода диалогов
+    function translateDialogElements() {
+        const dialogBody = document.querySelector('.prc-Dialog-Body-bB903, .prc-Dialog-Body, [role="dialog"] .prc-Dialog-Body');
+        if (!dialogBody) return;
+
+        const paragraphs = dialogBody.querySelectorAll('p');
+        paragraphs.forEach(p => {
+            const text = p.textContent.trim();
+            if (translations[text]) {
+                p.textContent = translations[text];
+            }
+        });
+
+        const listItems = dialogBody.querySelectorAll('li');
+        listItems.forEach(li => {
+            const text = li.textContent.trim();
+            if (translations[text]) {
+                const strong = li.querySelector('strong');
+                if (strong && translations[strong.textContent.trim()]) {
+                    li.innerHTML = li.innerHTML.replace(strong.textContent, translations[strong.textContent.trim()]);
+                }
+                li.textContent = translations[text];
+            }
+        });
     }
 
     // Функция для проверки URL
@@ -4548,6 +4633,7 @@
         });
 
         translateSVGGraphs();
+        translateDialogElements();
     }
 
     // Запуск перевода при загрузке страницы
@@ -4628,6 +4714,7 @@
             translateMultilineAttributes();
             translateReactElements();
             translateSVGGraphs();
+            translateDialogElements();
         }, 50);
     });
 
