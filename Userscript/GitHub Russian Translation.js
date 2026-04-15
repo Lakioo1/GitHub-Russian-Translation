@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.65
+// @version      1.66
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -4031,6 +4031,40 @@
             return false;
         }
 
+        // Игнорируем дерево файлов
+        if (element.closest('[data-testid="repos-file-tree-container"]')) {
+            if (element.getAttribute && element.getAttribute('role') === 'tree') {
+                return false;
+            }
+            return true;
+        }
+
+        // Игнорируем ссылки на файлы и папки в таблице содержимого
+        if (element.closest('.react-directory-filename-column')) {
+            return true;
+        }
+
+        // Игнорируем ячейки с именами файлов в таблице
+        if (element.closest('.react-directory-row-name-cell-small-screen, .react-directory-row-name-cell-large-screen')) {
+            return true;
+        }
+
+        // Пропускаем aria-label с указанием типа Directory/File
+        if (element.getAttribute && element.getAttribute('aria-label')) {
+            const ariaLabel = element.getAttribute('aria-label');
+            if (ariaLabel && (ariaLabel.includes('Directory') || ariaLabel.includes('File'))) {
+                return true;
+            }
+        }
+
+        // Пропускаем title атрибуты у ссылок на файлы
+        if (element.tagName === 'A' && element.getAttribute('title')) {
+            const title = element.getAttribute('title');
+            if (title && (title.includes('.') || title.match(/^[a-zA-Z0-9\-_\.]+$/))) {
+                return true;
+            }
+        }
+
         // Проверка Markdown элементов
         const markdownSelectors = [
             '#readme',
@@ -4250,6 +4284,9 @@
         // Перевод title
         document.querySelectorAll('[title]').forEach(element => {
             if (shouldIgnoreElement(element)) return;
+            if (element.tagName === 'A' && element.closest('.react-directory-filename-column')) {
+                return;
+            }
             const title = element.getAttribute('title');
             if (title && !hasCyrillic(title) && translations[title]) {
                 element.setAttribute('title', translations[title]);
