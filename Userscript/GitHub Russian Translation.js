@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.66
+// @version      1.67
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -329,6 +329,8 @@
         'Caches': 'Кэши',
         'Can be sponsored': 'Может быть спонсировано',
         'Cancel changes': 'Отменить изменения',
+        'can still leave comments': 'все еще могут оставлять комментарии',
+        'can’t add new comments': 'не могут добавлять новые комментарии',
         'Center content': 'Центр содержания',
         'Change to private': 'Перейти в приватный режим',
         'Change repository visibility': 'Изменить видимость репозитория',
@@ -559,6 +561,7 @@
         'Fund the work of developers and projects you depend on.': 'Финансируйте работу разработчиков и проектов, от которых вы зависите.',
         'Finish your review': 'Завершите свой отзыв',
         'Findings': 'Результаты',
+        'Find code, projects, and people on GitHub:': 'Поиск кода, проектов и людей на GitHub:',
         'Fiscal Host': 'Фискальный хост',
         'Fiscal host project profile URL': 'URL профиля проекта финансового хоста',
         'Fork': 'Форк',
@@ -573,6 +576,7 @@
         "Get Sponsored": "Спонсорская поддержка",
         'Get started with Discussions': 'Начните работу с обсуждениями',
         'Get started with GitHub Actions': 'Начните работу с GitHub Actions',
+        'Get tips, technical guides, and best practices. Twice a month.': 'Получайте советы, технические руководства и лучшие практики. Два раза в месяц.',
         'Git clones': 'Клоны Git',
         'Git LFS usage in archives is billed at the same rate as usage with the client.': 'Использование Git LFS в архивах оплачивается по той же ставке, что и использование с клиентом.',
         'GitHub Apps': 'Приложения GitHub',
@@ -640,6 +644,7 @@
         'Latest release': 'Последний релиз',
         'Layout': 'Макет',
         'Launch a': 'Запустить',
+        'Learn how we count contributions': 'Узнайте, как мы считаем вклады',
         'Learn more': 'Узнать больше',
         'Learn more about': 'Узнайте больше о',
         'Learn more about codespaces...': 'Узнайте больше о кодовых пространствах...',
@@ -785,6 +790,7 @@
         'Operator': 'Оператор',
         'Organization permissions': 'Разрешения организации',
         'Other tools': 'Другие инструменты',
+        'Other users': 'Другие пользователи',
         'Other users **can’t add new comments** to this commit.': 'Другие пользователи **не могут добавлять новые комментарии** к этому коммиту.',
         'Owns this repository': 'Владелец этого репозитория',
         'Participating and @mentions': 'Участие и @упоминания',
@@ -976,6 +982,7 @@
         'Temporarily restrict which external users can interact with your repository (comment, open issues, or create pull requests) for a configurable period of time.': 'Временно ограничьте круг внешних пользователей, которые могут взаимодействовать с вашим репозиторием (оставлять комментарии, открывать задачи или создавать пул-реквесты) на настраиваемый период времени.',
         'Test': 'Тест',
         'Timeline of the most recent commits to this repository and its network ordered by most recently pushed to.': 'Хронология последних коммитов в этом репозитории и его сети, отсортированная по дате последнего добавления.',
+        'that others can see.': 'которые видят другие.',
         'The Actions tab is hidden and no workflows can run.': 'Вкладка «Действия» скрыта, и рабочие процессы не могут выполняться.',
         'The default branch is considered the “base” branch in your repository, against which all pull requests and code commits are automatically made, unless you specify a different branch.': 'По умолчанию ветка считается «базовой» веткой в вашем репозитории, по отношению к которой автоматически выполняются все запросы на извлечение и фиксации кода, если вы не указали другую ветку.',
         'the community profile': 'профиль сообщества',
@@ -1009,6 +1016,8 @@
         'To see all available qualifiers, see our': 'Чтобы увидеть все доступные квалификаторы, см. нашу',
         'To start building your query add your first filter using the button below.': 'Чтобы начать создание запроса, добавьте первый фильтр с помощью кнопки ниже.',
         'to the main branch of this repository will be unable to interact with the repository.': 'в основную ветвь этого репозитория не смогут взаимодействовать с репозиторием.',
+        'to this commit.': 'к этому коммиту.',
+        'to this repository': 'к этому репозиторию',
         'Too heated': 'Слишком горячий',
         'Top Committers': 'Лучшие коммиттеры',
         'Tools': 'Инструменты',
@@ -1088,6 +1097,7 @@
         'When creating source code archives, you can choose to include files stored using Git LFS in the archive.': 'При создании архивов исходного кода вы можете выбрать включение в архив файлов, хранящихся с помощью Git LFS.',
         'Whenever linked pull requests have merged, auto-close the issue.': 'При слиянии связанных запросов на извлечение автоматически закрывайте проблему.',
         'Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.': 'Всякий раз, когда в базовой ветке появляются новые изменения, предлагайте в запросе на слияние опцию «обновить ветку».',
+        'with access': 'с доступом',
         'Which remote URL should I use?': 'Какой удаленный URL мне следует использовать?',
         'Wiki': 'Вики',
         'Wikis': 'Вики',
@@ -1102,6 +1112,7 @@
         'Wrap lines': 'Линии обёртывания',
         'Write Beta Release comment': 'Написать комментарий о бета-версии',
         'Writing contributing guidelines': 'Руководство по написанию статей',
+        'You and other collaborators': 'Вы и другие участники',
         'You and other collaborators with access to this repository **can still leave comments** that others can see.': 'Вы и другие участники с доступом к этому репозиторию **все еще можете оставлять комментарии**, которые видят другие.',
         'You are creating a fork in your personal account.': 'Вы создаете форк в своем личном аккаунте.',
         'You are creating a public repository in your personal account.': 'Вы создаете общедоступный репозиторий в своей личной учетной записи.',
@@ -4012,7 +4023,122 @@
             return `${num} ${word}`;
         }
 
+        // Проверяем паттерн "Created X commits in Y repositories")
+        const commitsInReposMatchNew = normalizedText.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/i);
+        if (commitsInReposMatchNew) {
+            const commits = parseInt(commitsInReposMatchNew[1], 10);
+            const repos = parseInt(commitsInReposMatchNew[2], 10);
+            const commitWord = (commits === 1) ? 'коммит' : ((commits >= 2 && commits <= 4) ? 'коммита' : 'коммитов');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Создано ${commits} ${commitWord} в ${repos} ${reposWord}`;
+        }
+
+        // Проверяем паттерн "Opened X other pull requests in Y repositories"
+        const openedPrsInReposMatch = normalizedText.match(/^Opened\s+(\d+)\s+other\s+pull\s+requests\s+in\s+(\d+)\s+repositories?$/i);
+        if (openedPrsInReposMatch) {
+            const prs = parseInt(openedPrsInReposMatch[1], 10);
+            const repos = parseInt(openedPrsInReposMatch[2], 10);
+            const prWord = (prs === 1) ? 'запрос на извлечение' : ((prs >= 2 && prs <= 4) ? 'запроса на извлечение' : 'запросов на извлечение');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Открыто ${prs} других ${prWord} в ${repos} ${reposWord}`;
+        }
+
+        // Проверяем паттерн "Opened X pull request in Y repositories"
+        const openedPrMatchNew = normalizedText.match(/^Opened\s+(\d+)\s+pull\s+request\s+in\s+(\d+)\s+repositories?$/i);
+        if (openedPrMatchNew) {
+            const prs = parseInt(openedPrMatchNew[1], 10);
+            const repos = parseInt(openedPrMatchNew[2], 10);
+            const prWord = (prs === 1) ? 'запрос на слияние' : ((prs >= 2 && prs <= 4) ? 'запроса на слияние' : 'запросов на слияние');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Открыто ${prs} ${prWord} в ${repos} ${reposWord}`;
+        }
+
+        // Проверяем паттерн "Opened X issue in Y repositories"
+        const openedIssueMatchNew = normalizedText.match(/^Opened\s+(\d+)\s+issue\s+in\s+(\d+)\s+repositories?$/i);
+        if (openedIssueMatchNew) {
+            const issues = parseInt(openedIssueMatchNew[1], 10);
+            const repos = parseInt(openedIssueMatchNew[2], 10);
+            const issueWord = (issues === 1) ? 'задачу' : ((issues >= 2 && issues <= 4) ? 'задачи' : 'задач');
+            const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+            return `Открыто ${issues} ${issueWord} в ${repos} ${reposWord}`;
+        }
+
+        // Проверяем паттерн "Created X repositories"
+        const createdReposMatchNew = normalizedText.match(/^Created\s+(\d+)\s+repositories?$/i);
+        if (createdReposMatchNew) {
+            const num = parseInt(createdReposMatchNew[1], 10);
+            const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+            return `Создано ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "Created X repository"
+        const createdRepoMatchNew = normalizedText.match(/^Created\s+(\d+)\s+repository$/i);
+        if (createdRepoMatchNew) {
+            const num = parseInt(createdRepoMatchNew[1], 10);
+            const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+            return `Создано ${num} ${word}`;
+        }
+
         return null;
+    }
+
+    // Функция для перевода элементов активности с разбитым текстом
+    function translateTimelineActivity() {
+        const activityElements = document.querySelectorAll('.color-fg-default.ws-normal.text-left');
+
+        activityElements.forEach(element => {
+            if (hasCyrillic(element.textContent)) return;
+
+            const fullText = element.textContent.replace(/\s+/g, ' ').trim();
+
+            // Проверяем паттерн "Created X commits in Y repository"
+            const commitsMatch = fullText.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/i);
+            if (commitsMatch) {
+                const commits = parseInt(commitsMatch[1], 10);
+                const repos = parseInt(commitsMatch[2], 10);
+                const commitWord = (commits === 1) ? 'коммит' : ((commits >= 2 && commits <= 4) ? 'коммита' : 'коммитов');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                element.textContent = `Создано ${commits} ${commitWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            // Проверяем паттерн "Opened X other pull requests in Y repositories"
+            const prsMatch = fullText.match(/^Opened\s+(\d+)\s+other\s+pull\s+requests\s+in\s+(\d+)\s+repositories?$/i);
+            if (prsMatch) {
+                const prs = parseInt(prsMatch[1], 10);
+                const repos = parseInt(prsMatch[2], 10);
+                const prWord = (prs === 1) ? 'запрос на извлечение' : ((prs >= 2 && prs <= 4) ? 'запроса на извлечение' : 'запросов на извлечение');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                element.textContent = `Открыто ${prs} других ${prWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            // Проверяем паттерн "Created X repositories"
+            const reposMatchCreated = fullText.match(/^Created\s+(\d+)\s+repositories?$/i);
+            if (reposMatchCreated) {
+                const num = parseInt(reposMatchCreated[1], 10);
+                const word = (num === 1) ? 'репозиторий' : ((num >= 2 && num <= 4) ? 'репозитория' : 'репозиториев');
+                element.textContent = `Создано ${num} ${word}`;
+                return;
+            }
+
+            // Проверяем паттерн "Opened X pull request in Y repositories"
+            const openedPrMatch = fullText.match(/^Opened\s+(\d+)\s+pull\s+request\s+in\s+(\d+)\s+repositories?$/i);
+            if (openedPrMatch) {
+                const prs = parseInt(openedPrMatch[1], 10);
+                const repos = parseInt(openedPrMatch[2], 10);
+                const prWord = (prs === 1) ? 'запрос на слияние' : ((prs >= 2 && prs <= 4) ? 'запроса на слияние' : 'запросов на слияние');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                element.textContent = `Открыто ${prs} ${prWord} в ${repos} ${reposWord}`;
+                return;
+            }
+        });
+
+        // Перевод кнопки "Показать больше активности"
+        const showMoreButton = document.querySelector('.ajax-pagination-btn');
+        if (showMoreButton && showMoreButton.textContent.trim() === 'Show more activity') {
+            showMoreButton.textContent = 'Показать больше активности';
+        }
     }
 
     // Функция для проверки наличия кириллицы
@@ -4671,6 +4797,7 @@
 
         translateSVGGraphs();
         translateDialogElements();
+        translateTimelineActivity();
     }
 
     // Запуск перевода при загрузке страницы
@@ -4752,6 +4879,7 @@
             translateReactElements();
             translateSVGGraphs();
             translateDialogElements();
+            translateTimelineActivity();
         }, 50);
     });
 
