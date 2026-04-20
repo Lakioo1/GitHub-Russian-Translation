@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.67
+// @version      1.68
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -281,6 +281,7 @@
         'Any': 'Любой',
         'Any action or reusable workflow can be used, regardless of who authored it or where it is defined.': 'Можно использовать любое действие или многократно используемый рабочий процесс, независимо от того, кто его создал и где он определен.',
         'Any custom Dependabot alert rules will be disabled unless GitHub Advanced Security is enabled for this repository.': 'Любые настраиваемые правила оповещений Dependabot будут отключены, если для этого репозитория не включена функция GitHub Advanced Security.',
+        'Any repository that has not been created or updated during this period will be excluded.': 'Все репозитории, которые не были созданы или обновлены в течение этого периода, будут исключены.',
         'Anyone on the internet can see this repository. You choose who can commit.': 'Любой пользователь Интернета может просматривать этот репозиторий. Вы выбираете, кто может вносить изменения.',
         'Apply and reload': 'Применить и перезагрузить',
         'Apply labels to this pull request': 'Применить метки к этому пул-реквесту',
@@ -400,6 +401,7 @@
         'Contact GitHub Support': 'Связаться со службой поддержки GitHub',
         'Continuous integration': 'Непрерывная интеграция',
         'Contribute': 'Вклад',
+        'Contributed by me': 'Автор: я',
         'Contributing': 'Вклады',
         'Contributors': 'Участники',
         'Contributors are working behind the scenes to make open source better for everyone—give them the help and recognition they deserve.': 'Участники проекта работают за кулисами, чтобы сделать открытый исходный код лучше для всех — окажите им помощь и признание, которых они заслуживают.',
@@ -471,6 +473,8 @@
         'dependencies and sub-dependencies': 'зависимости и подзависимости',
         'Dependency graph is disabled': 'График зависимостей отключен',
         'Deploy keys': 'Развертывание ключей',
+        'Deployable': 'В процессе развертывания',
+        'Deployed': 'Развернут',
         'Deployment': 'Развёртывание',
         'Descending': 'Нисходящий',
         'Developer Certificate of Origin (DCO)': 'Сертификат происхождения разработчика (DCO)',
@@ -712,6 +716,7 @@
         'Most sponsors': 'Больше всего спонсоров',
         'Most starred': 'Наиболее популярные',
         'Most used': 'Самые используемые',
+        'Mirror': 'Зеркало',
         'My contributions': 'Мои вклады',
         'My repositories': 'Мои репозитории',
         'My forks': 'Мои форки',
@@ -2999,6 +3004,7 @@
         'Filter secret type': 'Фильтр по типу секрета',
         'Filter users': 'Фильтр пользователей',
         'Filter values': 'Значения фильтра',
+        'Find a repository…': 'Найти репозиторий…',
         'Find or create a branch...': 'Найти или создать ветку...',
         'Go to file': 'Перейти к файлу',
         'No results found.': 'Ничего не найдено.',
@@ -3019,6 +3025,7 @@
         'Search or create a new tag': 'Найти или создать новый тег',
         'Search or filter': 'Поиск или фильтр',
         'Search or filter usage': 'Поиск или фильтрация использования',
+        'Search repositories': 'Поиск в репозиториях',
         'Search within code': 'Поиск в коде',
         'Search workflows': 'Поиск рабочих процессов',
         'Select a verified email to display': 'Выберите подтвержденный адрес электронной почты для отображения',
@@ -4023,7 +4030,7 @@
             return `${num} ${word}`;
         }
 
-        // Проверяем паттерн "Created X commits in Y repositories")
+        // Проверяем паттерн "Created X commits in Y repositories"
         const commitsInReposMatchNew = normalizedText.match(/^Created\s+(\d+)\s+commits?\s+in\s+(\d+)\s+repositories?$/i);
         if (commitsInReposMatchNew) {
             const commits = parseInt(commitsInReposMatchNew[1], 10);
@@ -4139,6 +4146,40 @@
         if (showMoreButton && showMoreButton.textContent.trim() === 'Show more activity') {
             showMoreButton.textContent = 'Показать больше активности';
         }
+    }
+
+    // Функция для перевода сообщений об архивации репозитория
+    function translateArchiveFlashMessage() {
+        const flashWarnings = document.querySelectorAll('.flash.flash-warn.flash-full, .flash.flash-warn');
+
+        flashWarnings.forEach(flash => {
+            const text = flash.textContent.trim();
+
+            const partialMatch = text.match(/Этот репозиторий был архивирован владельцем (.+?)\. Он только что read-only\./);
+            if (partialMatch) {
+                const date = partialMatch[1];
+                flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
+                return;
+            }
+
+            const fullMatch = text.match(/This repository was archived by the owner on (.+?)\. It is read-only\./);
+            if (fullMatch) {
+                const date = fullMatch[1];
+                flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
+                return;
+            }
+
+            const altMatch = text.match(/This repository was archived by the owner on (.+?)\. It is только что read-only\./);
+            if (altMatch) {
+                const date = altMatch[1];
+                flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
+                return;
+            }
+
+            if (text.includes('только для чтения')) {
+                return;
+            }
+        });
     }
 
     // Функция для проверки наличия кириллицы
@@ -4798,6 +4839,7 @@
         translateSVGGraphs();
         translateDialogElements();
         translateTimelineActivity();
+        translateArchiveFlashMessage();
     }
 
     // Запуск перевода при загрузке страницы
@@ -4880,6 +4922,7 @@
             translateSVGGraphs();
             translateDialogElements();
             translateTimelineActivity();
+            translateArchiveFlashMessage();
         }, 50);
     });
 
