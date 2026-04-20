@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.4.4
+// @version      1.5
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -98,6 +98,9 @@
         'Fri': 'пт',
         'Sat': 'сб',
         'Sun': 'вс',
+
+        // Перевод предлога в контексте дат
+        'on': 'на',
     };
 
     // Функция для склонения числительных
@@ -468,6 +471,30 @@
                 }
             }
         });
+
+        // Перевод предлога "on" в title атрибутах
+        document.querySelectorAll('[title*=" on "]').forEach(element => {
+            const title = element.getAttribute('title');
+            if (title) {
+                const newTitle = title.replace(/\bon\b/g, 'на');
+                if (newTitle !== title) {
+                    element.setAttribute('title', newTitle);
+                }
+            }
+        });
+    }
+
+    // Функция для перевода предлога "on" в атрибутах title у relative-time элементов
+    function translateOnInTitle() {
+        document.querySelectorAll('relative-time, time-ago, time').forEach(element => {
+            const title = element.getAttribute('title');
+            if (title && title.includes(' on ')) {
+                const newTitle = title.replace(/\bon\b/g, 'на');
+                if (newTitle !== title) {
+                    element.setAttribute('title', newTitle);
+                }
+            }
+        });
     }
 
     // Основная функция перевода временных элементов
@@ -599,9 +626,8 @@
 
             // Перевод атрибутов
             translateTimeAttributes();
+            translateOnInTitle();
 
-        } catch (error) {
-            console.log('Ошибка при переводе времени:', error);
         } finally {
             isTranslating = false;
         }
