@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.68
+// @version      1.69
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -266,6 +266,7 @@
         'Advisories': 'Рекомендации',
         'After merging a pull request, linked issues can be closed automatically.': 'После слияния запроса на извлечение связанные проблемы могут быть закрыты автоматически.',
         'After pull requests are merged, you can have head branches deleted automatically.': 'После слияния пул-реквестов вы можете настроить автоматическое удаление головных веток.',
+        'ahead of': 'впереди',
         'All Activity': 'Вся деятельность',
         'All users that are not a member or owner of this repository will require approval to run workflows.': 'Все пользователи, которые не являются членами или владельцами этого репозитория, должны получить разрешение для запуска рабочих процессов.',
         'All workflows': 'Все рабочие процессы',
@@ -281,7 +282,7 @@
         'Any': 'Любой',
         'Any action or reusable workflow can be used, regardless of who authored it or where it is defined.': 'Можно использовать любое действие или многократно используемый рабочий процесс, независимо от того, кто его создал и где он определен.',
         'Any custom Dependabot alert rules will be disabled unless GitHub Advanced Security is enabled for this repository.': 'Любые настраиваемые правила оповещений Dependabot будут отключены, если для этого репозитория не включена функция GitHub Advanced Security.',
-        'Any repository that has not been created or updated during this period will be excluded.': 'Все репозитории, которые не были созданы или обновлены в течение этого периода, будут исключены.',
+        'Any repository that has not been created or\n    updated during this period will be excluded.': 'Любой репозиторий, который не был создан или обновлён в течение этого периода, будет исключён.',
         'Anyone on the internet can see this repository. You choose who can commit.': 'Любой пользователь Интернета может просматривать этот репозиторий. Вы выбираете, кто может вносить изменения.',
         'Apply and reload': 'Применить и перезагрузить',
         'Apply labels to this pull request': 'Применить метки к этому пул-реквесту',
@@ -318,6 +319,7 @@
         'Begin import': 'Начать импорт',
         'Block commits that contain': 'Блокируйте фиксации, содержащие',
         'Branch': 'Ветка',
+        'branches': 'ветки',
         'Branch protection rules': 'Правила защиты ветвей',
         'Branches': 'Ветки',
         'Browse all categories': 'Просмотреть все категории',
@@ -574,6 +576,7 @@
         'Forks': 'Форки',
         'forks':'Форков',
         'Forks of other forks': 'Форки других форков',
+        'forked from': 'форк от',
         'General settings': 'Общие настройки',
         'Generate release notes': 'Создать примечания к выпуску',
         'Get organized with issue templates': 'Организуйтесь с помощью шаблонов выпусков',
@@ -741,6 +744,7 @@
         'No codespaces': 'Нет кодовых пространств',
         'No commits history': 'Нет истории коммитов',
         'No conflicts with base branch': 'Нет конфликтов с базовой веткой',
+        'No contributors': 'Нет участников',
         'No conversations yet': 'Пока нет разговоров',
         'No description, website, or topics provided.': 'Описание, веб-сайт и темы не указаны.',
         'No forked repositories found': 'Не найдено ни одного форкнутого репозитория',
@@ -981,6 +985,7 @@
         'Switch to tree view': 'Перейти к дереву',
         'Tabs': 'Табуляция',
         'Tags': 'Теги',
+        'tags': 'теги',
         'Take a break, write some code, do what you do best.': 'Сделайте перерыв, напишите код, займитесь тем, что у вас получается лучше всего.',
         'Template repository': 'Хранилище шаблонов ',
         'Template repositories let users generate new repositories with the same directory structure and files.': 'Хранилища шаблонов позволяют пользователям создавать новые хранилища с той же структурой каталогов и файлами.',
@@ -1005,6 +1010,7 @@
         'These branches can be automatically merged.': 'Эти ветви могут быть автоматически объединены.',
         "There isn't any commit history to show here for the selected date range": "Для выбранного диапазона дат нет истории коммитов, которую можно было бы здесь показать.",
         'This account has not applied to join GitHub Sponsors.': 'Эта учетная запись не подала заявку на участие в программе GitHub Sponsors.',
+        'This branch is': 'Эта ветвь',
         'This branch is not ahead of the upstream': 'Эта ветвь не опережает основную ветвь',
         'This branch will be checked out on creation': 'Эта ветка будет проверена при создании.',
         'This environment has no secrets.': 'В этой среде нет секретов.',
@@ -2371,6 +2377,7 @@
         'Block a user': 'Заблокировать пользователя',
         'Block command line pushes that expose my email': 'Блокировка командной строки, раскрывающей мой адрес электронной почты',
         'Block or Report': 'Блокировать или сообщить',
+        'Block or report user': 'Заблокировать или пожаловаться на пользователя',
         'Block user': 'Заблокировать пользователя',
         'Blocked': 'Заблокировано',
         'Blocked users': 'Заблокированные пользователи',
@@ -2995,6 +3002,7 @@
         'Filter assignees': 'Фильтр исполнителей',
         'Filter authors': 'Фильтр авторов',
         'Filter files…': 'Фильтр файлов…',
+        'Filter headings': 'Фильтр по заголовкам',
         'Filter labels': 'Фильтр меток',
         'Filter milestones ': 'Фильтр этапов',
         'Filter projects': 'Фильтр проектов',
@@ -3004,6 +3012,7 @@
         'Filter secret type': 'Фильтр по типу секрета',
         'Filter users': 'Фильтр пользователей',
         'Filter values': 'Значения фильтра',
+        'Find a branch...': 'Найти ветку...',
         'Find a repository…': 'Найти репозиторий…',
         'Find or create a branch...': 'Найти или создать ветку...',
         'Go to file': 'Перейти к файлу',
@@ -3013,6 +3022,7 @@
         "Link to social profile 2": "Ссылка на соцсеть 2",
         "Link to social profile 3": "Ссылка на соцсеть 3",
         "Link to social profile 4": "Ссылка на соцсеть 4",
+        'Search': 'Поиск',
         'Search...': 'Поиск...',
         'Search all discussions': 'Поиск по всем обсуждениям',
         'Search all issues': 'Поиск по всем выпускам',
@@ -4086,6 +4096,22 @@
             return `Создано ${num} ${word}`;
         }
 
+        // Проверяем паттерн "+ X releases"
+        const releasesMatch = normalizedText.match(/^\+\s+(\d+)\s+releases$/i);
+        if (releasesMatch) {
+            const num = parseInt(releasesMatch[1], 10);
+            const word = (num === 1) ? 'релиз' : ((num >= 2 && num <= 4) ? 'релиза' : 'релизов');
+            return `+ ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "+ X contributors"
+        const contributorsMatch = normalizedText.match(/^\+\s+(\d+)\s+contributors$/i);
+        if (contributorsMatch) {
+            const num = parseInt(contributorsMatch[1], 10);
+            const word = (num === 1) ? 'участник' : ((num >= 2 && num <= 4) ? 'участника' : 'участников');
+            return `+ ${num} ${word}`;
+        }
+
         return null;
     }
 
@@ -4155,23 +4181,31 @@
         flashWarnings.forEach(flash => {
             const text = flash.textContent.trim();
 
-            const partialMatch = text.match(/Этот репозиторий был архивирован владельцем (.+?)\. Он только что read-only\./);
-            if (partialMatch) {
-                const date = partialMatch[1];
+            const hybridMatch = text.match(/This repository was archived by the owner на (.+?)\. It is только что read-only\./);
+            if (hybridMatch) {
+                let date = hybridMatch[1];
+                date = date.replace(/мар\.\s*(\d+),\s*(\d+)/, '$1 марта $2 г.');
                 flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
                 return;
             }
 
             const fullMatch = text.match(/This repository was archived by the owner on (.+?)\. It is read-only\./);
             if (fullMatch) {
-                const date = fullMatch[1];
+                let date = fullMatch[1];
                 flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
                 return;
             }
 
             const altMatch = text.match(/This repository was archived by the owner on (.+?)\. It is только что read-only\./);
             if (altMatch) {
-                const date = altMatch[1];
+                let date = altMatch[1];
+                flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
+                return;
+            }
+
+            const partialMatch = text.match(/был архивирован владельцем (.+?)\. Он только что read-only\./);
+            if (partialMatch) {
+                let date = partialMatch[1];
                 flash.innerHTML = `Этот репозиторий был архивирован владельцем ${date}. Он только для чтения.`;
                 return;
             }
