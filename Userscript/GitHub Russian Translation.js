@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.69
+// @version      1.70
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -33,7 +33,9 @@
         // Главная и лента
         'Activity you want to see on your feed': 'Активность, которую вы хотите видеть в своей ленте',
         'Adjust time span': 'Настроить временной интервал',
+        'All issues': 'Все задачи',
         'All featured topics': 'Все представленные темы',
+        'All pull requests': 'Все запросы на слияние',
         'Announcements': 'Объявления',
         'Ask Copilot': 'Спросите Copilot',
         'By default, the feed shows events from repositories you sponsor or watch, and people you follow.': 'По умолчанию в ленте отображаются события из репозиториев, которые вы спонсируете или наблюдаете, а также от людей, на которых вы подписаны.',
@@ -496,6 +498,7 @@
         'Dismiss for all repositories': 'Отклонить для всех репозиториев',
         'Display a "Sponsor" button': 'Отображение кнопки «Спонсор»',
         'Documentation': 'Документация',
+        "doesn't have any public repositories yet": "ещё не имеет публичных репозиториев",
         'Download': 'Скачать',
         'Download CSV': 'Скачать CSV',
         'Download PNG': 'Скачать PNG',
@@ -597,6 +600,8 @@
         'Go from code to commit faster on any project.': 'Переходите от кода к фиксации быстрее в любом проекте.',
         'Go to rulesets': 'Перейти к наборам правил',
         'Go to rulesets to create new tag rules': 'Перейдите в набор правил, чтобы создать новые правила тегов.',
+        "has no activity yet for this period": "пока не имеет активности за этот период",
+        "has no activity yet for this period.": "пока не имеет активности за этот период.",
         'Have a project elsewhere?': 'У вас есть проект в другом месте?',
         'Having problems?': 'Есть проблемы?',
         'Helpful resources': 'Полезные ресурсы',
@@ -3886,6 +3891,111 @@
 
     };
 
+    // Функция для нормализации текста
+    function normalizeText(text) {
+        return text.replace(/\s+/g, ' ').trim();
+    }
+
+    // Функция для проверки имени пользователя
+    function isUsername(text) {
+        if (!text || text.length < 2) return false;
+        const reservedNames = ['true', 'false', 'null', 'undefined', 'src', 'href', 'http', 'https', 'www', 'com', 'org', 'net', 'git', 'github'];
+        if (reservedNames.includes(text.toLowerCase())) return false;
+        return /^[a-zA-Z0-9][a-zA-Z0-9-]{0,38}[a-zA-Z0-9]$/.test(text);
+    }
+
+    // Функция для blankslate блоков
+    function translateBlankslateWithUsernames() {
+        const blankslateHeadings = document.querySelectorAll('.blankslate-heading');
+
+        blankslateHeadings.forEach(heading => {
+            const originalText = heading.textContent;
+            if (hasCyrillic(originalText)) return;
+
+            const normalizedText = normalizeText(originalText);
+
+            // Перевод "username doesn't have any public repositories yet."
+            const match = normalizedText.match(/^(.+?)\s+doesn't have any public repositories yet\.?$/i);
+            if (match) {
+                const username = match[1];
+                if (isUsername(username)) {
+                    heading.textContent = `${username} ещё не имеет публичных репозиториев.`;
+                    return;
+                }
+            }
+        });
+
+        // Перевод span активности
+        const activitySpans = document.querySelectorAll('.text-center.color-fg-muted.tmp-pt-3 span, .color-fg-muted.m-0');
+
+        activitySpans.forEach(span => {
+            const originalText = span.textContent;
+            if (hasCyrillic(originalText)) return;
+
+            const normalizedText = normalizeText(originalText);
+
+            // Перевод "username has no activity yet for this period."
+            const match = normalizedText.match(/^(.+?)\s+has no activity yet for this period\.?$/i);
+            if (match) {
+                const username = match[1];
+                if (isUsername(username)) {
+                    span.textContent = `${username} пока не имеет активности за этот период.`;
+                    return;
+                }
+            }
+        });
+    }
+
+    // Функция для замены текста с проверкой имени пользователя
+    function translateTextWithUsernameCheck(text) {
+        if (!text || typeof text !== 'string') return text;
+
+        if (/[а-яА-ЯёЁ]/.test(text)) return text;
+
+        if (translations[text]) {
+            return translations[text];
+        }
+
+        // Проверяем удаление точки в конце
+        if (text.endsWith('.') && translations[text.slice(0, -1)]) {
+            return translations[text.slice(0, -1)] + '.';
+        }
+
+        // Проверяем удаление пробелов
+        const trimmed = text.trim();
+        if (trimmed !== text && translations[trimmed]) {
+            const prefix = text.match(/^\s*/)[0];
+            const suffix = text.match(/\s*$/)[0];
+            return prefix + translations[trimmed] + suffix;
+        }
+
+        // Проверяем числовые паттерны
+        const numberedTranslation = translateNumberedText(text);
+        if (numberedTranslation) {
+            return numberedTranslation;
+        }
+
+        // Проверяем паттерн "username doesn't have any public repositories yet"
+        const publicRepoMatch = text.match(/^(.+?)\s+doesn't have any public repositories yet\.?$/i);
+        if (publicRepoMatch) {
+            const username = publicRepoMatch[1];
+            if (isUsername(username)) {
+                return `${username} ещё не имеет публичных репозиториев.`;
+            }
+        }
+
+        // Проверяем паттерн "username has no activity yet for this period"
+        const activityMatch = text.match(/^(.+?)\s+has no activity yet for this period\.?$/i);
+        if (activityMatch) {
+            const username = activityMatch[1];
+            if (isUsername(username)) {
+                return `${username} пока не имеет активности за этот период.`;
+            }
+        }
+
+        return text;
+    }
+
     // Функция для автоматического перевода с правильными склонениями
     function translateNumberedText(text) {
         // Проверяем паттерн "X Open"
@@ -4427,21 +4537,44 @@
     // Функция для замены текста
     function translateText(node) {
         if (node.nodeType === Node.TEXT_NODE && node.parentElement && !shouldIgnoreElement(node.parentElement)) {
-            const text = node.textContent.trim();
+            const text = node.textContent;
 
             if (hasCyrillic(text)) {
                 return false;
             }
 
             // Сначала проверяем по словарю
-            if (text && translations[text]) {
-                node.textContent = node.textContent.replace(text, translations[text]);
+            if (translations[text]) {
+                node.textContent = translations[text];
                 return true;
             }
-            // Проверка динамических паттернов
+
+            // Проверяем с удалением точки в конце
+            if (text.endsWith('.') && translations[text.slice(0, -1)]) {
+                node.textContent = translations[text.slice(0, -1)] + '.';
+                return true;
+            }
+
+            // Проверяем с удалением пробелов в начале/конце
+            const trimmed = text.trim();
+            if (trimmed !== text && translations[trimmed]) {
+                const prefix = text.match(/^\s*/)[0];
+                const suffix = text.match(/\s*$/)[0];
+                node.textContent = prefix + translations[trimmed] + suffix;
+                return true;
+            }
+
+            // Проверяем числовые паттерны
             const numberedTranslation = translateNumberedText(text);
             if (numberedTranslation) {
-                node.textContent = node.textContent.replace(text, numberedTranslation);
+                node.textContent = numberedTranslation;
+                return true;
+            }
+
+            // Проверяем на фразы с именем пользователя
+            const result = translateTextWithUsernameCheck(text);
+            if (result !== text) {
+                node.textContent = result;
                 return true;
             }
         }
@@ -4857,14 +4990,16 @@
             if (element.childNodes.length === 1 &&
                 element.firstChild.nodeType === Node.TEXT_NODE &&
                 !shouldIgnoreElement(element)) {
-                const text = element.textContent.trim();
-                if (translations[text] && !hasCyrillic(text)) {
-                    element.textContent = translations[text];
-                } else {
-                    // Проверка динамических паттернов
-                    const pageNumberedTranslation = translateNumberedText(text);
-                    if (pageNumberedTranslation) {
-                        element.textContent = pageNumberedTranslation;
+                const text = element.textContent;
+                if (!hasCyrillic(text)) {
+                    if (translations[text]) {
+                        element.textContent = translations[text];
+                    } else {
+                        // Проверяем числовые паттерны
+                        const numberedTranslation = translateNumberedText(text);
+                        if (numberedTranslation) {
+                            element.textContent = numberedTranslation;
+                        }
                     }
                 }
             }
@@ -4874,6 +5009,7 @@
         translateDialogElements();
         translateTimelineActivity();
         translateArchiveFlashMessage();
+        translateBlankslateWithUsernames();
     }
 
     // Запуск перевода при загрузке страницы
@@ -4941,6 +5077,7 @@
                             });
                             setTimeout(() => {
                                 translateSVGGraphs();
+                                translateBlankslateWithUsernames();
                             }, 50);
                         }
                     }
@@ -4957,6 +5094,7 @@
             translateDialogElements();
             translateTimelineActivity();
             translateArchiveFlashMessage();
+            translateBlankslateWithUsernames();
         }, 50);
     });
 
