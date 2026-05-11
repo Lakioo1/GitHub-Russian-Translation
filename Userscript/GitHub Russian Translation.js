@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.70
+// @version      1.71
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -270,6 +270,7 @@
         'After pull requests are merged, you can have head branches deleted automatically.': 'После слияния пул-реквестов вы можете настроить автоматическое удаление головных веток.',
         'ahead of': 'впереди',
         'All Activity': 'Вся деятельность',
+        'All deployments': 'Все развертывания',
         'All users that are not a member or owner of this repository will require approval to run workflows.': 'Все пользователи, которые не являются членами или владельцами этого репозитория, должны получить разрешение для запуска рабочих процессов.',
         'All workflows': 'Все рабочие процессы',
         'Allow all actions and reusable workflows': 'Разрешить все действия и повторно используемые рабочие процессы',
@@ -506,6 +507,7 @@
         'Download template': 'Скачать шаблон',
         'Drag additional files here to add them to your repository': 'Перетащите дополнительные файлы сюда, чтобы добавить их в репозиторий.',
         'Drag files here to add them to your repository': 'Перетащите файлы сюда, чтобы добавить их в ваш репозиторий',
+        'Earned achievements': 'Заработанные достижения',
         'Edit file...': 'Редактировать файл...',
         'Edit message': 'Редактировать сообщение',
         'Edit mode:': 'Режим редактирования:',
@@ -653,6 +655,7 @@
         'Last commit message': 'Сообщение последней фиксации',
         'Last pushed': 'Последнее добавление',
         'Last updated': 'Последнее обновление',
+        'Latest deployments from pinned environments': 'Последние развертывания из закрепленных сред',
         'Latest release': 'Последний релиз',
         'Layout': 'Макет',
         'Launch a': 'Запустить',
@@ -1094,8 +1097,10 @@
         'View file': 'Просмотреть файл',
         'View fork': 'Просмотр форка',
         'View license': 'Посмотреть лицензию',
+        'View logs': 'Просмотреть журналы',
         'View options': 'Параметры просмотра',
         'View security advisories': 'Просмотреть рекомендации по безопасности',
+        'View workflow run': 'Просмотр запуска рабочего процесса',
         'View your gists': 'Просмотреть ваши Gists',
         'Viewed': 'Просмотрено',
         'Visitors': 'Посетители',
@@ -1834,6 +1839,7 @@
         'Branch rules': 'Правила веток',
         'Bypassed': 'Пропущено',
         'Campaign': 'Кампания',
+        'Chart settings': 'Настройки диаграммы',
         'CI/CD integrations': 'CI/CD интеграции',
         'Closed': 'Закрыто',
         'Closed issues': 'Закрытые задачи',
@@ -2060,6 +2066,7 @@
         'Self-hosted runners': 'Self-hosted раннеры',
         'Server error': 'Ошибка сервера',
         'Set up code scanning': 'Настройка сканирования кода',
+        'Show labels for each data point in chart.': 'Показать метки для каждой точки на графике.',
         'Smart Code Navigation': 'Умная навигация по коду',
         'Smart Suggestions': 'Умные предложения',
         'Snooze notifications': 'Отложить уведомления',
@@ -2425,6 +2432,7 @@
         'Configure alert notifications': 'Настройка уведомлений о предупреждениях',
         'Connect': 'Подключиться',
         'Connect MCP servers to Copilot in\n                all Copilot editors and Coding Agent.' : 'Подключайте серверы MCP к Copilot во\n                всех редакторах Copilot и в агенте кодирования.',
+        'Connect MCP servers to Copilot in all Copilot editors and Copilot cloud agent.': 'Подключите серверы MCP к Copilot во всех редакторах Copilot и в облачном агенте Copilot.',
         'Connect with Patreon': 'Подключится к Patreon',
         'Connect with the community that builds the tools you use': 'Общайтесь с сообществом, которое создает инструменты, которые вы используете',
         'Connect your ORCID iD': 'Подключите свой ORCID iD',
@@ -2439,6 +2447,7 @@
         'Copilot can allow or block suggestions matching public code. Learn more about': 'Copilot может разрешать или блокировать предложения, соответствующие публичному коду. Подробнее о',
         'Copilot can search the web': 'Copilot может выполнять поиск в Интернете',
         'Copilot Chat in GitHub.com': 'Чат Copilot на GitHub.com',
+        'Copilot cloud agent': 'Облачный агент Copilot',
         'Copilot in GitHub Desktop': 'Copilot в GitHub Desktop',
         'Copilot Spaces': 'Пространства Copilot',
         'Copilot Spaces Individual Access': 'Индивидуальный доступ к пространствам Copilot',
@@ -2471,6 +2480,7 @@
         'Delete your account': 'Удалить свою учетную запись',
         'Deleted Packages': 'Удаленные пакеты',
         'Deleted repositories': 'Удаленные репозитории',
+        'Delegate tasks to Copilot cloud agent in repositories where it is enabled': 'Делегировать задачи облачному агенту Copilot в репозиториях, где он включен',
         'Delegate tasks to Copilot coding agent in repositories where it is enabled': 'Делегируйте задачи агенту кодирования Copilot в репозиториях, где он включен.',
         'Dependabot alerts': 'Оповещения Dependabot',
         'Dependabot alerts: Email digest': 'Уведомления Dependabot: дайджест по электронной почте',
@@ -3006,6 +3016,7 @@
         'Email address': 'Адрес электронной почты',
         'Filter assignees': 'Фильтр исполнителей',
         'Filter authors': 'Фильтр авторов',
+        'Filter deployments': 'Фильтры развертывания',
         'Filter files…': 'Фильтр файлов…',
         'Filter headings': 'Фильтр по заголовкам',
         'Filter labels': 'Фильтр меток',
@@ -3752,6 +3763,7 @@
         'Copy': 'Копировать',
         'Create': 'Создать',
         'Create a new fork': 'Создать новый форк',
+        'Creator': 'Автор',
         'default': 'по умолчанию',
         'Default': 'По умолчанию',
         'Dependencies': 'Зависимости',
@@ -3778,6 +3790,7 @@
         'Enabled': 'Включено',
         'enabled': 'включено',
         'Enterprises': 'Предприятия',
+        'Environment': 'Cреда',
         'Environments': 'Окружения',
         'Everywhere': 'Везде',
         'Featured': 'Рекомендуемое',
@@ -3842,6 +3855,7 @@
         'Ready for review': 'Готово к проверке',
         'Recently added': 'Недавно добавлено',
         'Recommended': 'Рекомендуется',
+        'Ref': 'Ссылка',
         'Rename': 'Переименовать',
         'Report abuse': 'Сообщить о нарушении',
         'Repository': 'Репозиторий',
@@ -3876,6 +3890,7 @@
         'Upgrade': 'Обновление',
         'Update': 'Обновить',
         'Unfollow': 'Отписаться',
+        'Unlocked': 'Разблокировано',
         'User': 'Пользователь',
         'Users': 'Пользователи',
         'Variables': 'Переменные',
@@ -4211,6 +4226,14 @@
         if (releasesMatch) {
             const num = parseInt(releasesMatch[1], 10);
             const word = (num === 1) ? 'релиз' : ((num >= 2 && num <= 4) ? 'релиза' : 'релизов');
+            return `+ ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "+ X deployments"
+        const deploymentsMatch = normalizedText.match(/^\+\s+(\d+)\s+deployments$/i);
+        if (deploymentsMatch) {
+            const num = parseInt(deploymentsMatch[1], 10);
+            const word = (num === 1) ? 'развертывание' : ((num >= 2 && num <= 4) ? 'развертывания' : 'развертываний');
             return `+ ${num} ${word}`;
         }
 
