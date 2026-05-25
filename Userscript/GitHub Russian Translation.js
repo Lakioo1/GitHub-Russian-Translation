@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.71
+// @version      1.72
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -4013,6 +4013,27 @@
 
     // Функция для автоматического перевода с правильными склонениями
     function translateNumberedText(text) {
+        // Вспомогательная функция для склонений
+        function plural(num, form1, form2, form5) {
+            const n = Math.abs(num);
+            const lastDigit = n % 10;
+            const lastTwoDigits = n % 100;
+
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+                return form5;
+            }
+            if (lastDigit === 1) {
+                return form1;
+            }
+            if (lastDigit >= 2 && lastDigit <= 4) {
+                return form2;
+            }
+            return form5;
+        }
+
+        // Очистка текста от лишних пробелов и символов
+        const cleanText = text.replace(/\s+/g, ' ').trim();
+
         // Проверяем паттерн "X Open"
         const openMatch = text.match(/^(\d+)\s+Open$/);
         if (openMatch) {
@@ -4243,6 +4264,34 @@
             const num = parseInt(contributorsMatch[1], 10);
             const word = (num === 1) ? 'участник' : ((num >= 2 && num <= 4) ? 'участника' : 'участников');
             return `+ ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "X files"
+        const filesMatch = cleanText.match(/^(\d+)\s+files?$/i);
+        if (filesMatch) {
+            const num = parseInt(filesMatch[1], 10);
+            return `${num} ${plural(num, 'файл', 'файла', 'файлов')}`;
+        }
+
+        // Проверяем паттерн "X forks"
+        const forksMatch = cleanText.match(/^(\d+)\s+forks?$/i);
+        if (forksMatch) {
+            const num = parseInt(forksMatch[1], 10);
+            return `${num} ${plural(num, 'форк', 'форка', 'форков')}`;
+        }
+
+        // Проверяем паттерн "X comments"
+        const commentsMatch = cleanText.match(/^(\d+)\s+comments?$/i);
+        if (commentsMatch) {
+            const num = parseInt(commentsMatch[1], 10);
+            return `${num} ${plural(num, 'комментарий', 'комментария', 'комментариев')}`;
+        }
+
+        // Проверяем паттерн "X stars"
+        const starsMatch = cleanText.match(/^(\d+)\s+stars?$/i);
+        if (starsMatch) {
+            const num = parseInt(starsMatch[1], 10);
+            return `${num} ${plural(num, 'звезда', 'звезды', 'звёзд')}`;
         }
 
         return null;
