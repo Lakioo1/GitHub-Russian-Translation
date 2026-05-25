@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.72
+// @version      1.73
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -2124,56 +2124,109 @@
 
         // Уведомления
         'Add new filter': 'Добавить новый фильтр',
+        'All': 'Все',
         'All caught up!': 'Все наверстали!',
         'All done here!': 'Все готово!',
         'and watch the ones you’re interested.': 'и смотрите те, которые вам интересны.',
         'Any reason': 'Любая причина',
         'Assign': 'Назначить',
+        'Assigned': 'Назначено',
         'Author': 'Автор',
         'Autocomplete': 'Автозаполнение',
+        'Bulk action processing complete.': 'Массовая операция завершена.',
+        'Bulk action processing failed, please try again.': 'Ошибка при выполнении массовой операции, попробуйте снова.',
+        'Bulk actions are not currently supported for this query.': 'Массовые операции не поддерживаются для этого запроса.',
+        'Bulk actions currently being processed.': 'Массовые операции обрабатываются.',
         'Change notification settings': 'Изменить настройки уведомлений',
+        'Clear': 'Очистить',
         'Clear out the clutter.': 'Уберите беспорядок.',
         'commented': 'прокомментировал',
         'Create new filter': 'Создать новый фильтр',
+        'Customize filters': 'Настроить фильтры',
         'Date': 'Дата',
         'Done': 'Готово',
-        'Filter inbox by…': 'Фильтровать входящие по…',
-        'Get started': 'Начать работу',
         'Explore repositories': 'Исследуйте репозитории',
+        'Filter inbox by…': 'Фильтровать входящие по…',
+        'Filters': 'Фильтры',
+        'Folders': 'Папки',
+        'Get started': 'Начать работу',
+        'Group by:': 'Группировка:',
         'Inbox': 'Входящие',
+        'Inbox zero': 'Входящие пусты',
         'Least recently subscribed': 'Наименее недавно подписанные',
+        'Manage notifications': 'Управление уведомлениями',
         'Manual': 'Руководство',
         'Mark as done': 'Пометить как выполненное',
+        'Mark notifications as done so you can move on with your work.': 'Помечайте уведомления как выполненные, чтобы можно было продолжить работу.',
         'Mention': 'Упоминание',
+        'Mentioned': 'Упоминания',
         'Most recently subscribed': 'Последние подписки',
         'New activity appears in your inbox.': 'Новая активность появляется в вашем почтовом ящике.',
-        'No results matched your search.': 'Результаты поиска не найдены.',
+        'Newest to oldest': 'Сначала новые',
         'No notifications matched your query.': 'Ни одно уведомление не соответствует вашему запросу.',
+        'No results matched your search.': 'Результаты поиска не найдены.',
         'Notification settings': 'Настройки уведомлений',
         'Notifications settings': 'Настройки уведомлений',
-        'Manage notifications': 'Управление уведомлениями',
-        'Mark notifications as done so you can move on with your work.': 'Помечайте уведомления как выполненные, чтобы можно было продолжить работу.',
+        'Oldest to newest': 'Сначала старые',
+        'Participating': 'Участвую',
         'Reason': 'Причина',
+        'Repository': 'Репозиторий',
         'Review Requested': 'Запрос на проверку',
+        'Review requested': 'Запрошена проверка',
         'Saved': 'Сохраненное',
         'Save something important': 'Сохрани что-нибудь важное',
+        'Search notifications': 'Поиск уведомлений',
         'Show all subscriptions': 'Показать все подписки',
+        'Sort by:': 'Сортировка:',
         'State Change': 'Изменение состояния',
         'Submit search': 'Отправить запрос',
+        'Subscriptions': 'Подписки',
         'Suggested filters': 'Рекомендуемые фильтры',
+        'Take a break, write some code, do what you do best.': 'Сделайте перерыв, напишите код, займитесь тем, что у вас получается лучше всего.',
         'Team Mention': 'Упоминание команды',
+        'Team mentioned': 'Упоминания команды',
         'Types': 'Типы',
         'Unread': 'Непрочитанные',
+        'Watched repositories': 'Просмотренные репозитории',
+        'Watching': 'Наблюдение',
+        "We're still processing your last request. Please wait for that to complete before submitting a new request.": 'Ваш предыдущий запрос ещё обрабатывается. Пожалуйста, подождите.',
         'You changed the thread state (for example, closing an Issue or merging a Pull Request).': 'Вы изменили состояние ветки (например, закрыли проблему или объединили запрос на извлечение).',
         'You commented on the thread.': 'Вы прокомментировали эту ветку.',
         'You created the thread.': 'Вы создали эту ветку.',
         'You subscribed to the thread (via an Issue or Pull Request).': 'Вы подписались на ветку (через Issue или Pull Request).',
-        'You were assigned to the Issue/PR.': 'Вы были назначены на должность специалиста по связям с общественностью.',
-        'You were on a team that was mentioned.': 'Вы были в команде, о которой упоминалось.',
-        'You were requested for review.': 'Вас попросили оставить отзыв.',
-        'You were specifically @mentioned in the content.': 'Вы были специально упомянуты в контенте.',
-        'Watched repositories': 'Просмотренные репозитории',
-        'Watching': 'Наблюдение',
+        'You were assigned to the Issue/PR.': 'Вы были назначены ответственным за задачу/пул-реквест.',
+        'You were on a team that was mentioned.': 'Вы были в команде, о которой упомянули.',
+        'You were requested for review.': 'Вас запросили на проверку.',
+        'You were specifically @mentioned in the content.': 'Вы были явно упомянуты (@mention) в содержании.',
+
+        // События в ленте
+        'added a commit that references this issue': 'добавил коммит, который ссылается на эту задачу',
+        'added a commit that references this pull request': 'добавил коммит, который ссылается на этот запрос на слияние',
+        'assigned': 'назначил',
+        'changed the title': 'изменил название',
+        'closed this as': 'закрыл это как',
+        'closed this as completed': 'закрыл как выполненное',
+        'closed this as duplicate': 'закрыл как дубликат',
+        'closed this as not planned': 'закрыл как не запланированное',
+        'commented': 'прокомментировал',
+        'completed': 'завершённое',
+        'converted to draft': 'перевёл в черновик',
+        'demilestoned': 'удалил из вехи',
+        'labeled': 'добавил метку',
+        'locked': 'заблокировал',
+        'marked as ready for review': 'отметил как готовое к проверке',
+        'mentioned': 'упомянул',
+        'milestoned': 'добавил в веху',
+        'opened': 'открыл',
+        'opened by': 'открыт',
+        'pinned': 'закрепил',
+        'removed review request for': 'убрал запрос проверки для',
+        'renamed': 'переименовал',
+        'requested review from': 'запросил проверку от',
+        'unassigned': 'снял назначение',
+        'unlabeled': 'удалил метку',
+        'unlocked': 'разблокировал',
+        'unpinned': 'открепил',
 
         // Действия с файлами
         'Blame': 'История изменений',
@@ -3047,6 +3100,7 @@
         'Search deleted packages': 'Поиск удалённых пакетов',
         'Search Issues': 'Поиск задач',
         'Search for apps, actions, and models': 'Поиск приложений, действий и моделей',
+        'Search notifications': 'Поиск уведомлений',
         'Search MCPs': 'Поиск MCP',
         'Search or create a new tag': 'Найти или создать новый тег',
         'Search or filter': 'Поиск или фильтр',
@@ -3675,6 +3729,7 @@
         '⭐️ Name this list': '⭐️ Назовите этот список',
 
         // Кнопки и действия
+        'Add file': 'Добавить файл',
         'Apply': 'Применить',
         'Cancel': 'Отмена',
         'Clone or download': 'Клонировать или скачать',
@@ -3683,17 +3738,29 @@
         'Copy link': 'Копировать ссылку',
         'Create': 'Создать',
         'Create fork': 'Создать форк',
+        'Create public gist': 'Создать публичный Gist',
+        'Create secret gist': 'Создать секретный Gist',
         'Download ZIP': 'Скачать ZIP',
+        'Editing': 'Редактирование',
+        'Indent mode': 'Режим отступа',
+        'Line wrap mode': 'Режим переноса строк',
         'Load more': 'Загрузить ещё',
+        'Make public': 'Опубликовать',
         'Quote reply': 'Цитата ответа',
+        'No wrap': 'Без переноса',
         'Report content': 'Содержание отчета',
         'Revisions': 'Изменения',
         'Save': 'Сохранить',
         'Show less': 'Показать меньше',
         'Show more': 'Показать больше',
+        'Soft wrap': 'Мягкий перенос',
+        'Spaces': 'Пробелы',
         'Submit': 'Отправить',
+        'Tabs': 'Табуляция',
         'Update': 'Обновить',
         'Update comment': 'Обновить комментарий',
+        'Update public gist': 'Обновить публичный Gist',
+        'Update secret gist': 'Обновить секретный Gist',
 
         // Временные предлоги и конструкции
         '@mention': '@упомянуть',
@@ -3833,6 +3900,7 @@
         'On': 'Включено',
         'open': 'открытый',
         'open/closed': 'открытый/закрытый',
+        'opened': 'открыл',
         'Open menu': 'Открыть меню',
         'Owner': 'Владелец',
         'Packages & registries': 'Пакеты и реестры',
@@ -3957,6 +4025,94 @@
                     span.textContent = `${username} пока не имеет активности за этот период.`;
                     return;
                 }
+            }
+        });
+    }
+
+    // Функция для перевода событий в ленте
+    function translateTimelineEvents() {
+        const eventKeys = Object.keys(translations).filter(key => {
+            if (typeof key !== 'string') return false;
+            if (key.length < 3) return false;
+            if (hasCyrillic(key)) return false;
+
+            // Список индикаторов событий в ленте
+            const eventIndicators = [
+                'commit', 'pull request', 'title', 'closed', 'opened', 'assigned',
+                'commented', 'completed', 'converted', 'draft', 'labeled', 'locked',
+                'mentioned', 'milestoned', 'pinned', 'renamed', 'requested',
+                'unassigned', 'unlabeled', 'unlocked', 'unpinned', 'removed', 'demilestoned'
+            ];
+
+            return eventIndicators.some(indicator => key.toLowerCase().includes(indicator.toLowerCase()));
+        });
+
+        const eventContainers = document.querySelectorAll('.row-module__timelineBodyContent__nmY90, .ActivityHeader-module__footer__HD8mP, .IssueBodyHeader-module__footerSection__Df7HB');
+
+        eventContainers.forEach(container => {
+            let newHtml = container.innerHTML;
+            let hasChanges = false;
+
+            eventKeys.forEach(key => {
+                if (newHtml.includes(key) && !hasCyrillic(newHtml)) {
+                    const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    newHtml = newHtml.replace(new RegExp(escapedKey, 'g'), translations[key]);
+                    hasChanges = true;
+                }
+            });
+
+            if (hasChanges) {
+                container.innerHTML = newHtml;
+            }
+        });
+
+        const safeShortWords = ['completed', 'not planned', 'duplicate'];
+        const reasonLinks = document.querySelectorAll('.ClosedEvent-module__stateReasonLink__X7TkZ');
+        reasonLinks.forEach(link => {
+            const text = link.textContent.trim();
+            if (safeShortWords.includes(text) && translations[text]) {
+                link.textContent = translations[text];
+            }
+        });
+    }
+
+    // Функция для перевода form-элементов
+    function translateFormElements() {
+        // Перевод optgroup
+        const optgroups = document.querySelectorAll('optgroup');
+        optgroups.forEach(optgroup => {
+            const label = optgroup.getAttribute('label');
+            if (label && !hasCyrillic(label) && translations[label]) {
+                optgroup.setAttribute('label', translations[label]);
+            }
+        });
+
+        // Перевод option
+        const options = document.querySelectorAll('option');
+        options.forEach(option => {
+            const text = option.textContent.trim();
+            if (text && !hasCyrillic(text) && translations[text]) {
+                option.textContent = translations[text];
+            }
+        });
+
+        // Перевод button
+        const buttons = document.querySelectorAll('button, .btn, .btn-primary, .btn-danger, a.btn, a.btn-primary, a.btn-danger');
+        buttons.forEach(button => {
+            if (button.querySelector('svg')) {
+                const textLength = button.textContent.trim().length;
+                if (textLength < 2) return;
+            }
+
+            const text = button.textContent.trim();
+            if (text && !hasCyrillic(text) && translations[text]) {
+                button.textContent = translations[text];
+            }
+
+            // Перевод data-disable-with атрибута
+            const disableWith = button.getAttribute('data-disable-with');
+            if (disableWith && !hasCyrillic(disableWith) && translations[disableWith]) {
+                button.setAttribute('data-disable-with', translations[disableWith]);
             }
         });
     }
@@ -5082,6 +5238,8 @@
         translateTimelineActivity();
         translateArchiveFlashMessage();
         translateBlankslateWithUsernames();
+        translateFormElements();
+        translateTimelineEvents();
     }
 
     // Запуск перевода при загрузке страницы
@@ -5150,6 +5308,7 @@
                             setTimeout(() => {
                                 translateSVGGraphs();
                                 translateBlankslateWithUsernames();
+                                translateTimelineEvents();
                             }, 50);
                         }
                     }
@@ -5167,6 +5326,7 @@
             translateTimelineActivity();
             translateArchiveFlashMessage();
             translateBlankslateWithUsernames();
+            translateTimelineEvents();
         }, 50);
     });
 
