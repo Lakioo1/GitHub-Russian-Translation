@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.73
+// @version      1.74
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -1021,6 +1021,7 @@
         'This branch is': 'Эта ветвь',
         'This branch is not ahead of the upstream': 'Эта ветвь не опережает основную ветвь',
         'This branch will be checked out on creation': 'Эта ветка будет проверена при создании.',
+        'This repository has been archived.': 'Этот репозиторий был заархивирован.',
         'This environment has no secrets.': 'В этой среде нет секретов.',
         'This environment has no variables.': 'В этой среде нет переменных.',
         'This may be used to force a "cool-down" period during heated discussions or prevent unwanted interactions.': 'Это может быть использовано для принудительного «охлаждения» в ходе горячих дискуссий или предотвращения нежелательных взаимодействий.',
@@ -1506,17 +1507,25 @@
         'Checkout with GitHub CLI': 'Проверка с помощью GitHub CLI',
         'Checkout with GitHub Desktop': 'Открыть в GitHub Desktop',
         'Codespace repository configuration': 'Настройка репозитория Codespace',
+        "created": "создал",
+        'Close Copilot panel': 'Закрыть панель Copilot',
+        'Close side panel': 'Закрыть боковую панель',
         'Closed with unmerged commits': 'Закрыто с необъединенными коммитами',
+        "edited": "отредактировал",
         'Filter by organization or owner': 'Фильтровать по организации или владельцу',
         'Finish your comments': 'Завершите комментарии',
+        'Finish your review': 'Завершите обзор',
         'GitHub Actions make it easy to automate all your software workflows, now with world-class CI/CD.': 'GitHub Actions упрощает автоматизацию всех ваших программных рабочих процессов, теперь с помощью CI/CD мирового класса.',
         'Learn about draft PRs': 'Узнайте о проектах PR',
         'Least commented': 'Наименее комментируемые',
         'Least recently updated': 'Наименее недавно обновленные',
         'Most commented': 'Наиболее комментируемые',
         'Most reactions': 'Большинство реакций',
+        "(most recent)": "(последнее)",
+        "most recent": "последнее",
         'No previous review found': 'Предыдущих отзывов не найдено',
         'Only manifest files': 'Только файлы манифеста',
+        "Only receive notifications from this pull request when you have participated or have been @mentioned.": "Получать уведомления от этого запроса на слияние только когда вы участвовали или вас упомянули (@mentioned).",
         "Open an in-progress pull request without asking for formal review or risking an unwanted merge. When you're ready for code review, you can mark your draft pull request as ready for review, which will request reviews from any code owners.": "Откройте незавершенный запрос на слияние, не запрашивая официального рецензирования и не рискуя нежелательным слиянием. Когда вы будете готовы к рецензированию кода, вы можете пометить свой черновой запрос на слияние как готовый к рецензированию, что вызовет запрос на рецензирование от всех владельцев кода.",
         'Open comments panel': 'Открыть панель комментариев',
         'Open overview panel': 'Открыть панель обзора',
@@ -1525,6 +1534,7 @@
         'Private repositories only': 'Только частные репозитории',
         'Public repositories only': 'Только публичные репозитории',
         'Pull requests with no milestone': 'Запросы на извлечение без вех',
+        "Receive all notifications from this pull request.": "Получать все уведомления от этого запроса на слияние.",
         'Recently updated': 'Недавно обновленные',
         'Repository visibility': 'Видимость репозитория',
         'Review changes': 'Просмотр изменений',
@@ -1535,6 +1545,9 @@
         'Select commits to view': 'Выберите коммиты для просмотра',
         'Still in progress?': 'Все еще в процессе?',
         'Switch to the classic experience': 'Переключитесь на классический режим',
+        "Submit general feedback without explicit approval.": "Оставить общий отзыв без явного одобрения.",
+        "Submit feedback and approve merging these changes.": "Оставить отзыв и одобрить слияние этих изменений.",
+        "Submit feedback suggesting changes.": "Оставить отзыв с предложением изменений.",
         'There aren’t any open pull requests.': 'Открытых запросов на извлечение нет.',
         'This pull request is closed.': 'Этот запрос на извлечение закрыт.',
         'This pull request must be reopened to create new codespaces on it.': 'Этот pull request необходимо снова открыть, чтобы создать на его основе новые codespaces.',
@@ -1542,9 +1555,11 @@
         'Unlabeled': 'Без маркировки',
         'Verified': 'Проверено',
         'Viewed files': 'Просмотренные файлы',
+        'View status': 'Просмотреть статус',
         "What's new": "Что нового",
         'You could search': 'Вы можете выполнить поиск',
         "You haven’t reviewed this pull request yet": "Вы еще не просмотрели этот запрос на извлечение",
+        "You will only be notified for the events selected from the list below. If you participate or are @mentioned you will be subscribed.": "Вы будете получать уведомления только о событиях, выбранных из списка ниже. Если вы участвуете или вас упомянули (@mentioned), вы будете подписаны.",
         "You're all set — the branch has been merged.": "Всё готово — ветка объединена.",
         'You’re not receiving notifications from this thread.': 'Вы не получаете уведомления из этой ветки.',
 
@@ -4076,6 +4091,42 @@
         });
     }
 
+    // Функция для перевода числовых ссылок
+    function translatePRLinks() {
+        const prLinks = document.querySelectorAll('a[href*="/pulls?"]');
+
+        prLinks.forEach(link => {
+            const text = link.textContent.replace(/\s+/g, ' ').trim();
+
+            // Проверяем паттерн "X Open"
+            let match = text.match(/^(\d+)\s+Open$/);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const translated = (num === 1) ? `${num} Открытый` : `${num} Открытых`;
+
+                link.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === `${num} Open`) {
+                        node.textContent = ` ${translated}`;
+                    }
+                });
+                return;
+            }
+
+            // Проверяем паттерн "X Closed"
+            match = text.match(/^(\d+)\s+Closed$/);
+            if (match) {
+                const num = parseInt(match[1], 10);
+                const translated = (num === 1) ? `${num} Закрытый` : `${num} Закрытых`;
+
+                link.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === `${num} Closed`) {
+                        node.textContent = ` ${translated}`;
+                    }
+                });
+            }
+        });
+    }
+
     // Функция для перевода form-элементов
     function translateFormElements() {
         // Перевод optgroup
@@ -4213,6 +4264,19 @@
                 return `${num} Закрытых`;
             } else {
                 return `${num} Закрытых`;
+            }
+        }
+
+        // Проверяем паттерн "Edited X time"
+        const editedMatch = cleanText.match(/^Edited\s+(\d+)\s+time?s?$/i);
+        if (editedMatch) {
+            const num = parseInt(editedMatch[1], 10);
+            if (num === 1) {
+                return `Отредактировано ${num} раз`;
+            } else if (num >= 2 && num <= 4) {
+                return `Отредактировано ${num} раза`;
+            } else {
+                return `Отредактировано ${num} раз`;
             }
         }
 
@@ -5240,6 +5304,7 @@
         translateBlankslateWithUsernames();
         translateFormElements();
         translateTimelineEvents();
+        translatePRLinks();
     }
 
     // Запуск перевода при загрузке страницы
@@ -5327,6 +5392,7 @@
             translateArchiveFlashMessage();
             translateBlankslateWithUsernames();
             translateTimelineEvents();
+            translatePRLinks();
         }, 50);
     });
 
