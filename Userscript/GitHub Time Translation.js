@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -215,23 +215,27 @@
 
         // Критические селекторы, которые точно являются кодом
         const criticalCodeSelectors = [
+            '#new_blob',
+            '#readme',
             '.blob-code',
             '.blob-code-inner',
             '.blob-editor-container',
-            '.CodeMirror',
             '.cm-editor',
             '.code-editor',
+            '.CodeMirror',
             '.commit-create',
+            '.DirectoryRichtextContent-module__SharedMarkdownContent__hHXUL',
             '.file-editor',
             '.highlight',
             '.js-blob-form',
             '.js-file-line',
             '.js-file-line-container',
+            '.markdown-body',
             '.monaco-editor',
             '.react-code-text',
             '[data-code-marker]',
             '[data-qa-code-editor]',
-            '#new_blob',
+            '[data-target="readme-toc.contentSticky"]',
             'code',
             'pre'
         ];
@@ -303,6 +307,8 @@
 
     // Функция для перевода относительного времени
     function translateRelativeTime(text) {
+        // Проверка на кириллицу
+        if (/[а-яА-ЯёЁ]/.test(text)) return text;
         // Пропускаем уже переведенный текст
         if (text.includes('назад') || text.includes('только что') || text.includes('вчера') ||
             text.includes('прошлом') || text.includes('этом') || text.includes('пн') || text.includes('вт') ||
