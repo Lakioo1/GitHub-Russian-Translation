@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.74
+// @version      1.75
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -2383,11 +2383,11 @@
         'Account': 'Учетная запись',
         'Account budgets': 'Бюджеты счетов',
         'Achievements': 'Достижения',
+        'across all public repositories on GitHub.': 'во всех публичных репозиториях на GitHub.',
         'Active Mode': 'Активный режим',
         'Active subscription': 'Активная подписка',
         'Activity': 'Активность',
         'Activity overview': 'Обзор деятельности',
-        'across all public repositories on GitHub.': 'во всех публичных репозиториях на GitHub.',
         'Add a domain': 'Добавить домен',
         'Add a saved reply': 'Добавить сохраненный ответ',
         'Add email address': 'Добавить адрес электронной почты',
@@ -2408,7 +2408,7 @@
         'All': 'Все',
         'All blocked users': 'Все заблокированные пользователи',
         'All Codespaces can access other repositories I own': 'Все кодовые пространства могут получить доступ к другим репозиториям, которые мне принадлежат.',
-        'All of the fields on this page are optional and can be deleted at any\n                  time, and by filling them out, you\'re giving us consent to share this\n                  data wherever your user profile appears. Please see our' : 'Все поля на этой странице необязательны и могут быть удалены в любое время. Заполняя их, вы даете нам согласие на передачу этих данных везде, где отображается ваш профиль. Пожалуйста, ознакомьтесь с нашим',
+        'All of the fields on this page are optional and can be deleted at any\n                  time, and by filling them out, you\'re giving us consent to share this\n                  data wherever your user profile appears. Please see our': 'Все поля на этой странице необязательны и могут быть удалены в любое время. Заполняя их, вы даете нам согласие на передачу этих данных везде, где отображается ваш профиль. Пожалуйста, ознакомьтесь с нашим',
         'All repositories': 'Все репозитории',
         'Allow all verified emails': 'Разрешить все подтвержденные адреса электронной почты',
         'Allow Copilot to suggest commit messages when you make changes on GitHub.com.': 'Разрешить Copilot предлагать сообщения о фиксации при внесении изменений на GitHub.com.',
@@ -2425,7 +2425,7 @@
         'Amounts shown in USD': 'Суммы указаны в долларах США',
         'and sign in to your account.': 'и войдите в свою учетную запись.',
         'and uncheck "Keep my email address private."': 'и снимите флажок «Сохранять мой адрес электронной почты в тайне».',
-        '.\n    Any changes here will override those limits.' : '.\n    Любые изменения здесь переопределят эти ограничения.',
+        '.\n    Any changes here will override those limits.': '.\n    Любые изменения здесь переопределят эти ограничения.',
         'Applications': 'Приложения',
         'Applies only to specifically selected repositories': 'Применяется только к специально выбранным репозиториям',
         'Archives': 'Архивы',
@@ -2466,15 +2466,15 @@
         'Budgets let you set monthly usage limits for specific GitHub products or SKUs. If no budget is set, usage for that product is unlimited.': 'Бюджеты позволяют устанавливать ежемесячные лимиты использования для определенных продуктов GitHub или SKU. Если бюджет не установлен, использование данного продукта не ограничено.',
         'Building an application, service, or tool that integrates with GitHub?': 'Создаете приложение, сервис или инструмент, который интегрируется с GitHub?',
         'Busy': 'Занят',
-        'By enabling, your codespaces will be able to pull from VS Code Settings Sync service and push only for the trusted repositories you specify.\n    Only enable this for repositories that you trust.' : 'При включении ваши кодовые пространства смогут получать данные из службы синхронизации настроек VS Code и отправлять изменения только в указанные вами доверенные репозитории.\n    Включайте эту функцию только для репозиториев, которым вы доверяете.',
+        'By enabling, your codespaces will be able to pull from VS Code Settings Sync service and push only for the trusted repositories you specify.\n    Only enable this for repositories that you trust.': 'При включении ваши кодовые пространства смогут получать данные из службы синхронизации настроек VS Code и отправлять изменения только в указанные вами доверенные репозитории.\n    Включайте эту функцию только для репозиториев, которым вы доверяете.',
         'Change my username': 'Изменить имя пользователя',
         'Change password': 'Изменить пароль',
         'Change username': 'Изменить имя пользователя',
         'Changing your username can have': 'Изменение имени пользователя может иметь',
         'Character keys': 'Клавиши с символами',
         'Chat messages': 'Сообщения в чате',
-        'Choose the default branch for your new personal repositories. You might want to change the default name due\n  to different workflows, or because your integrations still require “master” as the default branch name. You can always change\n  the default branch name on individual repositories.' : 'Выберите ветку по умолчанию для ваших новых личных репозиториев. Возможно, вы захотите изменить имя по умолчанию из-за разных рабочих процессов или потому что ваши интеграции все еще требуют «master» в качестве имени ветки по умолчанию. Вы всегда можете изменить имя ветки по умолчанию в отдельных репозиториях.',
-        'Choose how GitHub looks to you. Select a single theme, or sync with your system and\n        automatically switch between day and night themes. Selections are applied immediately and saved automatically.' : 'Выберите, как GitHub выглядит для вас. Выберите единую тему или синхронизируйте с системой для автоматического переключения между дневной и ночной темами. Выбор применяется немедленно и сохраняется автоматически.',
+        'Choose the default branch for your new personal repositories. You might want to change the default name due\n  to different workflows, or because your integrations still require "master" as the default branch name. You can always change\n  the default branch name on individual repositories.': 'Выберите ветку по умолчанию для ваших новых личных репозиториев. Возможно, вы захотите изменить имя по умолчанию из-за разных рабочих процессов или потому что ваши интеграции все еще требуют «master» в качестве имени ветки по умолчанию. Вы всегда можете изменить имя ветки по умолчанию в отдельных репозиториях.',
+        'Choose how GitHub looks to you. Select a single theme, or sync with your system and\n        automatically switch between day and night themes. Selections are applied immediately and saved automatically.': 'Выберите, как GitHub выглядит для вас. Выберите единую тему или синхронизируйте с системой для автоматического переключения между дневной и ночной темами. Выбор применяется немедленно и сохраняется автоматически.',
         'Choose the number of spaces a tab is equal to when rendering code': 'Выберите количество пробелов, равное табуляции при отображении кода.',
         'Choose where you\'d like emails to be sent. You can add more email addresses. Use custom routes to specify different email addresses to be used for individual organizations.': 'Выберите, куда вы хотите отправлять электронные письма. Вы можете добавить несколько адресов электронной почты. Используйте настраиваемые маршруты, чтобы указать разные адреса электронной почты для отдельных организаций.',
         'Choose which repositories Copilot coding agent should be enabled in. Copilot coding agent will only be available where it is enabled for the repository and in the Copilot license policies.': 'Выберите, в каких репозиториях следует включить агент кодирования Copilot. Агент кодирования Copilot будет доступен только там, где он включен для репозитория и в политиках лицензирования Copilot.',
@@ -2484,22 +2484,21 @@
         'Code completions': 'Завершение кода',
         'Code review': 'Проверка кода',
         'Code review limits': 'Ограничения проверки кода',
-        'Code review limits may already be specified by individual repositories. Any changes here will override those\n        limits until unset.' : 'Ограничения проверки кода могут уже быть указаны для отдельных репозиториев. Любые изменения здесь переопределят эти ограничения, пока не будут отменены.',
-        'Code review limits are currently managed individually for all repositories. Enable limits to permit only\n            users who have explicitly been granted access to each repository to submit reviews that "approve" or\n            "request changes". Remove limits to allow all users to submit pull request reviews. All users able to submit\n            comment pull request reviews will continue to be able to do so.' : 'Ограничения проверки кода в настоящее время управляются индивидуально для всех репозиториев. Включите ограничения, чтобы разрешить только пользователям, которым явно предоставлен доступ к каждому репозиторию, отправлять рецензии с пометкой "одобрить" или "запросить изменения". Снимите ограничения, чтобы разрешить всем пользователям отправлять рецензии на пул-реквесты. Все пользователи, которые могут отправлять комментарии к рецензиям на пул-реквесты, продолжат это делать.',
+        'Code review limits may already be specified by individual repositories. Any changes here will override those\n        limits until unset.': 'Ограничения проверки кода могут уже быть указаны для отдельных репозиториев. Любые изменения здесь переопределят эти ограничения, пока не будут отменены.',
+        'Code review limits are currently managed individually for all repositories. Enable limits to permit only\n            users who have explicitly been granted access to each repository to submit reviews that "approve" or\n            "request changes". Remove limits to allow all users to submit pull request reviews. All users able to submit\n            comment pull request reviews will continue to be able to do so.': 'Ограничения проверки кода в настоящее время управляются индивидуально для всех репозиториев. Включите ограничения, чтобы разрешить только пользователям, которым явно предоставлен доступ к каждому репозиторию, отправлять рецензии с пометкой "одобрить" или "запросить изменения". Снимите ограничения, чтобы разрешить всем пользователям отправлять рецензии на пул-реквесты. Все пользователи, которые могут отправлять комментарии к рецензиям на пул-реквесты, продолжат это делать.',
         'Code security': 'Коды безопасности',
-        'code suggestions' : 'предложениях кода',
         'Code, planning, and automation': 'Код, планирование и автоматизация',
         'Codespace user secrets': 'Секретные данные пользователя Codespace',
         'Codespaces can automatically install your dotfiles into every codespace you create.': 'Codespaces может автоматически устанавливать ваши dotfiles в каждое создаваемое вами пространство кода.',
-        'Codespaces can have GPG commit signing capabilities so that GitHub can verify that commits made in the codespace come from a trusted source.\n    When enabled, this setting will be applied to your list of trusted repositories.' : 'Codespaces могут иметь возможности подписи коммитов GPG, чтобы GitHub мог подтвердить, что коммиты, сделанные в codespace, поступают из надежного источника.\n    При включении этот параметр будет применен к вашему списку доверенных репозиториев.',
-        'Codespaces you create for your personal account can either be restricted to accessing the repository it was opened for,\n    or granted read access to other repositories you own.' : 'Кодовые пространства, которые вы создаете для своей личной учетной записи, могут либо быть ограничены доступом только к репозиторию, для которого они были открыты,\n    либо иметь доступ на чтение к другим вашим репозиториям.',
+        'Codespaces can have GPG commit signing capabilities so that GitHub can verify that commits made in the codespace come from a trusted source.\n    When enabled, this setting will be applied to your list of trusted repositories.': 'Codespaces могут иметь возможности подписи коммитов GPG, чтобы GitHub мог подтвердить, что коммиты, сделанные в codespace, поступают из надежного источника.\n    При включении этот параметр будет применен к вашему списку доверенных репозиториев.',
+        'Codespaces you create for your personal account can either be restricted to accessing the repository it was opened for,\n    or granted read access to other repositories you own.': 'Кодовые пространства, которые вы создаете для своей личной учетной записи, могут либо быть ограничены доступом только к репозиторию, для которого они были открыты,\n    либо иметь доступ на чтение к другим вашим репозиториям.',
         'Comment': 'Комментарий',
         'Comments': 'Комментарии',
         'Company': 'Компания',
         'Compare base plans': 'Сравнить базовые планы',
         'Configure alert notifications': 'Настройка уведомлений о предупреждениях',
         'Connect': 'Подключиться',
-        'Connect MCP servers to Copilot in\n                all Copilot editors and Coding Agent.' : 'Подключайте серверы MCP к Copilot во\n                всех редакторах Copilot и в агенте кодирования.',
+        'Connect MCP servers to Copilot in\n                all Copilot editors and Coding Agent.': 'Подключайте серверы MCP к Copilot во\n                всех редакторах Copilot и в агенте кодирования.',
         'Connect MCP servers to Copilot in all Copilot editors and Copilot cloud agent.': 'Подключите серверы MCP к Copilot во всех редакторах Copilot и в облачном агенте Copilot.',
         'Connect with Patreon': 'Подключится к Patreon',
         'Connect with the community that builds the tools you use': 'Общайтесь с сообществом, которое создает инструменты, которые вы используете',
@@ -2638,7 +2637,7 @@
         'GitHub Mobile sessions': 'Мобильные сессии GitHub',
         'GitHub Mobile can be used for two-factor authentication by installing the GitHub Mobile app and signing in to your account.': 'GitHub Mobile можно использовать для двухфакторной аутентификации, установив приложение GitHub Mobile и войдя в свою учетную запись.',
         'GitHub Mobile can be used to verify your identity when signing in from a new device and as a two-factor authentication method.': 'GitHub Mobile можно использовать для подтверждения вашей личности при входе с нового устройства и в качестве метода двухфакторной аутентификации.',
-        'GitHub\'s Privacy Statement' : 'Заявлением о конфиденциальности GitHub',
+        'GitHub\'s Privacy Statement': 'Заявлением о конфиденциальности GitHub',
         'GitHub profile guide': 'Руководство по профилю GitHub',
         'GitHub Sponsors': 'Спонсоры GitHub',
         'GitHub Sponsors accounts': 'Учетные записи GitHub Sponsors',
@@ -2663,7 +2662,7 @@
         '**Hover cards** preview information about other parts of GitHub.': '**Всплывающие карточки** предварительно показывают информацию о других частях GitHub.',
         'I have saved my recovery codes': 'Я сохранил свои коды восстановления',
         'I understand, let’s change my username': 'Я понимаю, давайте изменим имя пользователя',
-        'If enabled, usage beyond the free tier will be billed per token based on model pricing from\n        your Models budget.' : 'Если эта функция включена, использование, превышающее бесплатный тариф, будет оплачиваться за токен на основе цен на модели из\n        вашего бюджета Models.',
+        'If enabled, usage beyond the free tier will be billed per token based on model pricing from\n        your Models budget.': 'Если эта функция включена, использование, превышающее бесплатный тариф, будет оплачиваться за токен на основе цен на модели из\n        вашего бюджета Models.',
         'If enabled, you can create individually owned': 'Если включено, вы можете создавать индивидуально принадлежащие',
         'If enabled, you can share individually owned': 'Если включено, вы можете делиться индивидуально принадлежащими',
         'If enabled, you can view and create': 'Если эта функция включена, вы можете просматривать и создавать',
@@ -2671,17 +2670,21 @@
         'Ignored repositories': 'Игнорируемые репозитории',
         'Include all current and future repositories': 'Включить все текущие и будущие репозитории',
         'Include private contributions on my profile': 'Включить частные пожертвования в мой профиль',
+        'Included credits': 'Включенные кредиты',
         'Included premium requests consumed': 'Использованные включенные премиум-запросы',
         'Included usage': 'Включенное использование',
         'Increase contrast': 'Увеличить контраст',
         'Inherit access from source repository': 'Наследовать доступ из исходного репозитория',
+        'Inline suggestions': 'Встроенные предложения',
         'In-product messages': 'Сообщения в продукте',
         'Installed GitHub Apps': 'Установленные приложения GitHub',
         'Integrations': 'Интеграции',
         'Interaction limits': 'Пределы взаимодействия',
-        'Interaction limits may already exist in your account\'s' : 'Ограничения взаимодействия могут уже существовать в',
+        'Interaction limits may already exist in your account\'s': 'Ограничения взаимодействия могут уже существовать в',
+        'If enabled you can use Semantic indexing for Non-GitHub Repositories to index your non-GitHub repositories in VSCode.': 'Если включено, вы можете использовать семантическое индексирование для репозиториев не из GitHub, чтобы индексировать ваши репозитории в VSCode.',
+        'If enabled, you may be served evaluation models through Copilot Auto model selection .': 'Если включено, вам могут предоставляться оценочные модели через автоматический выбор модели Copilot.',
         'It can take up to 30 minutes for the changes to take effect. Restart your code editor for the changes to take effect immediately.': 'Для вступления изменений в силу может потребоваться до 30 минут. Перезапустите редактор кода, чтобы изменения вступили в силу немедленно.',
-        'It may take up to an hour for repositories to be displayed here. You can only restore repositories that are not forks, or have not been forked.' : 'Может потребоваться до часа, чтобы репозитории отобразились здесь. Вы можете восстановить только те репозитории, которые не являются форками или не были форкнуты.',
+        'It may take up to an hour for repositories to be displayed here. You can only restore repositories that are not forks, or have not been forked.': 'Может потребоваться до часа, чтобы репозитории отобразились здесь. Вы можете восстановить только те репозитории, которые не являются форками или не были форкнуты.',
         'Jobs profile': 'Профиль вакансий',
         'Join the GitHub Developer Program': 'Присоединяйтесь к программе для разработчиков GitHub',
         'Joined': 'Присоединился',
@@ -2712,7 +2715,7 @@
         'Learn more about how GitHub Copilot serves Anthropic Claude Haiku 4.5.': 'Узнайте больше о том, как GitHub Copilot обслуживает Anthropic Claude Haiku 4.5.',
         'Learn more about how GitHub Copilot serves Raptor mini.': 'Узнайте больше о том, как GitHub Copilot помогает Raptor mini.',
         'Learn more about private vulnerability reporting': 'Узнайте больше о частном сообщении об уязвимостях',
-        'Learn more about restoring deleted repositories' : 'Подробнее о восстановлении удаленных репозиториев',
+        'Learn more about restoring deleted repositories': 'Подробнее о восстановлении удаленных репозиториев',
         'Learn more about two-factor authentication': 'Узнайте больше о двухфакторной аутентификации',
         'Learn more about working with saved replies': 'Подробнее о работе с сохраненными ответами',
         'Learn more in the docs.': 'Подробнее в документации.',
@@ -2793,7 +2796,7 @@
         'Only selected repositories': 'Только выбранные репозитории',
         'Open repository usage options': 'Открыть параметры использования репозитория',
         'ORCID iD': 'Идентификатор ORCID',
-        'ORCID provides a persistent identifier - an ORCID iD - that distinguishes you from other\n  researchers. Learn more at' : 'ORCID предоставляет постоянный идентификатор - ORCID iD, который отличает вас от других исследователей. Узнайте больше на',
+        'ORCID provides a persistent identifier - an ORCID iD - that distinguishes you from other\n  researchers. Learn more at': 'ORCID предоставляет постоянный идентификатор - ORCID iD, который отличает вас от других исследователей. Узнайте больше на',
         'Organizations': 'Организации',
         'Organizations can provide their members (including you) and their teams access to GitHub Copilot.': 'Организации могут предоставить своим членам (включая вас) и их командам доступ к GitHub Copilot.',
         'Other users will see the time difference from their local time.': 'Другие пользователи будут видеть разницу во времени по отношению к своему местному времени.',
@@ -2838,7 +2841,7 @@
         'Pronouns': 'Местоимения',
         'Public email': 'Публичная электронная почта',
         'Public profile': 'Публичный профиль',
-        'public repositories' : 'публичных репозиториях',
+        'public repositories': 'публичных репозиториях',
         'Push protection for yourself': 'Защита для себя',
         'Read more': 'Читать далее',
         'Read more about connecting with third-party applications at': 'Подробнее о подключении сторонних приложений читайте на сайте',
@@ -2874,7 +2877,7 @@
         'Save Trending settings': 'Сохранить настройки трендов',
         'Saved reply title': 'Сохраненное название ответа',
         'Saved replies': 'Сохраненные ответы',
-        'Saved replies are re-usable text snippets that you can use throughout GitHub comment fields.\n    Saved replies can save you time if you’re often typing similar responses.' : 'Сохраненные ответы — это многократно используемые текстовые фрагменты, которые вы можете использовать во всех полях комментариев GitHub.\n    Сохраненные ответы могут сэкономить вам время, если вы часто вводите похожие ответы.',
+        'Saved replies are re-usable text snippets that you can use throughout GitHub comment fields.\n    Saved replies can save you time if you’re often typing similar responses.': 'Сохраненные ответы — это многократно используемые текстовые фрагменты, которые вы можете использовать во всех полях комментариев GitHub.\n    Сохраненные ответы могут сэкономить вам время, если вы часто вводите похожие ответы.',
         'Scan the QR code': 'Отсканируйте QR-код',
         'Scheduled reminders': 'Запланированные напоминания',
         'Search by username, full name or email address': 'Поиск по имени пользователя, полному имени или адресу электронной почты',
@@ -2943,10 +2946,10 @@
         'System': 'Система',
         'Tab size preference': 'Предпочтения по размеру вкладок',
         'Temporary interaction limits': 'Временные ограничения взаимодействия',
-        'Temporarily restrict which external users can interact with your repositories (comment, open issues, or create pull requests) for a configurable period of time.' : 'Временно ограничьте круг внешних пользователей, которые могут взаимодействовать с вашими репозиториями (комментировать, открывать задачи или создавать пул-реквесты) на настраиваемый период времени.',
+        'Temporarily restrict which external users can interact with your repositories (comment, open issues, or create pull requests) for a configurable period of time.': 'Временно ограничьте круг внешних пользователей, которые могут взаимодействовать с вашими репозиториями (комментировать, открывать задачи или создавать пул-реквесты) на настраиваемый период времени.',
         'The basics for all developers': 'Основы для всех разработчиков',
         'The following repositories will be referenced by GPG verification and Settings Sync.': 'Следующие репозитории будут использоваться для проверки GPG и синхронизации настроек.',
-        'The host image defines the operating system in which development containers run. These images receive periodic upgrades for security, functionality, and performance.\n    GitHub Codespaces offers early access to beta images to ensure compatibility with existing development container configurations.\n    Any codespace created or resumed after changing this setting will use the specified image configuration.' : 'Базовый образ определяет операционную систему, в которой работают контейнеры разработки. Эти образы получают периодические обновления для безопасности, функциональности и производительности.\n    GitHub Codespaces предоставляет ранний доступ к бета-образам для обеспечения совместимости с существующими конфигурациями контейнеров разработки.\n    Любое кодовое пространство, созданное или возобновленное после изменения этого параметра, будет использовать указанную конфигурацию образа.',
+        'The host image defines the operating system in which development containers run. These images receive periodic upgrades for security, functionality, and performance.\n    GitHub Codespaces offers early access to beta images to ensure compatibility with existing development container configurations.\n    Any codespace created or resumed after changing this setting will use the specified image configuration.': 'Базовый образ определяет операционную систему, в которой работают контейнеры разработки. Эти образы получают периодические обновления для безопасности, функциональности и производительности.\n    GitHub Codespaces предоставляет ранний доступ к бета-образам для обеспечения совместимости с существующими конфигурациями контейнеров разработки.\n    Любое кодовое пространство, созданное или возобновленное после изменения этого параметра, будет использовать указанную конфигурацию образа.',
         'Theme mode': 'Тематический режим',
         'Theme preferences': 'Предпочтения по темам',
         'they/them': 'они/их',
@@ -2956,14 +2959,14 @@
         'There are no verified domains.': 'Нет проверенных доменов.',
         'These are packages that have been previously deleted belonging to you. You can restore a package deleted within the last 30 days.': 'Это пакеты, которые были ранее удалены и принадлежали вам. Вы можете восстановить пакет, удаленный в течение последних 30 дней.',
         'This email address is the default for GitHub notifications, such as replies to issues, pull requests, and similar activity.': 'Этот адрес электронной почты является адресом по умолчанию для уведомлений GitHub, таких как ответы на вопросы, запросы на извлечение и аналогичные действия.',
-        'This includes Actions, Git LFS, Packages, and Codespaces' : 'Это включает Actions, Git LFS, Packages и Codespaces',
+        'This includes Actions, Git LFS, Packages, and Codespaces': 'Это включает Actions, Git LFS, Packages и Codespaces',
         'This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.': 'Это список устройств, которые вошли в вашу учетную запись. Отмените все сеансы, которые вы не узнаете.',
         'This is extremely important.': 'Это чрезвычайно важно.',
         'This is where you can review activity from your sponsorships.': 'Здесь вы можете просматривать активность ваших спонсоров.',
         'This setting will be applied to new Container, npm, rubygems and NuGet packages.': 'Этот параметр будет применен к новым пакетам Container, npm, rubygems и NuGet.',
-        'This theme will be active when your system is set to “dark mode”': 'Эта тема будет активна, когда ваша система настроена на "темный режим"',
-        'This theme will be active when your system is set to “light mode”': 'Эта тема будет активна, когда ваша система настроена на "светлый режим"',
-        'This will include any commit attributed to your account but not signed with your GPG or\n        S/MIME key.' : 'Это включит все коммиты, приписываемые вашей учетной записи, но не подписанные вашим ключом GPG или S/MIME.',
+        'This theme will be active when your system is set to "dark mode"': 'Эта тема будет активна, когда ваша система настроена на "темный режим"',
+        'This theme will be active when your system is set to "light mode"': 'Эта тема будет активна, когда ваша система настроена на "светлый режим"',
+        'This will include any commit attributed to your account but not signed with your GPG or\n        S/MIME key.': 'Это включит все коммиты, приписываемые вашей учетной записи, но не подписанные вашим ключом GPG или S/MIME.',
         'Time zone': 'Часовой пояс',
         'To enable Models paid usage, a payment method is needed.': 'Для включения платного использования Models необходим способ оплаты.',
         'To get started, install GitHub Mobile for': 'Чтобы начать, установите GitHub Mobile для',
@@ -2975,8 +2978,8 @@
         'Trending settings': 'Настройки трендов',
         'Trending Repositories': 'Популярные репозитории',
         'Trusted repositories': 'Надежные репозитории',
-        'Turn on included usage email alerts' : 'Включить оповещения о включенном использовании по email',
-        'Turn off included usage email alerts' : 'Отключить оповещения о включенном использовании по email',
+        'Turn on included usage email alerts': 'Включить оповещения о включенном использовании по email',
+        'Turn off included usage email alerts': 'Отключить оповещения о включенном использовании по email',
         'Two-factor authentication': 'Двухфакторная аутентификация',
         'Two-factor authentication (2FA) is now enabled for your GitHub account': 'Двухфакторная аутентификация (2FA) теперь включена для вашей учетной записи GitHub.',
         'Two-factor authentication adds an additional layer of security to your account by requiring more than just a password to sign in.': 'Двухфакторная аутентификация добавляет дополнительный уровень безопасности к вашей учетной записи, требуя для входа не только пароль.',
@@ -3003,9 +3006,9 @@
         'Use a beta image configuration when available. Otherwise, use the latest stable configuration.': 'Используйте бета-версию конфигурации, если она доступна. В противном случае используйте последнюю стабильную версию конфигурации.',
         'Use a fixed-width (monospace) font when editing Markdown': 'Используйте шрифт с фиксированной шириной (моноширинный) при редактировании Markdown.',
         'Use an authentication app or browser extension to get two-factor authentication codes when prompted.': 'Используйте приложение для аутентификации или расширение браузера, чтобы получить коды двухфакторной аутентификации, когда это будет предложено.',
-        'Users that have recently created their account will be unable to interact with your repositories.' : 'Пользователи, которые недавно создали свою учетную запись, не смогут взаимодействовать с вашими репозиториями.',
-        'Users that have not previously committed to the default branch of one of your repositories will be unable to interact with that repository.' : 'Пользователи, которые ранее не делали коммиты в ветку по умолчанию одного из ваших репозиториев, не смогут взаимодействовать с этим репозиторием.',
-        'Users that are not collaborators of one of your repositories will not be able to interact with that repository.' : 'Пользователи, которые не являются участниками одного из ваших репозиториев, не смогут взаимодействовать с этим репозиторием.',
+        'Users that have recently created their account will be unable to interact with your repositories.': 'Пользователи, которые недавно создали свою учетную запись, не смогут взаимодействовать с вашими репозиториями.',
+        'Users that have not previously committed to the default branch of one of your repositories will be unable to interact with that repository.': 'Пользователи, которые ранее не делали коммиты в ветку по умолчанию одного из ваших репозиториев, не смогут взаимодействовать с этим репозиторием.',
+        'Users that are not collaborators of one of your repositories will not be able to interact with that repository.': 'Пользователи, которые не являются участниками одного из ваших репозиториев, не смогут взаимодействовать с этим репозиторием.',
         'VAT/GST ID': 'Идентификационный номер НДС/GST',
         'Verify domains to restrict who can publish GitHub Pages on them.': 'Проверяйте домены, чтобы ограничить круг лиц, которые могут публиковать на них страницы GitHub.',
         'Verify the code from the app': 'Проверьте код из приложения',
@@ -3030,16 +3033,16 @@
         'Web sessions': 'Веб-сессии',
         "We'll use this language preference to filter the trending repository lists on": "Мы будем использовать этот языковой параметр для фильтрации списков популярных репозиториев на",
         'When disabled, Copilot will be hidden and unavailable. This setting does not apply to Copilot search on GitHub Docs.': 'При отключении Copilot будет скрыт и недоступен. Этот параметр не применяется к поиску Copilot в GitHub Docs.',
-        '. When disabled, you cannot view or create any Copilot Spaces.' : '. Когда эта функция отключена, вы не можете просматривать или создавать какие-либо пространства Copilot.',
-        '. When disabled, you cannot create individual spaces.' : '. Когда эта функция отключена, вы не можете создавать индивидуальные пространства.',
-        '.\n                When disabled, you cannot share individual spaces.' : '.\n                Когда эта функция отключена, вы не можете делиться индивидуальными пространствами.',
+        '. When disabled, you cannot view or create any Copilot Spaces.': '. Когда эта функция отключена, вы не можете просматривать или создавать какие-либо пространства Copilot.',
+        '. When disabled, you cannot create individual spaces.': '. Когда эта функция отключена, вы не можете создавать индивидуальные пространства.',
+        '.\n                When disabled, you cannot share individual spaces.': '.\n                Когда эта функция отключена, вы не можете делиться индивидуальными пространствами.',
         'When enabled, you will receive emails when your codespaces are nearing deletion due to inactivity.': 'Если эта функция включена, вы будете получать электронные письма, когда ваши кодовые пространства будут близки к удалению из-за бездействия.',
         'When you are given admin permissions to an organization, automatically receive notifications when a new deploy key is added.': 'Когда вам предоставляются права администратора в организации, вы автоматически получаете уведомления о добавлении нового ключа развертывания.',
         'When you push to GitHub, we\'ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.': 'Когда вы отправляете данные в GitHub, мы проверяем последнюю фиксацию. Если адрес электронной почты автора этой фиксации является личным адресом в вашей учетной записи GitHub, мы блокируем отправку и предупреждаем вас о раскрытии вашего личного адреса электронной почты.',
         "When you push to GitHub, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.": "Когда вы отправляете данные в GitHub, мы проверяем последнюю фиксацию. Если адрес электронной почты автора этой фиксации является личным адресом в вашей учетной записи GitHub, мы блокируем отправку и предупреждаем вас о раскрытии вашего личного адреса электронной почты.",
         "When you're given access to": "Когда вам предоставляется доступ к",
         'With CI/CD, Dependabot, and the world\'s largest developer community, GitHub gives your team everything they need to ship better software faster': 'Благодаря CI/CD, Dependabot и крупнейшему в мире сообществу разработчиков GitHub предоставляет вашей команде все необходимое для более быстрого выпуска более качественного программного обеспечения.',
-        'With Copilot coding agent, you can delegate tasks to Copilot, freeing you to focus\n    on the creative, complex, and high-impact work that matters most. Simply assign an issue to Copilot, wait\n    for the agent to request your review, then leave feedback on the pull request to iterate.' : 'С помощью агента кодирования Copilot вы можете делегировать задачи Copilot, освобождая себя для сосредоточения\n    на творческой, сложной и важной работе. Просто назначьте задачу Copilot, дождитесь,\n    когда агент запросит вашу проверку, затем оставьте отзыв в пул-реквесте для итерации.',
+        'With Copilot coding agent, you can delegate tasks to Copilot, freeing you to focus\n    on the creative, complex, and high-impact work that matters most. Simply assign an issue to Copilot, wait\n    for the agent to request your review, then leave feedback on the pull request to iterate.': 'С помощью агента кодирования Copilot вы можете делегировать задачи Copilot, освобождая себя для сосредоточения\n    на творческой, сложной и важной работе. Просто назначьте задачу Copilot, дождитесь,\n    когда агент запросит вашу проверку, затем оставьте отзыв в пул-реквесте для итерации.',
         'Yesterday\'s activity': 'Активность за вчера',
         'You are not a member of any organizations.': 'Вы не являетесь членом каких-либо организаций.',
         'You can': 'Вы можете',
@@ -3047,7 +3050,7 @@
         'You can **@mention** your company’s GitHub\n                        organization to link it.': 'Вы можете **@упомянуть** организацию вашей компании на GitHub, чтобы создать ссылку на неё.',
         'You can block a user to deny them access to repositories and more.': 'Вы можете заблокировать пользователя, чтобы лишить его доступа к репозиториям и другим функциям.',
         "You can enable Copilot coding agent for other users, but you won't be able to assign tasks to Copilot because you don't have a Copilot Pro, Copilot Pro+, Copilot Business or Copilot Enterprise license.": "Вы можете включить агент кодирования Copilot для других пользователей, но не сможете назначать задачи Copilot, поскольку у вас нет лицензии Copilot Pro, Copilot Pro+, Copilot Business или Copilot Enterprise.",
-        'You can remove it at any time.' : 'Вы можете удалить его в любое время.',
+        'You can remove it at any time.': 'Вы можете удалить его в любое время.',
         'You can use': 'Вы можете использовать',
         'You can use Copilot Chat in GitHub.com. Preview features are only available for paid licenses.': 'Вы можете использовать Copilot Chat на GitHub.com. Функции предварительного просмотра доступны только для платных лицензий.',
         'You can use the latest Anthropic Claude Haiku 4.5 model.': 'Вы можете использовать последнюю версию модели Anthropic Claude Haiku 4.5.',
@@ -3071,11 +3074,11 @@
         'Your achievements will be shown on your profile.': 'Ваши достижения будут отображаться в вашем профиле.',
         'Your AI pair programmer': 'Ваш программист-партнер с искусственным интеллектом',
         'Your backup GitHub email address will be used as an additional destination for security-relevant account notifications and can also be used for password resets.': 'Ваш резервный адрес электронной почты GitHub будет использоваться в качестве дополнительного адреса для получения уведомлений, связанных с безопасностью учетной записи, а также может использоваться для сброса пароля.',
-        'Your contribution graph, achievements, and activity overview will show your private contributions without revealing any repository or\n              organization information.' : 'Ваш график вкладов, достижения и обзор активности будут показывать ваши приватные вклады, не раскрывая информацию о репозиториях или организациях.',
-        'Your default region will be used to designate compute resources to your codespaces. GitHub can set your region automatically based on your location, or you can set it yourself. Codespaces are deployed to a subset of Azure regions.' : 'Ваш регион по умолчанию будет использоваться для выделения вычислительных ресурсов для ваших кодовых пространств. GitHub может установить ваш регион автоматически на основе вашего местоположения, или вы можете установить его самостоятельно. Кодовые пространства развертываются в подмножестве регионов Azure.',
-        'Your name may appear around GitHub where you contribute or are mentioned.' : 'Ваше имя может появляться на GitHub в тех местах, где вы участвуете или упоминаетесь.',
+        'Your contribution graph, achievements, and activity overview will show your private contributions without revealing any repository or\n              organization information.': 'Ваш график вкладов, достижения и обзор активности будут показывать ваши приватные вклады, не раскрывая информацию о репозиториях или организациях.',
+        'Your default region will be used to designate compute resources to your codespaces. GitHub can set your region automatically based on your location, or you can set it yourself. Codespaces are deployed to a subset of Azure regions.': 'Ваш регион по умолчанию будет использоваться для выделения вычислительных ресурсов для ваших кодовых пространств. GitHub может установить ваш регион автоматически на основе вашего местоположения, или вы можете установить его самостоятельно. Кодовые пространства развертываются в подмножестве регионов Azure.',
+        'Your name may appear around GitHub where you contribute or are mentioned.': 'Ваше имя может появляться на GitHub в тех местах, где вы участвуете или упоминаетесь.',
         'Your personal account': 'Ваш личный кабинет',
-        'Your personal account cannot be converted to an organization.\n    You must create a new organization and transfer your repositories and projects to it instead.\n    You can then rename your personal account and the organization if you want your organization to have the\n    same name that you are currently using for your personal account.' : 'Ваш личный аккаунт нельзя преобразовать в организацию. Вместо этого вам необходимо создать новую организацию и перенести в неё свои репозитории и проекты. После этого вы можете переименовать свой личный аккаунт и организацию, если хотите, чтобы у организации было то же имя, которое вы сейчас используете для личного аккаунта.',
+        'Your personal account cannot be converted to an organization.\n    You must create a new organization and transfer your repositories and projects to it instead.\n    You can then rename your personal account and the organization if you want your organization to have the\n    same name that you are currently using for your personal account.': 'Ваш личный аккаунт нельзя преобразовать в организацию. Вместо этого вам необходимо создать новую организацию и перенести в неё свои репозитории и проекты. После этого вы можете переименовать свой личный аккаунт и организацию, если хотите, чтобы у организации было то же имя, которое вы сейчас используете для личного аккаунта.',
         'Your username or email:': 'Ваше имя пользователя или email:',
 
         // Плейсхолдеры
@@ -4514,6 +4517,13 @@
             return `${num} ${plural(num, 'звезда', 'звезды', 'звёзд')}`;
         }
 
+        // Проверяем паттерн "X% used"
+        const percentUsedMatch = cleanText.match(/^(\d+(?:\.\d+)?)%\s+used$/i);
+        if (percentUsedMatch) {
+            const num = percentUsedMatch[1];
+            return `${num}% использовано`;
+        }
+
         return null;
     }
 
@@ -4964,7 +4974,8 @@
             '.note, .form-group .note, .help-text, .form-note, .annotation, ' +
             '.caption, .subtext, .info-text, [class*="note"], [class*="help"], ' +
             '[class*="description"], [class*="caption"], p.description, .Box-body, ' +
-            '.flash, .alert, .details'
+            '.flash, .alert, .details, #copilot_blackbird_external_indexing_label, ' +
+            '#copilot_experimental_auto_models_label, #copilot_mcp_label'
         );
 
         textElements.forEach(element => {
@@ -4977,6 +4988,29 @@
             }
 
             if (element.querySelector('a, button, input, select, textarea, .btn, .Button')) {
+                const fullText = element.textContent.replace(/\s+/g, ' ').trim();
+
+                for (const [en, ru] of Object.entries(translations)) {
+                    if (fullText === en) {
+                        const links = element.querySelectorAll('a');
+                        if (links.length > 0) {
+                            let newHtml = element.innerHTML;
+                            for (const link of links) {
+                                const linkText = link.textContent;
+                                newHtml = newHtml.replace(link.outerHTML, `{{LINK_${linkText}}}`);
+                            }
+                            newHtml = newHtml.replace(en, ru);
+                            for (const link of links) {
+                                const linkText = link.textContent;
+                                newHtml = newHtml.replace(`{{LINK_${linkText}}}`, link.outerHTML);
+                            }
+                            element.innerHTML = newHtml;
+                        } else {
+                            element.textContent = ru;
+                        }
+                        return;
+                    }
+                }
                 return;
             }
 
