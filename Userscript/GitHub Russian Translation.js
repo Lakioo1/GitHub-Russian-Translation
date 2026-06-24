@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.77
+// @version      1.78
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -1265,18 +1265,37 @@
         // Ветки
         'Active': 'Активный',
         'Ahead': 'Впереди',
+        'All activity': 'Вся активность',
         'Behind': 'Позади',
+        'Branch creations': 'Создание веток',
+        'Branch deletions': 'Удаление веток',
         'Branch menu': 'Меню ветви',
         'Check status': 'Проверить статус',
+        'Choose from this fork or its upstream repository.': 'Выберите этот форк или его исходный репозиторий.',
+        'Create new branch': 'Создать новую ветвь',
         'Copy branch name to clipboard': 'Копировать название ветки в буфер обмена',
+        'Copy to clipboard': 'Скопировать в буфер обмена',
         'Default': 'По умолчанию',
         'Delete branch': 'Удалить ветвь',
+        'Direct pushes': 'Прямые пуши',
+        'Force pushes': 'Принудительные пуши',
         'New branch': 'Новая ветвь',
+        'New branch name': 'Название новой ветки',
         'No branches': 'Нет веток',
         'No branches match the search': 'Ни одна ветвь не соответствует поиску',
+        'No activity matched your search.': 'Поисковый запрос не дал результатов',
+        'Merge queue merges': 'Слияния из очереди слияний',
         'Pull request': 'Запрос на извлечение',
+        'Pull request merges': 'Слияние пулл-реквестов',
         'Rename branch': 'Переименовать ветвь',
+        'Share feedback about this page': 'Оставьте свой отзыв об этой странице',
+        'Showing most recent first': 'Показать сначала самые последние ',
+        'Showing oldest first': 'Показать сначала самые старые',
         'Stale': 'Просроченный',
+        'Switch branches': 'Переключить ветки',
+        'Try expanding your search by selecting a different branch, activity type, user, or timeframe.': 'Попробуйте расширить поиск, выбрав другую ветку, тип деятельности, пользователя или период времени.',
+        'View activity for all branches': 'Просмотреть активность по всем веткам',
+        'View activity for all users': 'Просмотреть активность всех пользователей',
         'View rules': 'Просмотреть правила',
         'Yours': 'Ваш',
 
@@ -3217,6 +3236,7 @@
         'Find a branch...': 'Найти ветку...',
         'Find a member…': 'Найти участника…',
         'Find a repository…': 'Найти репозиторий…',
+        'Find a user...': 'Найти пользователя...',
         'Find or create a branch...': 'Найти или создать ветку...',
         'Go to file': 'Перейти к файлу',
         'No results found.': 'Ничего не найдено.',
@@ -3941,6 +3961,7 @@
         'caches': 'кэша',
         'Cancel': 'Отмена',
         'Catalog': 'Каталог',
+        'Category': 'Категория',
         'Categories': 'Категории',
         'changed': 'изменился',
         'Changes requested': 'Требуются изменения',
@@ -4019,6 +4040,7 @@
         'Less secure': 'Менее безопасный',
         'License': 'Лицензия',
         'Load more': 'Загрузить ещё',
+        'Locked': 'Заблокировано',
         'Manage cookies': 'Управление файлами cookie',
         'Manage Cookies': 'Управление файлами cookie',
         'MCP registry': 'Реестр MCP',
