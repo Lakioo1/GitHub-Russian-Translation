@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.79
+// @version      1.80
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -341,6 +341,7 @@
         'Build complex filter queries': 'Создание сложных запросов с фильтрами',
         'Build, test, and deploy your code. Make code reviews, branch management, and issue triaging work the way you want. Select a workflow to get started.': 'Создавайте, тестируйте и развертывайте свой код. Обеспечьте работу по проверке кода, управлению ветвями и сортировке проблем в соответствии с вашими требованиями. Выберите рабочий процесс, чтобы начать работу.',
         'By default, forks are named the same as their upstream repository. You can customize the name to distinguish it further.': 'По умолчанию форки называются так же, как их исходный репозиторий. Вы можете настроить имя, чтобы лучше его различать.',
+        'By repository': 'По репозиторию',
         'Bypass list': 'Список исключений',
         'Caches': 'Кэши',
         'Can be sponsored': 'Может быть спонсировано',
@@ -363,6 +364,7 @@
         'Choose dates': 'Выберите даты',
         'Choose a fiscal host': 'Выберите финансового хоста',
         'Choose the repository settings for artifacts and logs.': 'Выберите настройки репозитория для артефактов и журналов.',
+        'Choose two branches to see what’s changed or to start a new pull request.': 'Выберите две ветки, чтобы увидеть изменения или создать новый запрос на слияние.',
         'Choose visibility': 'Выберите видимость',
         'Choose who can see and commit to this repository': 'Выберите, кто может просматривать и вносить изменения в этот репозиторий',
         'Choose whether GitHub Actions can create pull requests or submit approving pull request reviews.': 'Выберите, может ли GitHub Actions создавать пул-реквесты или отправлять утверждающие рецензии на пул-реквесты.',
@@ -395,6 +397,7 @@
         'Combine all commits from the head branch into a single commit in the base branch.': 'Объединить все коммиты из головной ветки в один коммит в базовой ветке.',
         'Comfortable display density': 'Комфортная плотность отображения',
         'Compact display density': 'Компактная плотность отображения',
+        'Comparing changes': 'Сравнение изменений',
         'Comment on this file': 'Комментируйте этот файл',
         'Comments are disabled for this gist.': 'Комментарии для этого гиста отключены.',
         'Committed to this repository in the last day': 'Внесено в этот репозиторий за последний день',
@@ -415,6 +418,7 @@
         'Community standards': 'Стандарты сообщества',
         'Community Standards': 'Стандарты сообщества',
         'Compare': 'Сравнить',
+        'compare across forks': 'сравнить форки',
         'Compact line height': 'Компактная высота строки',
         'Confirm merge': 'Подтвердить слияние',
         'Configuration': 'Конфигурация',
@@ -467,7 +471,7 @@
         'Create new page': 'Создать новую страницу',
         'Create new tag': 'Создать новый тег',
         'Create public gist': 'Создать публичный Gist',
-        'Create pull request': 'Создать запрос на извлечение',
+        'Create pull request': 'Создать запрос на слияние',
         'Create repository': 'Создать репозиторий',
         'Create ruleset for default branch': 'Создать набор правил для ветки по умолчанию',
         'Create saved search': 'Создать сохраненный поиск',
@@ -521,6 +525,7 @@
         'Disable branch protection rules enforcement and APIs': 'Отключить применение правил защиты ветвей и API',
         'Disable comments': 'Отключить комментарии',
         'Disallow assets and tags from being modified once a release is published.': 'Запретить изменение ресурсов и тегов после публикации выпуска.',
+        'Discuss and review the changes in this comparison with others.': 'Обсуждайте и просматривайте изменения в этом сравнении с другими.',
         'Discussions': 'Обсуждения',
         'Discussions are used to ask questions and have open-ended conversations.': 'Дискуссии используются для того, чтобы задавать вопросы и вести открытые беседы.',
         'Discussions is the central space for your community to share announcements, ask questions, and host conversations.': 'Обсуждения — это центральное место в вашем сообществе, где можно делиться объявлениями, задавать вопросы и вести беседы.',
@@ -666,6 +671,7 @@
         'is designed to host your personal, organization, or project pages from a GitHub repository.': 'предназначены для размещения ваших личных, организационных или проектных страниц из репозитория GitHub.',
         'If disabled, the Models tab will be hidden, and the prompt editor and comparison tooling evaluations will be unavailable.': 'Если эта функция отключена, вкладка «Модели» будет скрыта, а редактор подсказок и оценки инструментов сравнения будут недоступны.',
         'If restricted, pull requests will still be readable by everyone who can see this repository.': 'Даже в случае ограничения доступа к пул-реквестам они по-прежнему будут доступны для просмотра всем, кто имеет доступ к этому репозиторию.',
+        'If you need to, you can also': 'При необходимости вы также можете',
         'Include Git LFS objects in archives': 'Включить объекты Git LFS в архивы',
         'Include in the home page': 'Включить в главную страницу',
         'Include my email address so I can be contacted': 'Включите мой адрес электронной почты, чтобы со мной можно было связаться',
@@ -714,6 +720,7 @@
         'Learn more about configuring a dependabot.yml file': 'Подробнее о настройке файла dependabot.yml',
         'Learn more about configuring the publishing source for your site': 'Узнайте больше о настройке источника публикации для вашего сайта',
         'Learn more about clone URLs': 'Узнайте больше о клонированных URL-адресах',
+        'learn more about diff comparisons': 'узнать больше о сравнении различий',
         'Learn more about GitHub Actions': 'Узнайте больше о GitHub Actions',
         'Learn more about GitHub-hosted runners.': 'Узнайте больше о запусках, размещённых на GitHub.',
         'Learn more about getting started with Actions.': 'Узнайте больше о том, как начать работу с Actions.',
@@ -722,6 +729,7 @@
         'Learn more about Models.': 'Узнайте больше о моделях.',
         'Learn more about OIDC tokens.': 'Подробнее о токенах OIDC.',
         'Learn more about partner patterns': 'Узнайте больше о моделях партнерства',
+        'Learn about pull requests': 'Узнайте о запросах на слияние',
         'Learn more about rulesets.': 'Узнайте больше о наборах правил.',
         'Learn more about self-hosted runners': 'Узнайте больше о саморазмещённых раннерах',
         'Learn more about setting up prebuilds': 'Узнайте больше о настройке предварительных сборок',
@@ -1265,6 +1273,7 @@
         "You haven't sponsored anyone yet.": 'Вы еще никого не спонсировали.',
         'Your access token or password for your source repository': 'Ваш токен доступа или пароль для исходного репозитория',
         'Your branches': 'Ваши ветви',
+        'Your codespaces': 'Ваши кодовые пространства',
         'Your codespace will run in the selected region': 'Ваше кодовое пространство будет работать в выбранном регионе.',
         'Your new repository details': 'Детали вашего нового репозитория',
         'Your public gists will show up here on your profile.': 'Ваши публичные Gists будут отображаться здесь, в вашем профиле.',
@@ -1703,8 +1712,11 @@
         'You’re not receiving notifications from this thread.': 'Вы не получаете уведомления из этой ветки.',
 
         // Кодспейсы
+        'Change codespace machine type': 'Изменить тип машины codespace',
         'Choose a template': 'Выберите шаблон',
         'Codespace creation is disabled': 'Создание codespace отключено',
+        'Codespace usage for this repository is paid for by': 'Использование codespace для этого репозитория оплачивается',
+        'Configure and create codespace': 'Настроить и создать codespace',
         'Configure and manage': 'Настройка и управление',
         'Copilot coding agent': 'Агент кодирования Copilot',
         'Create a new codespace': 'Создать новый codespace',
@@ -1715,8 +1727,12 @@
         'Go to docs': 'Перейти к документам',
         'Learn core concepts': 'Изучите основные концепции',
         'Machine type': 'Тип машины',
+        'No changes': 'Нет изменений',
+        'Rename codespace': 'Переименовать codespace',
         'Resources for your codespace': 'Ресурсы для вашего codespace',
         'See all': 'Посмотреть все',
+        'Show advanced options before launching codespace': 'Показать расширенные настройки перед запуском codespace',
+        'Update codespace': 'Обновить codespace',
         'Use this template': 'Используйте этот шаблон',
         'Your instant dev environment': 'Ваша среда для мгновенной разработки',
 
@@ -4091,6 +4107,7 @@
         'open/closed': 'открытый/закрытый',
         'opened': 'открыл',
         'Open menu': 'Открыть меню',
+        'Owned': 'Принадлежит',
         'Owner': 'Владелец',
         'Packages & registries': 'Пакеты и реестры',
         'page.': 'странице.',
