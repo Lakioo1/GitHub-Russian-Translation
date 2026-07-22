@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Time Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Перевод дат и времени сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Time%20Translation.js
@@ -224,6 +224,7 @@
             '.code-editor',
             '.CodeMirror',
             '.commit-create',
+            '.CommitRow-module__ListItemTitle_0__cUhJS',
             '.DirectoryRichtextContent-module__SharedMarkdownContent__hHXUL',
             '.file-editor',
             '.highlight',
@@ -233,9 +234,12 @@
             '.markdown-body',
             '.monaco-editor',
             '.react-code-text',
+            '.react-directory-row-commit-cell',
+            '.react-directory-commit-cell',
             '[data-code-marker]',
             '[data-qa-code-editor]',
             '[data-target="readme-toc.contentSticky"]',
+            '[data-testid="commit-row"]',
             'code',
             'pre'
         ];
