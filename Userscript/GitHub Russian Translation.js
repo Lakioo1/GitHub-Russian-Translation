@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Russian Translation
 // @namespace    http://tampermonkey.net/
-// @version      1.80
+// @version      1.81
 // @description  Перевод интерфейса сайта GitHub на русский язык.
 // @downloadURL  https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
 // @updateURL    https://github.com/smi-falcon/GitHub-Russian-Translation/raw/main/Userscript/GitHub%20Russian%20Translation.js
@@ -348,6 +348,7 @@
         'Cancel changes': 'Отменить изменения',
         'can still leave comments': 'все еще могут оставлять комментарии',
         'can’t add new comments': 'не могут добавлять новые комментарии',
+        'Care to check out the': 'Не хотите ли заглянуть на',
         'Center content': 'Центр содержания',
         'Change to private': 'Перейти в приватный режим',
         'Change repository visibility': 'Изменить видимость репозитория',
@@ -399,6 +400,7 @@
         'Compact display density': 'Компактная плотность отображения',
         'Comparing changes': 'Сравнение изменений',
         'Comment on this file': 'Комментируйте этот файл',
+        'Commenting has been disabled because this issue was converted to a': 'Комментарии отключены, так как эта проблема была преобразована в',
         'Comments are disabled for this gist.': 'Комментарии для этого гиста отключены.',
         'Committed to this repository in the last day': 'Внесено в этот репозиторий за последний день',
         'Committed to this repository in the last week': 'Внесено в этот репозиторий за последнюю неделю',
@@ -435,8 +437,8 @@
         'Contributors are working behind the scenes to make open source better for everyone—give them the help and recognition they deserve.': 'Участники проекта работают за кулисами, чтобы сделать открытый исходный код лучше для всех — окажите им помощь и признание, которых они заслуживают.',
         'Contributions per week to': 'Взносы в неделю на',
         ', excluding merge commits': ', исключая слияния коммитов',
-        'Country or region of residence': 'Страна или регион проживания',
         'Control how and when users are prompted to update their branches if there are new changes available in the base branch.': 'Управляйте тем, как и когда пользователям предлагается обновить свои ветки, если в базовой ветке доступны новые изменения.',
+        'converted this issue into a discussion': 'превратил этот вопрос в дискуссию',
         'Conversations': 'Разговоры',
         'Copilot Autofix': 'Автоматическое исправление Copilot',
         'Copilot Autofix for third-party tools': 'Copilot Autofix для сторонних инструментов',
@@ -452,6 +454,7 @@
         'Copy url to clipboard': 'Cкопировать URL в буфер обмена',
         'Copy URL to clipboard': 'Скопировать URL в буфер обмена',
         'Copy windows-latest': 'Скопировать windows-latest',
+        'Country or region of residence': 'Страна или регион проживания',
         'Country or region where your bank account is located': 'Страна или регион, в котором находится ваш банковский счет',
         'Create a branch ruleset': 'Создать набор правил ветки',
         'Create a codespace on development': 'Создать пространство кода в разработке',
@@ -637,6 +640,7 @@
         'GitHub Apps': 'Приложения GitHub',
         'GitHub Apps augment and extend your workflows on GitHub with commercial, open source, and homegrown tools.': 'Приложения GitHub дополняют и расширяют ваши рабочие процессы на GitHub с помощью коммерческих, открытых и собственных инструментов.',
         'GitHub Archive Program': 'Программа архивирования GitHub',
+        'GitHub Channel on YouTube': 'Канал GitHub на YouTube',
         'GitHub Pages': 'Страницы GitHub',
         'GitHub Pages is currently disabled.\n          Select a source below to enable GitHub Pages for this repository.': 'GitHub Pages в настоящее время отключен.\n          Выберите источник ниже, чтобы включить GitHub Pages для этого репозитория.',
         'GitHub Sponsors profile': 'Профиль GitHub Sponsors',
@@ -667,6 +671,7 @@
         'Import your project to GitHub': 'Импортируйте свой проект в GitHub',
         'importing git repositories': 'Импорт репозиториев Git',
         'In progress': 'В процессе выполнения',
+        'Install from the command line': 'Установка из командной строки',
         'is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.': '— это копия репозитория. Разветвление репозитория позволяет свободно экспериментировать с изменениями, не влияя на исходный проект.',
         'is designed to host your personal, organization, or project pages from a GitHub repository.': 'предназначены для размещения ваших личных, организационных или проектных страниц из репозитория GitHub.',
         'If disabled, the Models tab will be hidden, and the prompt editor and comparison tooling evaluations will be unavailable.': 'Если эта функция отключена, вкладка «Модели» будет скрыта, а редактор подсказок и оценки инструментов сравнения будут недоступны.',
@@ -691,6 +696,7 @@
         'Involves user': 'С участием пользователя',
         'Issues integrate lightweight task tracking into your repository. Keep projects on track with issue labels and milestones, and reference them in commit messages.': 'Функция отслеживания задач (issues) интегрирует в ваш репозиторий облегченную систему мониторинга задач. Следите за ходом проектов с помощью меток задач и этапов, а также ссылайтесь на них в сообщениях коммитов.',
         'Issues to include': 'Вопросы, которые следует включить',
+        'Issue body actions': 'Выполнить действия с телом выпуска',
         'Issue options': 'Параметры выпуска',
         'Issue templates': 'Шаблоны выпусков',
         'I have read and understand these effects': 'Я прочитал и понимаю эти последствия.',
@@ -707,6 +713,7 @@
         'Last commit date': 'Дата последней фиксации',
         'Last commit message': 'Сообщение последней фиксации',
         'Last pushed': 'Последнее добавление',
+        'Last published': 'Последнее опубликование',
         'Last updated': 'Последнее обновление',
         'Last used': 'Последнее использование',
         'Latest deployments from pinned environments': 'Последние развертывания из закрепленных сред',
@@ -728,6 +735,7 @@
         'Learn more about managing caches.': 'Узнайте больше об управлении кэшами.',
         'Learn more about Models.': 'Узнайте больше о моделях.',
         'Learn more about OIDC tokens.': 'Подробнее о токенах OIDC.',
+        'Learn more about packages': 'Узнайте больше о пакетах',
         'Learn more about partner patterns': 'Узнайте больше о моделях партнерства',
         'Learn about pull requests': 'Узнайте о запросах на слияние',
         'Learn more about rulesets.': 'Узнайте больше о наборах правил.',
@@ -759,6 +767,7 @@
         'Lock conversation on this commit': 'Заблокировать обсуждение этого коммита',
         'Lock conversation on this pull request': 'Заблокировать обсуждение этого запроса на извлечение',
         'Lock conversation': 'Заблокировать разговор',
+        'locked and limited conversation to collaborators ': 'заблокировал и ограничил доступ к обсуждению только для участников проекта ',
         'Locking the conversation means:': 'Блокировка обсуждения означает:',
         'Machine type': 'Тип машины',
         'Manage account notification settings': 'Управление настройками уведомлений учетной записи',
@@ -782,6 +791,7 @@
         'Model Context Protocol (MCP)': 'Протокол контекста модели (MCP)',
         'Models in this repository': 'Модели в этом репозитории',
         'Moderation options': 'Параметры модерации',
+        'More actions': 'Дополнительные действия',
         'More edit options': 'Дополнительные параметры редактирования',
         'More file actions': 'Дополнительные действия с файлами',
         'More languages...': 'Другие языки...',
@@ -874,6 +884,8 @@
         'Only users who have never had a commit or pull request merged into this repository will require approval to run workflows.': 'Только пользователи, которые никогда не выполняли коммиты или не отправляли запросы на слияние в этот репозиторий, будут нуждаться в одобрении для запуска рабочих процессов.',
         'Open': 'Открыто',
         'Open a pull request': 'Открыть запрос на слияние',
+        'Open a pull request to contribute your changes upstream.': 'Откройте запрос на слияние, чтобы внести свои изменения в основной репозиторий.',
+        'Open an issue': 'Создать заявку',
         'Open diff view settings': 'Открыть настройки просмотра различий',
         'Open in a codespace': 'Открыть в кодовом пространстве',
         'Open in GitHub Copilot app': 'Открыть в приложении GitHub Copilot',
@@ -944,18 +956,22 @@
         'Rebase and merge': 'Ребазирование и слияние',
         'Recent': 'Недавнее',
         'Recent Commits': 'Недавние коммиты',
+        'Recent tagged image versions': 'Последние версии образов с тегами',
         'Recently created': 'Недавно созданные',
         'Recommended allowlist': 'Рекомендуемый белый список',
         'recommended community standards': 'рекомендуемые стандарты сообщества',
         'Refresh Dependabot alerts': 'Обновить оповещения Dependabot',
         'Referring sites': 'Сайты-источники переходов',
+        'Related topics': 'Связанные темы',
         'Release': 'Выпуск',
         'Release - Beta': 'Выпуск - Бета-версия',
         'Release title': 'Название выпуска',
         'Release notes': 'Примечания к выпуску',
         'Releases': 'Релизы',
+        'released this': 'выпустил это',
         'Relevance': 'Релевантность',
         'Repository name': 'Название репозитория',
+        'Repository owner ': 'Владелец репозитория ',
         'repository rules': 'правила хранилища',
         'Repository secrets': 'Секреты репозитория',
         'Repository variables': 'Переменные репозитория',
@@ -1130,6 +1146,7 @@
         'This organization has no public members.': 'В этой организации нет публичных членов.',
         'This organization has no public members. You must be a member to see who’s a part of this organization.': 'В этой организации нет открытых участников. Чтобы увидеть, кто входит в эту организацию, необходимо стать её участником.',
         'This repository is currently public.': 'Это хранилище в настоящее время является общедоступным.',
+        'This repository is empty.': 'Этот репозиторий пуст.',
         'This repository has no secrets.': 'Это хранилище не имеет секретов.',
         'This repository has no variables.': 'В этом репозитории нет переменных.',
         'To be cloned into your codespace': 'Для клонирования в ваше кодовое пространство',
@@ -1145,6 +1162,7 @@
         'Too heated': 'Слишком горячий',
         'Top Committers': 'Лучшие коммиттеры',
         'Tools': 'Инструменты',
+        'Total downloads': 'Общее количество скачиваний',
         'Total duration': 'Общая продолжительность',
         'Total issue count': 'Общее количество выпусков',
         'Total job runs': 'Общее количество запусков заданий',
@@ -1233,6 +1251,7 @@
         'Whenever linked pull requests have merged, auto-close the issue.': 'При слиянии связанных запросов на извлечение автоматически закрывайте проблему.',
         'Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.': 'Всякий раз, когда в базовой ветке появляются новые изменения, предлагайте в запросе на слияние опцию «обновить ветку».',
         'Which remote URL should I use?': 'Какой удаленный URL мне следует использовать?',
+        'while you wait?': 'пока вы ждете?',
         'With a GitHub Enterprise account, you can restrict access to your GitHub Pages site by publishing it privately. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise. You can try GitHub Enterprise risk-free for 30 days.': 'С учетной записью GitHub Enterprise вы можете ограничить доступ к своему сайту GitHub Pages, опубликовав его в приватном режиме. Вы можете использовать приватные сайты для обмена внутренней документацией или базой знаний с участниками вашего предприятия. Вы можете попробовать GitHub Enterprise без риска в течение 30 дней.',
         'with access': 'с доступом',
         'Wiki': 'Вики',
@@ -3296,6 +3315,7 @@
         'Search or create a new tag': 'Найти или создать новый тег',
         'Search or filter': 'Поиск или фильтр',
         'Search or filter usage': 'Поиск или фильтрация использования',
+        'Search packages…': 'Поиск пакетов…',
         'Search repositories': 'Поиск в репозиториях',
         'Search starred repositories': 'Поиск репозиториев, отмеченных звездочкой',
         'Search within code': 'Поиск в коде',
@@ -4042,12 +4062,13 @@
         'deployments': 'развертываний',
         'Deprecated': 'Устаревший',
         'Description': 'Описание',
-        'Discard': 'Отменить',
         'Disable': 'Отключить',
         'Disable all': 'Отключить всё',
         'Disable hint': 'Отключить подсказку',
         'Disabled': 'Отключено',
         'disabled': 'отключено',
+        'Discard': 'Отменить',
+        'discussion': 'обсуждение',
         'Dismiss': 'Отклонить',
         'Do not share my personal information': 'Не разглашайте мою личную информацию',
         'Docs': 'Документация',
@@ -4076,6 +4097,7 @@
         'Help': 'Помощь',
         'Home': 'Главная',
         'install': 'установить',
+        'Installation': 'Установка',
         'Jobs': 'Задания',
         'Latest': 'Последний',
         'Less': 'Меньше',
@@ -4125,6 +4147,7 @@
         'Products': 'Продукт',
         'Public template': 'Публичный шаблон',
         'Public archive': 'Публичный архив',
+        'Published': 'Опубликовано',
         'Readme': 'Readme',
         'Ready for review': 'Готово к проверке',
         'Recently added': 'Недавно добавлено',
@@ -4173,6 +4196,7 @@
         'Verify': 'Проверить',
         'View': 'Просмотр',
         'Warning': 'Предупреждение',
+        'was closed': 'закрыт',
         'Webhooks': 'Вебхуки',
         'Website': 'Веб-сайт',
         'Workflow': 'Рабочий процесс',
@@ -4521,6 +4545,14 @@
             return `${num.toLocaleString()} ${word}`;
         }
 
+        // Проверяем паттерн "X contributions in private repositories"
+        const privateContribMatch = cleanText.match(/^(\d+)\s+contributions?\s+in\s+private\s+repositories$/i);
+        if (privateContribMatch) {
+            const num = parseInt(privateContribMatch[1], 10);
+            const word = (num === 1) ? 'вклад' : ((num >= 2 && num <= 4) ? 'вклада' : 'вкладов');
+            return `${num} ${word} в приватных репозиториях`;
+        }
+
         // Проверяем паттерн "Created X commits in Y repositories"
         const normalizedText = text.replace(/\s+/g, ' ').trim();
 
@@ -4654,12 +4686,28 @@
             return `Создано ${num} ${word}`;
         }
 
+        // Проверяем паттерн "X releases"
+        const releasesPlainMatch = cleanText.match(/^(\d+)\s+releases$/i);
+        if (releasesPlainMatch) {
+            const num = parseInt(releasesPlainMatch[1], 10);
+            const word = (num === 1) ? 'релиз' : ((num >= 2 && num <= 4) ? 'релиза' : 'релизов');
+            return `${num} ${word}`;
+        }
+
         // Проверяем паттерн "+ X releases"
         const releasesMatch = normalizedText.match(/^\+\s+(\d+)\s+releases$/i);
         if (releasesMatch) {
             const num = parseInt(releasesMatch[1], 10);
             const word = (num === 1) ? 'релиз' : ((num >= 2 && num <= 4) ? 'релиза' : 'релизов');
             return `+ ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "X deployments"
+        const deploymentsPlainMatch = cleanText.match(/^(\d+)\s+deployments$/i);
+        if (deploymentsPlainMatch) {
+            const num = parseInt(deploymentsPlainMatch[1], 10);
+            const word = (num === 1) ? 'развертывание' : ((num >= 2 && num <= 4) ? 'развертывания' : 'развертываний');
+            return `${num} ${word}`;
         }
 
         // Проверяем паттерн "+ X deployments"
@@ -4670,12 +4718,28 @@
             return `+ ${num} ${word}`;
         }
 
+        // Проверяем паттерн "X contributors"
+        const contributorsPlainMatch = cleanText.match(/^(\d+)\s+contributors$/i);
+        if (contributorsPlainMatch) {
+            const num = parseInt(contributorsPlainMatch[1], 10);
+            const word = (num === 1) ? 'участник' : ((num >= 2 && num <= 4) ? 'участника' : 'участников');
+            return `${num} ${word}`;
+        }
+
         // Проверяем паттерн "+ X contributors"
         const contributorsMatch = normalizedText.match(/^\+\s+(\d+)\s+contributors$/i);
         if (contributorsMatch) {
             const num = parseInt(contributorsMatch[1], 10);
             const word = (num === 1) ? 'участник' : ((num >= 2 && num <= 4) ? 'участника' : 'участников');
             return `+ ${num} ${word}`;
+        }
+
+        // Проверяем паттерн "X packages"
+        const packagesMatch = cleanText.match(/^(\d+)\s+packages$/i);
+        if (packagesMatch) {
+            const num = parseInt(packagesMatch[1], 10);
+            const word = (num === 1) ? 'пакет' : ((num >= 2 && num <= 4) ? 'пакета' : 'пакетов');
+            return `${num} ${word}`;
         }
 
         // Проверяем паттерн "X files"
@@ -4787,6 +4851,28 @@
                 element.textContent = `Открыто ${prs} ${prWord} в ${repos} ${reposWord}`;
                 return;
             }
+
+            // Проверяем паттерн "Started X discussions in Y repository(ies)"
+            const startedDiscussionsMatch = fullText.match(/^Started\s+(\d+)\s+discussions?\s+in\s+(\d+)\s+(repository|repositories)$/i);
+            if (startedDiscussionsMatch) {
+                const discussions = parseInt(startedDiscussionsMatch[1], 10);
+                const repos = parseInt(startedDiscussionsMatch[2], 10);
+                const discussionWord = (discussions === 1) ? 'обсуждение' : ((discussions >= 2 && discussions <= 4) ? 'обсуждения' : 'обсуждений');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                element.textContent = `Начато ${discussions} ${discussionWord} в ${repos} ${reposWord}`;
+                return;
+            }
+
+            // Проверяем паттерн "Answered X discussion(s) in Y repository(ies)"
+            const answeredDiscussionMatch = fullText.match(/^Answered\s+(\d+)\s+discussions?\s+in\s+(\d+)\s+(repository|repositories)$/i);
+            if (answeredDiscussionMatch) {
+                const discussions = parseInt(answeredDiscussionMatch[1], 10);
+                const repos = parseInt(answeredDiscussionMatch[2], 10);
+                const discussionWord = (discussions === 1) ? 'обсуждение' : ((discussions >= 2 && discussions <= 4) ? 'обсуждения' : 'обсуждений');
+                const reposWord = (repos === 1) ? 'репозитории' : ((repos >= 2 && repos <= 4) ? 'репозиториях' : 'репозиториях');
+                element.textContent = `Отвечено на ${discussions} ${discussionWord} в ${repos} ${reposWord}`;
+                return;
+            }
         });
 
         // Перевод кнопки "Показать больше активности"
@@ -4847,6 +4933,15 @@
     function shouldIgnoreElement(element) {
         if (!element.closest) {
             return false;
+        }
+
+        // Игнорируем строку поиска
+        if (element.closest && (
+            element.closest('[data-target="qbsearch-input.*"]') ||
+            element.closest('#search-suggestions-dialog') ||
+            element.closest('#feedback-dialog')
+        )) {
+            return true;
         }
 
         // Игнорируем диалоговые окна
